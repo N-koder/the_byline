@@ -1,0 +1,53 @@
+{% extends "blog/base.html" %}
+{% block title %}{{ article.title }} - The Byline{% endblock %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto px-4 lg:px-0">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+
+    <!-- Left: Article Image -->
+    {% if article.image %}
+    <div class="w-full">
+      <img src="{{ article.image.url }}" alt="{{ article.title }}"
+           class="w-full max-h-[400px] object-cover rounded-lg shadow-md" loading="lazy">
+    </div>
+    {% endif %}
+
+    <!-- Right: Text Content -->
+    <div class="break-words">
+      <!-- Back link -->
+      <div class="mb-4">
+        <a href="{% url 'home' %}" class="text-blue-600 hover:text-blue-800 text-sm flex items-center">
+          ← Back to homepage
+        </a>
+      </div>
+
+      <!-- Title -->
+      <h1 class="text-3xl sm:text-4xl font-playfair font-bold text-gray-900 leading-snug mb-4">
+        {{ article.title }}
+      </h1>
+
+      <!-- Meta Info -->
+      <div class="flex flex-wrap items-center text-sm text-gray-500 mb-6 space-x-4 font-roboto">
+        <span>By <span class="font-semibold text-gray-800">{{ article.author }}</span></span>
+        <span>•</span>
+        <span>{{ article.created_at|date:"F j, Y" }}</span>
+        {% if article.category %}
+        <span>•</span>
+        <span
+          class="bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full text-xs uppercase tracking-wide font-semibold">
+          {{ article.category }}
+        </span>
+        {% endif %}
+      </div>
+
+      <!-- Body -->
+      <article class="prose prose-lg max-w-none text-gray-800 font-merriweather leading-relaxed break-words">
+        {{ article.body|linebreaks }}
+      </article>
+    </div>
+  </div>
+</div>
+
+<div class="mt-16"></div>
+{% endblock %}

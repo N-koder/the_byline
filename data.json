@@ -1,0 +1,762 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-07-17T20:49:02.587Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "market",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-07-17T20:50:08.787Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "India’s Stock Market Hits All-Time High Amid Global Surge",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-07-18T19:09:11.713Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "business",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-07-18T19:09:14.633Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "RBI Keeps Repo Rate Unchanged at 6.5%",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-07-18T19:09:35.136Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Economy",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-07-18T19:09:37.915Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "RBI Keeps Repo Rate Unchanged at 6.5%",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-07-18T19:10:43.092Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Crypto",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-07-18T19:10:47.731Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Bitcoin Climbs Past $70K Amid ETF Momentum",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-07-18T19:10:53.373Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "RBI Keeps Repo Rate Unchanged at 6.5%",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is featured\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-07-18T19:12:19.450Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Gold",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-07-18T19:12:22.331Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "Gold Prices Stay Firm as Dollar Softens",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2025-07-18T19:14:36.223Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Cricket",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2025-07-18T19:14:39.812Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "India Clinches T20 Series Against South Africa 3-2",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2025-07-18T19:17:05.568Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "Football",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2025-07-18T19:17:08.078Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "Real Madrid Signs Kylian Mbappé on Record Deal",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2025-07-18T19:18:12.888Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "8",
+    "object_repr": "Tennis",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2025-07-18T19:18:15.613Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "Alcaraz Wins Wimbledon, Defeats Djokovic in Epic Final",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add category",
+    "content_type": 7,
+    "codename": "add_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change category",
+    "content_type": 7,
+    "codename": "change_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete category",
+    "content_type": 7,
+    "codename": "delete_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view category",
+    "content_type": 7,
+    "codename": "view_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add article",
+    "content_type": 8,
+    "codename": "add_article"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change article",
+    "content_type": 8,
+    "codename": "change_article"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete article",
+    "content_type": 8,
+    "codename": "delete_article"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view article",
+    "content_type": 8,
+    "codename": "view_article"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$8SiTAu9rEJi3P8viTxoKVj$NF2vhTe9j9gE9hNKOj0pxFWutqNEEpHAm1JmUKBs7nI=",
+    "last_login": "2025-07-17T20:38:40.724Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-07-17T20:38:26.921Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "blog",
+    "model": "category"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "blog",
+    "model": "article"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "kyy8oijiqx6x58oql1lphuccdqtd65bk",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQAP_C2RBhIYBH776B7C5bqRqalPZk_Lsh6UGvM5N5q4z7VvPeZc1zURdl1OmXEfJT2hDlge2-aF7ats6kR6IP2_VtKfK6Hu3foGKvYwvJA3qOURxESAwWIwlZO0GQ4pJzwCLWG0qeACf2fBa2HKJACkZ9vtZLN9s:1ucVNI:AOAVahggUVSgzokNNKZLGT4M5FifC3KO8wEghvULcOA",
+    "expire_date": "2025-07-31T20:38:40.731Z"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 1,
+  "fields": {
+    "name": "market"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 2,
+  "fields": {
+    "name": "business"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 3,
+  "fields": {
+    "name": "Economy"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 4,
+  "fields": {
+    "name": "Crypto"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 5,
+  "fields": {
+    "name": "Gold"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 6,
+  "fields": {
+    "name": "Cricket"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 7,
+  "fields": {
+    "name": "Football"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 8,
+  "fields": {
+    "name": "Tennis"
+  }
+},
+{
+  "model": "blog.article",
+  "pk": 1,
+  "fields": {
+    "title": "India’s Stock Market Hits All-Time High Amid Global Surge",
+    "slug": "india-stock-market-all-time-high",
+    "summary": "India's benchmark indices Sensex and Nifty touched record highs today, driven by strong global cues, rising FII inflows, and optimism over domestic earnings.",
+    "body": "India's stock market surged to new heights on Thursday as the Sensex gained over 800 points, closing at an all-time high of 78,021. Foreign institutional investors (FIIs) have been consistently pumping capital into Indian equities, driven by cooling inflation and favorable economic indicators.\r\n\r\nAnalysts say the momentum may continue if corporate earnings exceed expectations in the upcoming quarter. Banking, IT, and energy stocks led the rally. Market experts also note that strong macroeconomic data and policy stability have been instrumental in building investor confidence.\r\n\r\n“The market is currently pricing in a resilient economy with strong earnings growth potential,” said Rajiv Mehta, a senior analyst at Axis Securities.",
+    "image": "article_images/anne-nygard-tcJ6sJTtTWI-unsplash.jpg",
+    "author": 1,
+    "category": 1,
+    "created_at": "2025-07-17T20:50:08.780Z",
+    "is_featured": true
+  }
+},
+{
+  "model": "blog.article",
+  "pk": 2,
+  "fields": {
+    "title": "RBI Keeps Repo Rate Unchanged at 6.5%",
+    "slug": "rbi-repo-rate-update",
+    "summary": "The Reserve Bank of India maintained the repo rate at 6.5%, emphasizing inflation control as a top priority.",
+    "body": "During its bi-monthly monetary policy meeting, the RBI decided to hold the repo rate steady, citing stable inflation and manageable fiscal deficit. Governor Shaktikanta Das reaffirmed the bank’s commitment to a calibrated approach in rate hikes while supporting growth and liquidity.",
+    "image": "article_images/istockphoto-987769846-1024x1024.jpg",
+    "author": 1,
+    "category": 3,
+    "created_at": "2025-07-18T19:09:14.630Z",
+    "is_featured": true
+  }
+},
+{
+  "model": "blog.article",
+  "pk": 3,
+  "fields": {
+    "title": "Bitcoin Climbs Past $70K Amid ETF Momentum",
+    "slug": "bitcoin-hits-70k",
+    "summary": "Bitcoin’s rally continues, breaching $70,000 for the first time in months, driven by renewed ETF inflows and bullish market sentiment.",
+    "body": "Crypto markets are witnessing a historic run as Bitcoin crosses the $70,000 mark. Institutional adoption through spot ETFs and growing DeFi platforms have led to increased investor confidence. Experts, however, caution against short-term volatility as regulatory discussions heat up.",
+    "image": "article_images/istockphoto-1178277803-1024x1024.jpg",
+    "author": 1,
+    "category": 4,
+    "created_at": "2025-07-18T19:10:47.728Z",
+    "is_featured": true
+  }
+},
+{
+  "model": "blog.article",
+  "pk": 4,
+  "fields": {
+    "title": "Gold Prices Stay Firm as Dollar Softens",
+    "slug": "gold-price-dollar-softening",
+    "summary": "Gold remained steady above ₹62,000 per 10 grams as the US dollar weakened and global demand remained strong.",
+    "body": "Despite global headwinds, gold prices have managed to stay resilient, supported by safe-haven demand and geopolitical tensions. Analysts predict an upward bias in gold if central banks maintain dovish stances globally.",
+    "image": "article_images/istockphoto-184997181-1024x1024.jpg",
+    "author": 1,
+    "category": 5,
+    "created_at": "2025-07-18T19:12:22.327Z",
+    "is_featured": true
+  }
+},
+{
+  "model": "blog.article",
+  "pk": 5,
+  "fields": {
+    "title": "India Clinches T20 Series Against South Africa 3-2",
+    "slug": "india-beats-sa-t20",
+    "summary": "Team India delivered a clinical performance to win the 5-match T20I series against South Africa.",
+    "body": "Led by Suryakumar Yadav’s brilliant knock of 87*, India chased down a competitive total of 188 with 2 balls to spare. The bowlers, particularly Arshdeep Singh and Kuldeep Yadav, were exceptional in the middle overs, keeping South Africa’s batters in check.",
+    "image": "article_images/istockphoto-1438363804-1024x1024.jpg",
+    "author": 1,
+    "category": 6,
+    "created_at": "2025-07-18T19:14:39.808Z",
+    "is_featured": true
+  }
+},
+{
+  "model": "blog.article",
+  "pk": 6,
+  "fields": {
+    "title": "Real Madrid Signs Kylian Mbappé on Record Deal",
+    "slug": "mbappe-to-real-madrid",
+    "summary": "French forward Kylian Mbappé has officially joined Real Madrid in a deal worth €250 million, the most expensive in football history.",
+    "body": "After months of speculation, Real Madrid confirmed the signing of Mbappé, making headlines worldwide. The 26-year-old is expected to debut in the upcoming La Liga season. Fans and analysts believe this marks a new era for the Spanish giants.",
+    "image": "article_images/istockphoto-2148699487-1024x1024.jpg",
+    "author": 1,
+    "category": 7,
+    "created_at": "2025-07-18T19:17:08.074Z",
+    "is_featured": false
+  }
+},
+{
+  "model": "blog.article",
+  "pk": 7,
+  "fields": {
+    "title": "Alcaraz Wins Wimbledon, Defeats Djokovic in Epic Final",
+    "slug": "alcaraz-wins-wimbledon",
+    "summary": "Carlos Alcaraz defeated Novak Djokovic in a five-set thriller to claim his first Wimbledon title.",
+    "body": "In one of the most thrilling finals in recent years, 21-year-old Alcaraz outlasted Djokovic with a mix of finesse and endurance. The win cements his status as the next big star in men’s tennis, ending Djokovic’s 4-year reign at Wimbledon.",
+    "image": "article_images/istockphoto-95742810-1024x1024.jpg",
+    "author": 1,
+    "category": 8,
+    "created_at": "2025-07-18T19:18:15.610Z",
+    "is_featured": false
+  }
+}
+]

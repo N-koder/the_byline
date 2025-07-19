@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{% block title %}The Byline — Trusted Financial News{% endblock %}</title>
+  {% block meta %}
+  <meta name="description" content="The Byline is India's trusted source for financial news — covering markets, crypto, economy, sports, and more in real-time." />
+  <meta name="keywords" content="financial news, Indian economy, markets, stocks, crypto, sports news, business updates" />
+  <meta name="author" content="The Byline Team" />
+  {% endblock %}
+
+  <link rel="canonical" href="https://www.thebyline.in/" />
+  <meta property="og:title" content="The Byline — Real-Time Financial News" />
+  <meta property="og:description" content="Breaking financial news on Indian markets, crypto, gold, economy, and sports." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.thebyline.in/" />
+  <meta property="og:image" content="https://www.thebyline.in/static/img/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Byline — Real-Time Financial News" />
+  <meta name="twitter:description" content="Live insights from India's trusted financial journalism platform." />
+  <meta name="twitter:image" content="https://www.thebyline.in/static/img/twitter-card.jpg" />
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            playfair: ['"Playfair Display"', 'serif'],
+            opensans: ['"Open Sans"', 'sans-serif'],
+          },
+          colors: {
+            byline: {
+              dark: '#1a1a2e',
+              red: '#B91C1C',
+              light: '#FEE2E2',
+            },
+          },
+          keyframes: {
+            scroll: {
+              '0%': { transform: 'translateX(100%)' },
+              '100%': { transform: 'translateX(-100%)' },
+            },
+          },
+          animation: {
+            scroll: 'scroll 40s linear infinite',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900 font-opensans overflow-x-hidden">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 bg-byline-dark text-white shadow">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <h1 class="text-2xl font-playfair font-bold">The Byline</h1>
+      <nav class="hidden md:flex space-x-6 font-semibold text-sm">
+        <a href="{% url 'home' %}" class="hover:text-blue-300">Home</a>
+        <div class="relative group">
+          <button class="flex items-center hover:text-blue-300">Business
+            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="absolute left-0 mt-2 w-40 bg-white text-gray-800 rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <a href="{% url 'category_articles' 'market' %}" class="block px-4 py-2 hover:bg-gray-100">Markets</a>
+            <a href="{% url 'category_articles' 'crypto' %}" class="block px-4 py-2 hover:bg-gray-100">Crypto</a>
+            <a href="{% url 'category_articles' 'gold' %}" class="block px-4 py-2 hover:bg-gray-100">Gold</a>
+          </div>
+        </div>
+        <a href="{% url 'category_articles' 'economy' %}" class="hover:text-blue-300">Economy</a>
+        <div class="relative group">
+          <button class="flex items-center hover:text-blue-300">Sports
+            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="absolute left-0 mt-2 w-40 bg-white text-gray-800 rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <a href="{% url 'category_articles' 'cricket' %}" class="block px-4 py-2 hover:bg-gray-100">Cricket</a>
+            <a href="{% url 'category_articles' 'football' %}" class="block px-4 py-2 hover:bg-gray-100">Football</a>
+            <a href="{% url 'category_articles' 'tennis' %}" class="block px-4 py-2 hover:bg-gray-100">Tennis</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hamburger -->
+      <button id="menuToggle" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Nav -->
+    <div id="mobileMenu" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-byline-dark px-4">
+      <a href="{% url 'home' %}" class="block py-2 border-b border-gray-700">Home</a>
+      <details class="py-2 border-b border-gray-700">
+        <summary class="cursor-pointer font-medium text-white">Business</summary>
+        <div class="ml-4 mt-2 space-y-1 text-sm">
+          <a href="{% url 'category_articles' 'market' %}" class="block">Markets</a>
+          <a href="{% url 'category_articles' 'crypto' %}" class="block">Crypto</a>
+          <a href="{% url 'category_articles' 'gold' %}" class="block">Gold</a>
+        </div>
+      </details>
+      <a href="{% url 'category_articles' 'economy' %}" class="block py-2 border-b border-gray-700">Economy</a>
+      <details class="py-2 border-b border-gray-700">
+        <summary class="cursor-pointer font-medium text-white">Sports</summary>
+        <div class="ml-4 mt-2 space-y-1 text-sm">
+          <a href="{% url 'category_articles' 'cricket' %}" class="block">Cricket</a>
+          <a href="{% url 'category_articles' 'football' %}" class="block">Football</a>
+          <a href="{% url 'category_articles' 'tennis' %}" class="block">Tennis</a>
+        </div>
+      </details>
+    </div>
+  </header>
+
+  <!-- FEATURED BANNER -->
+  {% if featured_articles %}
+  <div class="bg-yellow-50 border-y border-yellow-200">
+    <div class="max-w-7xl mx-auto px-4 py-2">
+      <div class="flex space-x-8 animate-scroll whitespace-nowrap text-sm text-yellow-900 font-medium">
+        <span class="text-yellow-800 font-semibold">🔥 Top Headlines:</span>
+        {% for article in featured_articles %}
+          <a href="{% url 'article_detail' slug=article.slug %}" class="hover:underline hover:text-yellow-700">{{ article.title }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- MAIN -->
+  <main class="max-w-7xl mx-auto px-4 py-10">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-100 py-6 mt-16 text-center text-sm text-gray-600">
+    &copy; {{ now|date:"Y" }} The Byline. All rights reserved.
+  </footer>
+
+  <!-- Hamburger Script -->
+  <script>
+    const toggleBtn = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    toggleBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('max-h-0');
+      mobileMenu.classList.toggle('max-h-[500px]');
+    });
+  </script>
+</body>
+</html>
