@@ -18,7 +18,7 @@ class Article(models.Model):
     body = models.TextField()
     image = models.ImageField(upload_to='article_images/')
     authorImage = models.ImageField(upload_to='author_images/' , default='avtar.jpg')
-    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    author = models.CharField(max_length=200)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     is_featured = models.BooleanField(default=False)
@@ -33,3 +33,16 @@ class Subscriber(models.Model):
 
     def __str__(self):
         return self.email
+
+from django.db import models
+
+class ContactMessage(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50, blank=True)
+    email = models.EmailField()
+    subject = models.CharField(max_length=100)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Message from {self.first_name} {self.last_name or ''} - {self.subject}"

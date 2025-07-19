@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>{% block title %}The Byline — Trusted Financial News{% endblock %}</title>
   {% block meta %}
-  <meta name="description" content="The Byline is India's trusted source for financial news — covering markets, crypto, economy, sports, and more in real-time." />
-  <meta name="keywords" content="financial news, Indian economy, markets, stocks, crypto, sports news, business updates" />
+  <meta name="description"
+    content="The Byline is India's trusted source for financial news — covering markets, crypto, economy, sports, and more in real-time." />
+  <meta name="keywords"
+    content="financial news, Indian economy, markets, stocks, crypto, sports news, business updates" />
   <meta name="author" content="The Byline Team" />
   {% endblock %}
 
   <link rel="canonical" href="https://www.thebyline.in/" />
   <meta property="og:title" content="The Byline — Real-Time Financial News" />
-  <meta property="og:description" content="Breaking financial news on Indian markets, crypto, gold, economy, and sports." />
+  <meta property="og:description"
+    content="Breaking financial news on Indian markets, crypto, gold, economy, and sports." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.thebyline.in/" />
   <meta property="og:image" content="https://www.thebyline.in/static/img/og-image.jpg" />
@@ -23,7 +27,9 @@
   <meta name="twitter:image" content="https://www.thebyline.in/static/img/twitter-card.jpg" />
   <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -57,6 +63,7 @@
     .no-scrollbar::-webkit-scrollbar {
       display: none;
     }
+
     .no-scrollbar {
       -ms-overflow-style: none;
       scrollbar-width: none;
@@ -78,7 +85,8 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div class="absolute left-0 mt-2 w-40 bg-white text-gray-800 rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+          <div
+            class="absolute left-0 mt-2 w-40 bg-white text-gray-800 rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
             <a href="{% url 'category_articles' 'market' %}" class="block px-4 py-2 hover:bg-gray-100">Markets</a>
             <a href="{% url 'category_articles' 'crypto' %}" class="block px-4 py-2 hover:bg-gray-100">Crypto</a>
             <a href="{% url 'category_articles' 'gold' %}" class="block px-4 py-2 hover:bg-gray-100">Gold</a>
@@ -91,13 +99,17 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div class="absolute left-0 mt-2 w-40 bg-white text-gray-800 rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+          <div
+            class="absolute left-0 mt-2 w-40 bg-white text-gray-800 rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
             <a href="{% url 'category_articles' 'cricket' %}" class="block px-4 py-2 hover:bg-gray-100">Cricket</a>
             <a href="{% url 'category_articles' 'football' %}" class="block px-4 py-2 hover:bg-gray-100">Football</a>
             <a href="{% url 'category_articles' 'tennis' %}" class="block px-4 py-2 hover:bg-gray-100">Tennis</a>
           </div>
         </div>
-        
+
+        <a href="{% url 'contact' %}"
+                class="hover:text-blue-300">Contact</a>
+
       </nav>
 
       <!-- Hamburger -->
@@ -109,7 +121,8 @@
     </div>
 
     <!-- Mobile Nav -->
-    <div id="mobileMenu" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-byline-dark px-4">
+    <div id="mobileMenu"
+      class="md:hidden max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-byline-dark px-4">
       <a href="{% url 'home' %}" class="block py-2 border-b border-gray-700">Home</a>
       <details class="py-2 border-b border-gray-700">
         <summary class="cursor-pointer font-medium text-white">Business</summary>
@@ -128,6 +141,8 @@
           <a href="{% url 'category_articles' 'tennis' %}" class="block">Tennis</a>
         </div>
       </details>
+
+      
     </div>
   </header>
 
@@ -138,7 +153,8 @@
       <div class="flex space-x-8 animate-scroll whitespace-nowrap text-sm text-yellow-900 font-medium">
         <span class="text-yellow-800 font-semibold">🔥 Top Headlines:</span>
         {% for article in featured_articles %}
-          <a href="{% url 'article_detail' slug=article.slug %}" class="hover:underline hover:text-yellow-700">{{ article.title }}</a>
+        <a href="{% url 'article_detail' slug=article.slug %}" class="hover:underline hover:text-yellow-700">{{
+          article.title }}</a>
         {% endfor %}
       </div>
     </div>
@@ -151,9 +167,78 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-gray-100 py-6 mt-16 text-center text-sm text-gray-600">
-    &copy; {{ now|date:"Y" }} The Byline. All rights reserved.
+  <footer class="bg-gray-100 mt-16">
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="{% url 'home' %}" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">Home</a></li>
+            <li><a href="{% url 'category_articles' 'economy' %}" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">Economy</a></li>
+            <li><a href="{% url 'contact' %}"
+                class="text-gray-600 hover:text-blue-600 transition-colors duration-200">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Contact</h3>
+          <ul class="space-y-2">
+            <li><a href="mailto:contact@mydomain"
+                class="text-gray-600 hover:text-blue-600 transition-colors duration-200">contact@mydomain</a></li>
+            <li><a href="mailto:careers@mydomain"
+                class="text-gray-600 hover:text-blue-600 transition-colors duration-200">careers@mydomain</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Legal</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">Privacy Policy</a>
+            </li>
+            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">Terms of
+                Service</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">Cookie Policy</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Social Media -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Follow Us</h3>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+              </svg>
+            </a>
+            <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.742-1.378l-.742 2.85c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.54.535 6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-200 mt-8 pt-8 text-center">
+        <p class="text-gray-600">&copy; 2024 The Byline. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
+  </div>
+  </footer>
+
 
   <!-- Hamburger Script -->
   <script>
@@ -165,4 +250,5 @@
     });
   </script>
 </body>
+
 </html>

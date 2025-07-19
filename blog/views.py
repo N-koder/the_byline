@@ -3,6 +3,10 @@ from .models import Article
 from .forms import NewsletterForm
 from django.contrib import messages
 from django.db.models import Q
+from django.shortcuts import render
+from django.contrib import messages
+from .models import ContactMessage
+
 
 def home(request, category_slug=None):
     # Handle Newsletter Signup POST
@@ -57,3 +61,18 @@ def category_articles(request, category_name):
         'articles': articles,
         'current_category': category_name.capitalize()
     })
+
+
+def contact(request):
+    if request.method == 'POST':
+        ContactMessage.objects.create(
+            first_name=request.POST.get('first-name'),
+            last_name=request.POST.get('last-name'),
+            email=request.POST.get('email'),
+            subject=request.POST.get('subject'),
+            message=request.POST.get('message')
+        )
+        messages.success(request, "Thank you for contacting us. We'll get back to you soon!")
+        return render(request, 'blog/contact.html')
+    
+    return render(request, 'blog/contact.html')
