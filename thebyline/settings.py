@@ -114,4 +114,4 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # THIRD PARTY API
-RAPIDAPI_KEY = config("RAPIDAPI_CRICKBUZZ_KEY")
+RAPIDAPI_KEY = config('RAPIDAPI_CRICKBUZZ_KEY')

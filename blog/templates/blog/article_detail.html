@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="max-w-6xl mx-auto px-4 lg:px-0">
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+  <div class="grid grid-cols-1 gap-8 items-start">
 
     <!-- Left: Article Image -->
     {% if article.image %}
@@ -17,7 +17,7 @@
     <div class="break-words">
       <!-- Back link -->
       <div class="mb-4">
-        <a href="{% url 'home' %}" class="text-blue-600 hover:text-blue-800 text-sm flex items-center">
+        <a href="{% url 'home' %}" class="text-byline-yellow hover:text-blue-800 text-sm flex items-center">
           ← Back to homepage
         </a>
       </div>
