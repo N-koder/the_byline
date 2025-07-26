@@ -1,0 +1,128 @@
+{% extends 'blog/base.html' %}
+
+{%block nav%}
+
+<!-- Navigation Section -->
+<nav class="hidden md:block bg-white border-b border-gray-200 sticky top-0 z-40">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-center py-4">
+      <!-- Search Bar -->
+      <!-- <div class="flex items-center space-x-6">
+        <div class="relative">
+          <form method="GET" action="{% url 'home' %}" class="relative max-w-xs hidden md:flex">
+
+            <input type="text" name="q" placeholder="Search" value="{{ search_query }}"
+              class="pl-10 pr-4 py-2 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-gray-300" />
+            <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 text-black w-4 h-4" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </form>
+        </div>
+      </div> -->
+
+
+
+
+      <!-- Navigation Links -->
+      <div class="flex items-center space-x-8 ">
+        <a href="{% url 'home' %}" class="{% if request.path == '/' %}text-red-600 font-semibold{% else %}text-black{% endif %} hover:text-red-600 transition-colors group relative">
+          Home
+          <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="{% url 'category_articles' 'business'  %}"
+          class="{% if request.path == '/category/market/' or request.path == '/category/gold/' or request.path == '/category/business/' %}text-red-600 font-semibold{% else %}text-black {% endif %} hover::text-red-600 font-medium transition-colors group relative">Business
+          <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="{% url 'category_articles' 'economy' %}"
+          class="{% if request.path == '/category/economy/' %}text-red-600 font-semibold{% else %}text-black{% endif %}hover::text-red-600 font-medium transition-colors group relative">Economy
+          <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+
+        <div class="relative group">
+          <button
+            class="{% if request.path == '/category/cricket/' or request.path == '/category/football/' or  request.path == '/category/tennis/' %}text-red-600 font-semibold{% else %}text-black{% endif %} hover:text-red-600 font-medium transition-colors relative">Sports
+            <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+          </button>
+          <div
+            class="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div class="py-2">
+              <a href="{% url 'category_articles' 'cricket' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Cricket
+                <span class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
+              </a>
+              <a href="{% url 'category_articles' 'football' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Football
+                <span class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
+              </a>
+              <a href="{% url 'category_articles' 'tennis' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover::text-red-600 group/item relative">Tennis
+                <span class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </div>
+  </div>
+</nav>
+{%endblock%}
+
+{% block content %}
+
+<section class="max-w-7xl mx-auto py-10 px-4">
+  <h2 class="text-3xl font-playfair text-gray-900 mb-6 border-b-2 border-[#BA0000] pb-2">
+    {{ category.name|capfirst }} News
+  </h2>
+
+  {% if featured %}
+  <div class="mb-8">
+    <div class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 flex flex-col sm:flex-row">
+      {% if featured.image %}
+      <img src="{{ featured.image.url }}" alt="{{ featured.title }}" class="w-full sm:w-1/3 h-64 object-cover">
+      {% endif %}
+      <div class="p-6 sm:w-2/3">
+        <h3 class="text-2xl font-semibold text-gray-900 font-playfair hover:text-byline-yellow transition">
+          <a href="{% url 'article_detail' slug=featured.slug %}">{{ featured.title }}</a>
+        </h3>
+        <p class="text-sm text-gray-600 mt-3">{{ featured.summary|truncatechars:200 }}</p>
+        <a href="{% url 'article_detail' slug=featured.slug %}"
+           class="text-byline-yellow hover:text-blue-800 text-sm font-medium mt-4 inline-block">
+          Read more →
+        </a>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if others %}
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for article in others %}
+    <div class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300">
+      {% if article.image %}
+      <img src="{{ article.image.url }}" alt="{{ article.title }}" class="w-full h-48 object-cover">
+      {% endif %}
+      <div class="p-4">
+        <h3 class="text-lg font-semibold text-gray-900 font-playfair hover:text-byline-yellow transition">
+          <a href="{% url 'article_detail' slug=article.slug %}">{{ article.title }}</a>
+        </h3>
+        <p class="text-sm text-gray-600 mt-2">{{ article.summary|truncatechars:120 }}</p>
+        <a href="{% url 'article_detail' slug=article.slug %}"
+           class="text-byline-yellow hover:text-blue-800 text-sm font-medium mt-3 inline-block">
+          Read more →
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="text-gray-500 text-sm">No articles found in this category.</p>
+  {% endif %}
+</section>
+
+{% endblock %}

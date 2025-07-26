@@ -14,21 +14,24 @@
     {% endif %}
 
     <!-- Right: Text Content -->
-    <div class="break-words">
+    <div class="break-words rounded-lg shadow-md my-5 py-5">
       <!-- Back link -->
       <div class="mb-4">
-        <a href="{% url 'home' %}" class="text-byline-yellow hover:text-blue-800 text-sm flex items-center">
+        <a href="{% url 'home' %}" class="text-byline-yellow hover:text-blue-800 text-md flex items-center ml-3">
           ← Back to homepage
         </a>
       </div>
 
       <!-- Title -->
-      <h1 class="text-3xl sm:text-4xl font-playfair font-bold text-gray-900 leading-snug mb-4">
+      <h1 class="text-3xl sm:text-4xl font-playfair font-bold text-gray-900 leading-snug mb-4 ml-4">
         {{ article.title }}
       </h1>
 
       <!-- Meta Info -->
-      <div class="flex flex-wrap items-center text-sm text-gray-500 mb-6 space-x-4 font-roboto">
+      <div class="flex flex-wrap items-center text-sm text-gray-500 mb-6 space-x-4 font-roboto ml-4">
+        {% if article.authorImage %}
+        <img src="{{ article.authorImage.url }}" alt="{{ article.author }}" class="w-12 h-12 rounded-full object-cover">
+        {% endif %}
         <span>By <span class="font-semibold text-gray-800">{{ article.author }}</span></span>
         <span>•</span>
         <span>{{ article.created_at|date:"F j, Y" }}</span>
@@ -42,7 +45,7 @@
       </div>
 
       <!-- Body -->
-      <article class="prose prose-lg max-w-none text-gray-800 font-merriweather leading-relaxed break-words">
+      <article class="prose prose-lg max-w-none text-gray-800 font-merriweather leading-relaxed break-words mx-5">
         {{ article.body|linebreaks }}
       </article>
     </div>
