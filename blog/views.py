@@ -110,7 +110,7 @@ def home(request, category_slug=None):
     categories = Category.objects.all()
     context = {
         'crick_key': settings.RAPIDAPI_KEY,
-        'opinion_articles': Article.objects.filter(is_opinion=True)[:3],
+        'opinion_articles': Article.objects.filter(is_opinion=True),
         'featured_articles': Article.objects.filter(is_featured=True).order_by('-created_at')[:5],
         'current_category': category_slug.capitalize() if category_slug else None,
         'current_date': current_date

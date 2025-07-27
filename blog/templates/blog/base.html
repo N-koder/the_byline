@@ -253,9 +253,9 @@
             <form method="POST" action="{% url 'subscribe_newsletter' %}" class="space-y-4">
               {% csrf_token %}
               <input type="email" name="email" id="newsletterEmail" placeholder="Enter your email address" required
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-byline-yellow focus:border-transparent font-inter">
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-bg-red-600 focus:border-transparent font-inter">
               <button type="submit"
-                class="w-full bg-byline-yellow text-black font-semibold py-3 px-6 rounded-lg hover:bg-yellow-400 transition-colors font-inter">
+                class="w-full bg-red-600 text-black font-semibold py-3 px-6 rounded-lg hover:bg-red-400 transition-colors font-inter">
                 Subscribe
               </button>
             </form>
