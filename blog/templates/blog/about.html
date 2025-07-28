@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -106,29 +108,38 @@
 
         <!-- Founders Section -->
         <section class="mb-12 sm:mb-16">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-8 sm:mb-12 text-center border-b-2 border-red-600 pb-4">Meet Our Founders</h2>
+            <h2
+                class="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-8 sm:mb-12 text-center border-b-2 border-red-600 pb-4">
+                Meet Our Founders</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
-                
+
                 <!-- Vanshika Lodhi -->
-                <div class="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div
+                    class="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
                     <div class="relative">
-                        <div class="w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 bg-gradient-to-br from-red-100 to-red-50 rounded-2xl overflow-hidden shadow-lg ring-4 ring-red-100 group-hover:ring-red-200 transition-all duration-300">
-                        <!-- <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Vanshika Lodhi" class="w-full h-full object-cover"> -->
-                    </div>
-                        <div class="absolute -top-2 -right-2 w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
+                        <div
+                            class="w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 bg-gradient-to-br from-red-100 to-red-50 rounded-2xl overflow-hidden shadow-lg ring-4 ring-red-100 group-hover:ring-red-200 transition-all duration-300">
+                            <img src="{% static 'blog/images/Vanshika.jpg' %}" alt="Vanshika Lodhi" class="w-full h-full object-cover">
+                        </div>
+                        <div
+                            class="absolute -top-2 -right-2 w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
                             <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                             </svg>
                         </div>
                     </div>
-                    
+
                     <div class="text-center">
-                        <h3 class="text-xl sm:text-2xl font-bold text-black mb-2 group-hover:text-red-600 transition-colors duration-300">Vanshika Lodhi</h3>
-                        <div class="inline-block bg-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-md">
+                        <h3
+                            class="text-xl sm:text-2xl font-bold text-black mb-2 group-hover:text-red-600 transition-colors duration-300">
+                            Vanshika Lodhi</h3>
+                        <div
+                            class="inline-block bg-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-md">
                             Founder & Editor-in-Chief
                         </div>
-                        
-                        <div class="space-y-3 text-left">
+
+                        <!-- <div class="space-y-3 text-left">
                             <div class="flex items-start space-x-3">
                                 <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
                                 <p class="text-gray-700 text-sm"><strong>Education:</strong> Journalism Graduate, Delhi University</p>
@@ -145,89 +156,155 @@
                                 <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
                                 <p class="text-gray-700 text-sm"><strong>Focus:</strong> Markets & Cricket Analysis</p>
                             </div>
-                        </div>
-                        
-                        <div class="mt-6 p-4 bg-gradient-to-r from-red-50 to-gray-50 rounded-xl border-l-4 border-red-600">
+                        </div> -->
+
+                        <div
+                            class="mt-6 p-4 bg-gradient-to-r from-red-50 to-gray-50 rounded-xl border-l-4 border-red-600">
                             <p class="text-gray-800 text-sm italic font-medium">
-                                "Building a platform readers can trust for clarity, accuracy, and meaningful coverage."
+                                "Vanshika Lodhi is a journalism graduate from Delhi University and the
+                                founder of The Byline, an independent news platform focused on
+                                business, finance, and sports. She has worked as a business and sports
+                                writer, covering key events like the IPL and the 2025 England–India Test
+                                series. At The Byline, she leads editorial for both beats, combining her
+                                interest in markets with a deep passion for cricket. With a focus on
+                                factual, unbiased reporting, Vanshika aims to build a platform readers
+                                can trust for clarity, accuracy, and meaningful coverage."
                             </p>
                         </div>
+
+                        <!-- Social Media Links -->
+                        <div class="mt-6 flex justify-center space-x-4">
+                            <a href="https://www.linkedin.com/in/vanshika-lodhi-610910219?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors duration-200 shadow-md hover:shadow-lg">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            <a href=" https://x.com/vanshikalodhi21?t=dXwg3taD_7zaPlee7kYETA&s=09" target="_blank" class="bg-black text-white p-3 rounded-full hover:bg-gray-800 transition-colors duration-200 shadow-md hover:shadow-lg">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                            </a>
+                        </div>
+
                     </div>
                 </div>
 
                 <!-- Sanskriti -->
-                <div class="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div
+                    class="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
                     <div class="relative">
-                        <div class="w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 bg-gradient-to-br from-black to-gray-800 rounded-2xl overflow-hidden shadow-lg ring-4 ring-gray-200 group-hover:ring-gray-300 transition-all duration-300">
-                        <!-- <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Sanskriti" class="w-full h-full object-cover"> -->
-                    </div>
-                        <div class="absolute -top-2 -right-2 w-6 h-6 bg-black rounded-full flex items-center justify-center">
+                        <div
+                            class="w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 bg-gradient-to-br from-black to-gray-800 rounded-2xl overflow-hidden shadow-lg ring-4 ring-gray-200 group-hover:ring-gray-300 transition-all duration-300">
+                            <img src="{% static 'blog/images/sanskriti.jpg' %}" alt="Sanskriti" class="w-full h-full object-cover">
+                        </div>
+                        <div
+                            class="absolute -top-2 -right-2 w-6 h-6 bg-black rounded-full flex items-center justify-center">
                             <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                                <path
+                                    d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
                             </svg>
                         </div>
                     </div>
-                    
+
                     <div class="text-center">
-                        <h3 class="text-xl sm:text-2xl font-bold text-black mb-2 group-hover:text-gray-800 transition-colors duration-300">Sanskriti</h3>
-                        <div class="inline-block bg-black text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-md">
+                        <h3
+                            class="text-xl sm:text-2xl font-bold text-black mb-2 group-hover:text-gray-800 transition-colors duration-300">
+                            Sanskriti</h3>
+                        <div
+                            class="inline-block bg-black text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-md">
                             Co-Founder & Sports Editor
                         </div>
-                        
-                        <div class="space-y-3 text-left">
+
+                        <!-- <div class="space-y-3 text-left">
                             <div class="flex items-start space-x-3">
                                 <div class="w-2 h-2 bg-black rounded-full mt-2 flex-shrink-0"></div>
-                                <p class="text-gray-700 text-sm"><strong>Education:</strong> Journalism Graduate, University of Delhi</p>
+                                <p class="text-gray-700 text-sm"><strong>Education:</strong> Journalism Graduate,
+                                    University of Delhi</p>
                             </div>
                             <div class="flex items-start space-x-3">
                                 <div class="w-2 h-2 bg-black rounded-full mt-2 flex-shrink-0"></div>
-                                <p class="text-gray-700 text-sm"><strong>Expertise:</strong> Sports Storytelling & Editorial</p>
+                                <p class="text-gray-700 text-sm"><strong>Expertise:</strong> Sports Storytelling &
+                                    Editorial</p>
                             </div>
                             <div class="flex items-start space-x-3">
                                 <div class="w-2 h-2 bg-black rounded-full mt-2 flex-shrink-0"></div>
-                                <p class="text-gray-700 text-sm"><strong>Experience:</strong> Media, Content Strategy, Digital Marketing</p>
+                                <p class="text-gray-700 text-sm"><strong>Experience:</strong> Media, Content Strategy,
+                                    Digital Marketing</p>
                             </div>
                             <div class="flex items-start space-x-3">
                                 <div class="w-2 h-2 bg-black rounded-full mt-2 flex-shrink-0"></div>
                                 <p class="text-gray-700 text-sm"><strong>Focus:</strong> Dynamic Sports Content</p>
                             </div>
-                        </div>
-                        
-                        <div class="mt-6 p-4 bg-gradient-to-r from-gray-50 to-black/5 rounded-xl border-l-4 border-black">
+                        </div> -->
+
+                        <div
+                            class="mt-6 p-4 bg-gradient-to-r from-gray-50 to-black/5 rounded-xl border-l-4 border-black">
                             <p class="text-gray-800 text-sm italic font-medium">
-                                "Blending creativity with clarity to make sports news engaging and accessible for all."
+                                "Sanskriti is the co-founder of The Byline and the driving force behind its
+                                sports content. A journalism graduate from the University of Delhi, she
+                                brings a sharp editorial sense and a deep passion for sports storytelling.
+                                With experience across media, content strategy, and digital marketing,
+                                she is focused on building a dynamic sports section that captures not
+                                just scores and stats, but the stories behind the game. At The Byline,
+                                Sanskriti blends creativity with clarity to make sports news engaging,
+                                insightful, and accessible for all."
                             </p>
                         </div>
+
+                         <!-- Social Media Links -->
+                        <div class="mt-6 flex justify-center space-x-4">
+                            <a href="https://www.linkedin.com/in/sanskriti-292479245?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors duration-200 shadow-md hover:shadow-lg">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            <!-- <a href="https://x.com/vanshika_lodhi" target="_blank" class="bg-black text-white p-3 rounded-full hover:bg-gray-800 transition-colors duration-200 shadow-md hover:shadow-lg">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                            </a> -->
+                        </div>
+
+
                     </div>
                 </div>
 
                 <!-- Prakarsh Patole -->
-                <div class="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div
+                    class="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
                     <div class="relative">
-                        <div class="w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 bg-gradient-to-br from-red-100 to-black/10 rounded-2xl overflow-hidden shadow-lg ring-4 ring-red-100 group-hover:ring-red-200 transition-all duration-300">
-                        <!-- <img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Prakarsh Patole" class="w-full h-full object-cover"> -->
-                    </div>
-                        <div class="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-red-600 to-black rounded-full flex items-center justify-center">
+                        <div
+                            class="w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 bg-gradient-to-br from-red-100 to-black/10 rounded-2xl overflow-hidden shadow-lg ring-4 ring-red-100 group-hover:ring-red-200 transition-all duration-300">
+                            <img src="{% static 'blog/images/prakarsh.jpg' %}" alt="Prakarsh Patole" class="w-full h-full object-cover">
+                        </div>
+                        <div
+                            class="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-red-600 to-black rounded-full flex items-center justify-center">
                             <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"/>
+                                <path
+                                    d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" />
                             </svg>
                         </div>
                     </div>
-                    
+
                     <div class="text-center">
-                        <h3 class="text-xl sm:text-2xl font-bold text-black mb-2 group-hover:text-red-600 transition-colors duration-300">Prakarsh Patole</h3>
-                        <div class="inline-block bg-gradient-to-r from-red-600 to-black text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-md">
+                        <h3
+                            class="text-xl sm:text-2xl font-bold text-black mb-2 group-hover:text-red-600 transition-colors duration-300">
+                            Prakarsh Patole</h3>
+                        <div
+                            class="inline-block bg-gradient-to-r from-red-600 to-black text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-md">
                             Co-Founder & Finance Editor
                         </div>
-                        
-                        <div class="space-y-3 text-left">
+
+                        <!-- <div class="space-y-3 text-left">
                             <div class="flex items-start space-x-3">
                                 <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
-                                <p class="text-gray-700 text-sm"><strong>Background:</strong> Journalism Student & Co-Founder</p>
+                                <p class="text-gray-700 text-sm"><strong>Background:</strong> Journalism Student &
+                                    Co-Founder</p>
                             </div>
                             <div class="flex items-start space-x-3">
                                 <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
-                                <p class="text-gray-700 text-sm"><strong>Expertise:</strong> Business, Startups, Personal Finance</p>
+                                <p class="text-gray-700 text-sm"><strong>Expertise:</strong> Business, Startups,
+                                    Personal Finance</p>
                             </div>
                             <div class="flex items-start space-x-3">
                                 <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
@@ -235,15 +312,42 @@
                             </div>
                             <div class="flex items-start space-x-3">
                                 <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
-                                <p class="text-gray-700 text-sm"><strong>Focus:</strong> Economic Trends & Young Readers</p>
+                                <p class="text-gray-700 text-sm"><strong>Focus:</strong> Economic Trends & Young Readers
+                                </p>
                             </div>
-                        </div>
-                        
-                        <div class="mt-6 p-4 bg-gradient-to-r from-red-50 to-black/5 rounded-xl border-l-4 border-red-600">
+                        </div> -->
+
+                        <div
+                            class="mt-6 p-4 bg-gradient-to-r from-red-50 to-black/5 rounded-xl border-l-4 border-red-600">
                             <p class="text-gray-800 text-sm italic font-medium">
-                                "Making finance relatable and accessible through well-researched, engaging content."
+                                "Prakarsh Patole, a journalism student and co-founder of The Byline, a
+                                news platform dedicated to delivering meaningful stories in business,
+                                startups, and personal finance. With hands-on experience at reputed
+                                news desks, he brings a blend of editorial sharpness and a strong
+                                understanding of economic trends. His passion lies in making finance
+                                relatable and accessible to young readers through well-researched,
+                                engaging content. At "The Byline", he works closely with the team to
+                                ensure our stories are not only fact-driven but also reader-focused,
+                                helping bridge the gap between news and real-world financial
+                                understanding."
                             </p>
                         </div>
+
+                         <!-- Social Media Links -->
+                        <div class="mt-6 flex justify-center space-x-4">
+                            <a href="https://www.linkedin.com/in/prakarsh-amos-patole-5aa384228?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors duration-200 shadow-md hover:shadow-lg">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            <!-- <a href="https://x.com/vanshika_lodhi" target="_blank" class="bg-black text-white p-3 rounded-full hover:bg-gray-800 transition-colors duration-200 shadow-md hover:shadow-lg">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                            </a> -->
+                        </div>
+
+                        
                     </div>
                 </div>
             </div>
