@@ -225,7 +225,7 @@
           <ul class="space-y-2">
             <li><a href="{% url 'home' %}"
                 class="text-gray-600 hover:text-blue-600 transition-colors duration-200">Home</a></li>
-            <li><a href="#" onclick="openModal('aboutModal')"
+            <li><a href="{% url 'about' %}" 
                 class="text-gray-600 hover:text-blue-600 transition-colors duration-200">About Us</a></li>
 
             <li><a href="{% url 'contact' %}"
@@ -233,7 +233,7 @@
           </ul>
         </div>
 
-         <!-- Contact Info -->
+        <!-- Contact Info -->
         <div>
           <h3 class="text-lg font-semibold text-gray-900 mb-4">Contact</h3>
           <ul class="space-y-2">
@@ -320,20 +320,23 @@
       <div class="p-4 sm:p-8">
         <div class="prose max-w-none">
           <h3 class="text-lg sm:text-2xl font-bold text-black mb-4">Our Story</h3>
-          <p class="text-gray-700 mb-6">The Byline was founded with a simple mission: to provide accurate, timely, and
-            insightful financial news to help our readers make informed decisions. Since our inception, we have been
-            committed to delivering high-quality journalism that cuts through the noise of today's fast-paced financial
-            markets.</p>
+          <p class="text-gray-700 mb-6">The Byline is an independent online news platform dedicated to
+            delivering credible, timely, and in-depth coverage across Business,
+            Finance, and Sports. Founded by three journalism graduates with a
+            shared commitment to integrity and quality storytelling.</p>
 
-          <h3 class="text-lg sm:text-2xl font-bold text-black mb-4">Our Mission</h3>
+          <!-- <h3 class="text-lg sm:text-2xl font-bold text-black mb-4">Our Mission</h3>
           <p class="text-gray-700 mb-6">We believe that everyone deserves access to reliable financial information.
             Our team of experienced journalists and analysts work around the clock to bring you the latest market
             developments, expert analysis, and in-depth reporting on the stories that matter most to your financial
-            future.</p>
+            future.</p> -->
 
-          <h3 class="text-lg sm:text-2xl font-bold text-black mb-4">What We Cover</h3>
+          <!-- <h3 class="text-lg sm:text-2xl font-bold text-black mb-4">What We Cover</h3> -->
           <ul class="text-sm sm:text-base text-gray-700 mb-6 list-disc list-inside space-y-2">
-            <li>Stock market analysis and trends</li>
+            <li><span class="font-bold">What We Do : </span> We deliver clear, fact‑first journalism—no spin, 
+no agendas. From market trends and corporate analysis to live 
+match coverage and tactical insights, our reporting is driven 
+by rigorous research and expert voices. </li>
             <li>Economic policy and its impact on markets</li>
             <li>Corporate earnings and business developments</li>
             <li>Cryptocurrency and digital assets</li>

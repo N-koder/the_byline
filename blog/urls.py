@@ -7,5 +7,9 @@ urlpatterns = [
     path('article/<slug:slug>/', views.article_detail, name='article_detail'),
     path('contact/', views.contact, name='contact'),
     path('subscribe/', views.subscribe_newsletter, name='subscribe_newsletter'),
+    path('about/', views.about, name='about'),
+    path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
+    path('terms-of-service/', views.terms_of_service, name='terms_of_service'),
+    path('cookie-policy/', views.cookie_policy, name='cookie_policy'),
 
 ]

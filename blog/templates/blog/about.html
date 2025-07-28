@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - The Byline</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        seasons: ['serif'],
+                        inter: ['Inter', 'sans-serif'],
+                        playfair: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        byline: {
+                            dark: '#1a1a2e',
+                            red: '#B91C1C',
+                            light: '#FEE2E2',
+                            yellow: '#FEB300'
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        html,
+        body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-900 font-inter overflow-x-hidden">
+    <!-- Hero Section -->
+    <div class="bg-red-600 text-white py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-2 sm:px-4 text-center">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">About Us</h1>
+            <p class="text-lg sm:text-xl md:text-2xl max-w-5xl mx-auto">
+                Welcome to The Byline, where every line has a name, and every story earns its byline.
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-2 sm:px-4 py-8 sm:py-16">
+        <!-- Our Story Section -->
+        <section class="mb-12 sm:mb-16">
+            <div class="max-w-4xl mx-auto">
+                <p class="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed">
+                    The Byline is an independent online news platform dedicated to delivering credible, timely, and
+                    in-depth coverage across Business, Finance, and Sports. Founded by three journalism graduates with a
+                    shared commitment to integrity and quality storytelling.
+                </p>
+
+                <!-- What We Do -->
+                <div class="bg-gray-50 p-4 sm:p-6 rounded-lg mb-6 border-l-4 border-red-600">
+                    <h3 class="text-lg sm:text-xl font-bold text-black mb-3">What We Do</h3>
+                    <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
+                        We deliver clear, fact-first journalism—no spin, no agendas. From market trends and corporate
+                        analysis to live match coverage and tactical insights, our reporting is driven by rigorous
+                        research and expert voices.
+                    </p>
+                </div>
+
+                <!-- Why It Matters -->
+                <div class="bg-red-50 p-4 sm:p-6 rounded-lg mb-6 border-l-4 border-red-600">
+                    <h3 class="text-lg sm:text-xl font-bold text-black mb-3">Why It Matters</h3>
+                    <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
+                        In an era of misleading narratives and noise, we believe readers deserve straight-forward facts
+                        and balanced perspective. Every story carries a byline—an author who stands behind the accuracy
+                        and fairness of their work.
+                    </p>
+                </div>
+
+                <!-- Our Promise -->
+                <div class="bg-gray-50 p-4 sm:p-6 rounded-lg mb-8 border-l-4 border-black">
+                    <h3 class="text-lg sm:text-xl font-bold text-black mb-3">Our Promise</h3>
+                    <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
+                        To empower you with the information you need to make confident decisions, understand the forces
+                        shaping your world, and engage in richer, smarter conversations.
+                    </p>
+                </div>
+
+                <!-- <div class="text-center bg-red-600 text-white p-4 sm:p-6 rounded-lg">
+                    <p class="text-base sm:text-lg font-medium">
+                        Welcome to The Byline—where every line has a name, and every story earns its byline.
+                    </p>
+                </div> -->
+            </div>
+        </section>
+
+        <!-- Founders Section -->
+        <section class="mb-12 sm:mb-16">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-8 sm:mb-12 text-center border-b-2 border-red-600 pb-4">Meet Our Founders</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+                
+                <!-- Vanshika Lodhi -->
+                <div class="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative">
+                        <div class="w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 bg-gradient-to-br from-red-100 to-red-50 rounded-2xl overflow-hidden shadow-lg ring-4 ring-red-100 group-hover:ring-red-200 transition-all duration-300">
+                        <!-- <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Vanshika Lodhi" class="w-full h-full object-cover"> -->
+                    </div>
+                        <div class="absolute -top-2 -right-2 w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
+                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <h3 class="text-xl sm:text-2xl font-bold text-black mb-2 group-hover:text-red-600 transition-colors duration-300">Vanshika Lodhi</h3>
+                        <div class="inline-block bg-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-md">
+                            Founder & Editor-in-Chief
+                        </div>
+                        
+                        <div class="space-y-3 text-left">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
+                                <p class="text-gray-700 text-sm"><strong>Education:</strong> Journalism Graduate, Delhi University</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
+                                <p class="text-gray-700 text-sm"><strong>Expertise:</strong> Business & Sports Writing</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
+                                <p class="text-gray-700 text-sm"><strong>Coverage:</strong> IPL, England-India Test Series</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
+                                <p class="text-gray-700 text-sm"><strong>Focus:</strong> Markets & Cricket Analysis</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 p-4 bg-gradient-to-r from-red-50 to-gray-50 rounded-xl border-l-4 border-red-600">
+                            <p class="text-gray-800 text-sm italic font-medium">
+                                "Building a platform readers can trust for clarity, accuracy, and meaningful coverage."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sanskriti -->
+                <div class="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative">
+                        <div class="w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 bg-gradient-to-br from-black to-gray-800 rounded-2xl overflow-hidden shadow-lg ring-4 ring-gray-200 group-hover:ring-gray-300 transition-all duration-300">
+                        <!-- <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Sanskriti" class="w-full h-full object-cover"> -->
+                    </div>
+                        <div class="absolute -top-2 -right-2 w-6 h-6 bg-black rounded-full flex items-center justify-center">
+                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <h3 class="text-xl sm:text-2xl font-bold text-black mb-2 group-hover:text-gray-800 transition-colors duration-300">Sanskriti</h3>
+                        <div class="inline-block bg-black text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-md">
+                            Co-Founder & Sports Editor
+                        </div>
+                        
+                        <div class="space-y-3 text-left">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-black rounded-full mt-2 flex-shrink-0"></div>
+                                <p class="text-gray-700 text-sm"><strong>Education:</strong> Journalism Graduate, University of Delhi</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-black rounded-full mt-2 flex-shrink-0"></div>
+                                <p class="text-gray-700 text-sm"><strong>Expertise:</strong> Sports Storytelling & Editorial</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-black rounded-full mt-2 flex-shrink-0"></div>
+                                <p class="text-gray-700 text-sm"><strong>Experience:</strong> Media, Content Strategy, Digital Marketing</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-black rounded-full mt-2 flex-shrink-0"></div>
+                                <p class="text-gray-700 text-sm"><strong>Focus:</strong> Dynamic Sports Content</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 p-4 bg-gradient-to-r from-gray-50 to-black/5 rounded-xl border-l-4 border-black">
+                            <p class="text-gray-800 text-sm italic font-medium">
+                                "Blending creativity with clarity to make sports news engaging and accessible for all."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prakarsh Patole -->
+                <div class="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl p-6 sm:p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative">
+                        <div class="w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 bg-gradient-to-br from-red-100 to-black/10 rounded-2xl overflow-hidden shadow-lg ring-4 ring-red-100 group-hover:ring-red-200 transition-all duration-300">
+                        <!-- <img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Prakarsh Patole" class="w-full h-full object-cover"> -->
+                    </div>
+                        <div class="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-red-600 to-black rounded-full flex items-center justify-center">
+                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <h3 class="text-xl sm:text-2xl font-bold text-black mb-2 group-hover:text-red-600 transition-colors duration-300">Prakarsh Patole</h3>
+                        <div class="inline-block bg-gradient-to-r from-red-600 to-black text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-md">
+                            Co-Founder & Finance Editor
+                        </div>
+                        
+                        <div class="space-y-3 text-left">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
+                                <p class="text-gray-700 text-sm"><strong>Background:</strong> Journalism Student & Co-Founder</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
+                                <p class="text-gray-700 text-sm"><strong>Expertise:</strong> Business, Startups, Personal Finance</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
+                                <p class="text-gray-700 text-sm"><strong>Experience:</strong> Reputed News Desks</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
+                                <p class="text-gray-700 text-sm"><strong>Focus:</strong> Economic Trends & Young Readers</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 p-4 bg-gradient-to-r from-red-50 to-black/5 rounded-xl border-l-4 border-red-600">
+                            <p class="text-gray-800 text-sm italic font-medium">
+                                "Making finance relatable and accessible through well-researched, engaging content."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Coverage -->
+        <!-- <section class="mb-12 sm:mb-16">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-6 sm:mb-8 text-center border-b-2 border-red-600 pb-4">Our Coverage</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
+                <div class="bg-white p-4 sm:p-6 rounded-lg shadow-md border border-gray-200">
+                    <h4 class="text-base sm:text-lg font-bold text-red-600 mb-3">Business & Finance</h4>
+                    <p class="text-gray-700 text-sm">Market trends, corporate analysis, startup ecosystem, and personal finance insights that matter to your financial future.</p>
+                </div>
+                <div class="bg-white p-4 sm:p-6 rounded-lg shadow-md border border-gray-200">
+                    <h4 class="text-base sm:text-lg font-bold text-red-600 mb-3">Sports Coverage</h4>
+                    <p class="text-gray-700 text-sm">Live match coverage, tactical insights, and the stories behind the game across cricket, football, and more.</p>
+                </div>
+                <div class="bg-white p-4 sm:p-6 rounded-lg shadow-md border border-gray-200">
+                    <h4 class="text-base sm:text-lg font-bold text-red-600 mb-3">Expert Analysis</h4>
+                    <p class="text-gray-700 text-sm">In-depth reporting driven by rigorous research and expert voices you can trust.</p>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Contact CTA -->
+        <section class="text-center">
+            <div class="bg-red-50 border-l-4 border-red-600 p-6 sm:p-8 rounded-lg max-w-4xl mx-auto">
+                <h3 class="text-xl sm:text-2xl font-bold text-red-800 mb-4">Connect With Us</h3>
+                <p class="text-red-700 mb-4 sm:mb-6 text-sm sm:text-base">Have a story tip, feedback, or want to
+                    collaborate with us? We'd love to hear from you.</p>
+                <div class="space-y-2 text-sm sm:text-base">
+                    <p class="text-red-700"><strong>General Inquiries:</strong> <a href="mailto:contact@thebyline.in"
+                            class="underline">contact@thebyline.in</a></p>
+                    <p class="text-red-700"><strong>Editorial:</strong> <a href="mailto:editorial@thebyline.in"
+                            class="underline">editorial@thebyline.in</a></p>
+                    <p class="text-red-700"><strong>Careers:</strong> <a href="mailto:careers@thebyline.in"
+                            class="underline">careers@thebyline.in</a></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Back to Home Button -->
+    <div class="text-center pb-8">
+        <a href="/"
+            class="inline-flex items-center bg-red-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-red-700 transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Back to Home
+        </a>
+    </div>
+</body>

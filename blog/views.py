@@ -185,3 +185,20 @@ def contact(request):
         messages.success(request, "Thank you for contacting us. We'll get back to you soon!")
     
     return render(request, 'blog/contact.html' , {'current_date' : current_date}) 
+
+
+def about(request):
+    # founders = Founder.objects.all()  # Optional: Create Founder model if dynamic
+    # context = {
+    #     'founders': founders
+    # }
+    return render(request, 'blog/about.html')
+
+def privacy_policy(request):
+    return render(request, 'blog/privacy_policy.html')
+
+def terms_of_service(request):
+    return render(request, 'blog/terms_of_service.html')
+
+def cookie_policy(request):
+    return render(request, 'blog/cookie_policy.html')
