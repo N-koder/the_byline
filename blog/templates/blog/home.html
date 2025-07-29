@@ -74,7 +74,7 @@
 
         <div class="relative group">
           <button
-            class="{% if request.path == '/category/stock market/' or request.path == '/category/mutual funds/' or  request.path == '/category/ipo/' or request.path == '/category/policy/' or request.path == '/category/budget/' or request.path == '/category/taxation' %}text-red-600 font-semibold{% else %}text-black{% endif %} hover:text-red-600 font-medium transition-colors relative">Finance
+            class="{% if request.path == '/category/stock market/' or request.path == '/category/mutual funds/' or  request.path == '/category/ipo/' or request.path == '/category/policy/' or request.path == '/category/budget/' or request.path == '/category/taxation/' or request.path == '/category/economy/' %}text-red-600 font-semibold{% else %}text-black{% endif %} hover:text-red-600 font-medium transition-colors relative">Finance
             <span
               class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
           </button>
@@ -93,6 +93,11 @@
               </a>
               <a href="{% url 'category_articles' 'ipo' %}"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">IPO 
+                <span
+                  class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
+              </a>
+              <a href="{% url 'category_articles' 'economy' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Economy 
                 <span
                   class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
               </a>
@@ -152,7 +157,7 @@
 
         <div class="relative group">
           <button
-            class="{% if request.path == '/category/fintech/' or request.path == '/category/banking/' or  request.path == '/category/defense/' or request.path == '/category/aviation' or request.path == '/category/hospitality' or request.path == '/category/real-estate' or request.path == '/category/space/' %}text-red-600 font-semibold{% else %}text-black{% endif %} hover:text-red-600 font-medium transition-colors relative">Sectors
+            class="{% if request.path == '/category/fintech/' or request.path == '/category/banking/' or  request.path == '/category/defense/' or request.path == '/category/aviation' or request.path == '/category/hospitality' or request.path == '/category/real estate' or request.path == '/category/space/' %}text-red-600 font-semibold{% else %}text-black{% endif %} hover:text-red-600 font-medium transition-colors relative">Sectors
             <span
               class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
           </button>
@@ -184,7 +189,7 @@
                 <span
                   class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
               </a>
-              <a href="{% url 'category_articles' 'real-estate' %}"
+              <a href="{% url 'category_articles' 'real estate' %}"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Real Estate    
                 <span
                   class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
