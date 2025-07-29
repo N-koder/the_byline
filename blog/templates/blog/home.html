@@ -29,23 +29,98 @@
 
 
       <!-- Navigation Links -->
-      <div class="flex items-center space-x-8 mr-[30rem]">
+      <div class="flex items-center space-x-8 mr-[28rem]">
         <a href="{% url 'home' %}"
           class="{% if request.path == '/' %}text-red-600 font-semibold{% else %}text-black{% endif %} hover:text-red-600 transition-colors group relative">
           Home
           <span
             class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
         </a>
-        <a href="{% url 'category_articles' 'business'  %}"
-          class="{% if request.path == '/category/market/' or request.path == '/category/gold/' or request.path == '/category/business/' %}text-red-600 font-semibold{% else %}text-black {% endif %} hover::text-red-600 font-medium transition-colors group relative">Business
+
+        <div class="relative group">
+          <button
+            class="{% if request.path == '/category/corporates/' or request.path == '/category/smes/' or request.path == '/category/b-ipo/' or request.path == '/category/startups/' %}text-red-600 font-semibold{% else %}text-black {% endif %} hover:text-red-600 font-medium transition-colors relative">Business
+            <span
+              class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+          </button>
+          <div
+            class="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div class="py-2">
+              <a href="{% url 'category_articles' 'corporates' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Corporates
+                <span
+                  class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
+              </a>
+              <a href="{% url 'category_articles' 'smes' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">SMEs
+                <span
+                  class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
+              </a>
+              <a href="{% url 'category_articles' 'startups' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Startups  
+                <span
+                  class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
+              </a>
+              
+            </div>
+          </div>
+        </div>
+        
+        <!-- <a href="{% url 'category_articles' 'business'  %}"
+          class="{% if request.path == '/category/market/' or request.path == '/category/gold/' or request.path == '/category/business/' %}text-red-600 font-semibold{% else %}text-black {% endif %} hover:text-red-600 font-medium transition-colors group relative">Business
           <span
             class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a href="{% url 'category_articles' 'economy' %}"
-          class="{% if request.path == '/category/economy/' %}:text-red-600 font-semibold{% else %}text-black{% endif %}hover::text-red-600 font-medium transition-colors group relative">Economy
+        </a> -->
+
+        <div class="relative group">
+          <button
+            class="{% if request.path == '/category/stock market/' or request.path == '/category/mutual funds/' or  request.path == '/category/ipo/' or request.path == '/category/policy/' or request.path == '/category/budget/' or request.path == '/category/taxation' %}text-red-600 font-semibold{% else %}text-black{% endif %} hover:text-red-600 font-medium transition-colors relative">Finance
+            <span
+              class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+          </button>
+          <div
+            class="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div class="py-2">
+              <a href="{% url 'category_articles' 'stock market' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Stock Market 
+                <span
+                  class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
+              </a>
+              <a href="{% url 'category_articles' 'mutual funds' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Mutual Funds
+                <span
+                  class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
+              </a>
+              <a href="{% url 'category_articles' 'ipo' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">IPO 
+                <span
+                  class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
+              </a>
+              <a href="{% url 'category_articles' 'policy' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Policy  
+                <span
+                  class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
+              </a>
+              <a href="{% url 'category_articles' 'budget' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Budget 
+                <span
+                  class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
+              </a>
+              <a href="{% url 'category_articles' 'taxation' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Taxation     
+                <span
+                  class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
+              </a>
+              
+            </div>
+          </div>
+        </div>
+
+        <!-- <a href="{% url 'category_articles' 'economy' %}"
+          class="{% if request.path == '/category/economy/' %}:text-red-600 font-semibold{% else %}text-black{% endif %}hover:text-red-600 font-medium transition-colors group relative">Economy
           <span
             class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
-        </a>
+        </a> -->
 
         <div class="relative group">
           <button
@@ -67,7 +142,55 @@
                   class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
               </a>
               <a href="{% url 'category_articles' 'tennis' %}"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover::text-red-600 group/item relative">Tennis
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Tennis
+                <span
+                  class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <button
+            class="{% if request.path == '/category/fintech/' or request.path == '/category/banking/' or  request.path == '/category/defense/' or request.path == '/category/aviation' or request.path == '/category/hospitality' or request.path == '/category/real-estate' or request.path == '/category/space/' %}text-red-600 font-semibold{% else %}text-black{% endif %} hover:text-red-600 font-medium transition-colors relative">Sectors
+            <span
+              class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+          </button>
+          <div
+            class="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div class="py-2">
+              <a href="{% url 'category_articles' 'fintech' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Fintech
+                <span
+                  class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
+              </a>
+              <a href="{% url 'category_articles' 'banking' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Banking
+                <span
+                  class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
+              </a>
+              <a href="{% url 'category_articles' 'defense' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Defense 
+                <span
+                  class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
+              </a>
+              <a href="{% url 'category_articles' 'aviation' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Aviation  
+                <span
+                  class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
+              </a>
+              <a href="{% url 'category_articles' 'hospitality' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Hospitality   
+                <span
+                  class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
+              </a>
+              <a href="{% url 'category_articles' 'real-estate' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Real Estate    
+                <span
+                  class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
+              </a>
+              <a href="{% url 'category_articles' 'space' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Space    
                 <span
                   class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
               </a>
