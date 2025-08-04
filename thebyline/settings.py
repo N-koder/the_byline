@@ -104,7 +104,12 @@ USE_TZ = True
 
 # STATIC & MEDIA FILES
 STATIC_URL = '/static/'
-# STATIC_ROOT = BASE_DIR / 'static'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Additional locations of static files
+STATICFILES_DIRS = [
+    BASE_DIR / 'blog' / 'static',
+]
 
 # Cloudflare R2 Configuration
 AWS_ACCESS_KEY_ID = config("CLOUDFLARE_ACCESS_KEY_ID")
@@ -150,7 +155,7 @@ STORAGES = {
         },
     },
     "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
 
