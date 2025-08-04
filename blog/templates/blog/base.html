@@ -50,9 +50,7 @@
             },
           },
 
-          shadow: {
-            Logo: '9px 2px 0px rgb(0 0 0 / 0.20)'
-          },
+
 
           keyframes: {
             scroll: {
@@ -90,6 +88,17 @@
         margin: 1rem;
         max-height: 85vh;
         width: calc(100vw - 2rem);
+      }
+    }
+
+    .text-shadow-lap-device {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    @media (min-width: 768px) {
+      .md\:text-shadow-med-device {
+
+        text-shadow: 10px -2px 3.5px rgb(0 0 0 / 0.20);
       }
     }
   </style>
@@ -134,8 +143,8 @@
         <!-- Logo Section -->
         <div class="py-2 w-full">
           <div class="container mx-auto px-2 sm:px-4 text-center">
-            <h1 class="text-5xl md:text-8xl font-playfair font-bold text-black tracking-wide"
-              style="text-shadow: 10px -2px 3.5px rgb(0 0 0 / 0.20)">
+            <h1
+              class="text-5xl md:text-8xl font-playfair font-bold text-black tracking-wide text-shadow-lap-device md:text-shadow-med-device">
               The Byline
             </h1>
           </div>
@@ -271,9 +280,9 @@
           <h3 class="text-lg font-semibold text-gray-900 mb-4">Contact</h3>
           <ul class="space-y-2">
             <li><a href="mailto:contact@mydomain"
-                class="text-gray-600 hover:text-blue-600 transition-colors duration-200">contact@mydomain</a></li>
+                class="text-gray-600 hover:text-blue-600 transition-colors duration-200">contact@thebyline.in</a></li>
             <li><a href="mailto:careers@mydomain"
-                class="text-gray-600 hover:text-blue-600 transition-colors duration-200">careers@mydomain</a></li>
+                class="text-gray-600 hover:text-blue-600 transition-colors duration-200">careers@thebyline.in</a></li>
           </ul>
         </div>
 
@@ -297,21 +306,24 @@
           <h3 class="text-lg font-semibold text-gray-900 mb-4">Follow Us</h3>
           <div class="flex flex-wrap gap-3 sm:gap-4">
             <!-- Twitter -->
-            <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">
+            <a href="https://x.com/the_byline_" class="text-gray-600 hover:text-blue-600 transition-colors duration-200" target="_blank">
               <svg class="w-6 h-6" fill="#1DA1F2" viewBox="0 0 24 24">
                 <path
                   d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
               </svg>
             </a>
+           
             <!-- YouTube -->
-            <a href="#" class="text-gray-600 hover:text-red-600 transition-colors duration-200">
+           
+            <!-- <a href="#" class="text-gray-600 hover:text-red-600 transition-colors duration-200">
               <svg class="w-6 h-6" fill="#FF0000" viewBox="0 0 24 24">
                 <path
                   d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
               </svg>
-            </a>
+            </a> -->
+           
             <!-- Instagram -->
-            <a href="#" class="text-gray-600 hover:text-pink-600 transition-colors duration-200">
+            <a href="http://instagram.com/thebyline_/" class="text-gray-600 hover:text-pink-600 transition-colors duration-200" target="_blank">
               <svg class="w-6 h-6" fill="url(#instagram-gradient-footer)" viewBox="0 0 24 24">
                 <defs>
                   <linearGradient id="instagram-gradient-footer" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -325,7 +337,7 @@
               </svg>
             </a>
             <!-- LinkedIn -->
-            <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">
+            <a href="https://www.linkedin.com/company/thebyline/about/" class="text-gray-600 hover:text-blue-600 transition-colors duration-200" target="_blank">
               <svg class="w-6 h-6" fill="#0077B5" viewBox="0 0 24 24">
                 <path
                   d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -341,7 +353,8 @@
   </footer>
 
   <!-- About Us Modal -->
-  <div id="aboutModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+ 
+  <!-- <div id="aboutModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
     <div
       class="bg-white rounded-lg w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl mx-2 sm:mx-4 max-h-[85vh] sm:max-h-[90vh] overflow-y-auto shadow-lg modal-content">
       <div class="bg-red-600 text-white p-4 sm:p-6 rounded-t-lg">
@@ -356,7 +369,7 @@
           <p class="text-gray-700 mb-6">The Byline is an independent online news platform dedicated to
             delivering credible, timely, and in-depth coverage across Business,
             Finance, and Sports. Founded by three journalism graduates with a
-            shared commitment to integrity and quality storytelling.</p>
+            shared commitment to integrity and quality storytelling.</p> -->
 
           <!-- <h3 class="text-lg sm:text-2xl font-bold text-black mb-4">Our Mission</h3>
           <p class="text-gray-700 mb-6">We believe that everyone deserves access to reliable financial information.
@@ -365,7 +378,8 @@
             future.</p> -->
 
           <!-- <h3 class="text-lg sm:text-2xl font-bold text-black mb-4">What We Cover</h3> -->
-          <ul class="text-sm sm:text-base text-gray-700 mb-6 list-disc list-inside space-y-2">
+ 
+          <!-- <ul class="text-sm sm:text-base text-gray-700 mb-6 list-disc list-inside space-y-2">
             <li><span class="font-bold">What We Do : </span> We deliver clear, fact‑first journalism—no spin,
               no agendas. From market trends and corporate analysis to live
               match coverage and tactical insights, our reporting is driven
@@ -375,9 +389,9 @@
             <li>Cryptocurrency and digital assets</li>
             <li>Personal finance and investment strategies</li>
             <li>Global economic news and analysis</li>
-          </ul>
+          </ul> -->
 
-          <h3 class="text-lg sm:text-2xl font-bold text-black mb-4">Our Team</h3>
+          <!-- <h3 class="text-lg sm:text-2xl font-bold text-black mb-4">Our Team</h3>
           <p class="text-gray-700 mb-6">Our editorial team consists of seasoned financial journalists, former Wall
             Street analysts, and economics experts who bring decades of combined experience to our newsroom. We are
             committed to maintaining the highest standards of journalistic integrity and accuracy.</p>
@@ -390,10 +404,10 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Privacy Policy Modal -->
-  <div id="privacyModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <!-- <div id="privacyModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
     <div
       class="bg-white rounded-lg w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl mx-2 sm:mx-4 max-h-[85vh] sm:max-h-[90vh] overflow-y-auto shadow-lg modal-content">
       <div class="bg-red-600 text-white p-4 sm:p-6 rounded-t-lg">
@@ -445,10 +459,10 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Terms of Service Modal -->
-  <div id="termsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <!-- <div id="termsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
     <div
       class="bg-white rounded-lg w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl mx-2 sm:mx-4 max-h-[85vh] sm:max-h-[90vh] overflow-y-auto shadow-lg modal-content">
       <div class="bg-red-600 text-white p-4 sm:p-6 rounded-t-lg">
@@ -500,10 +514,10 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Cookie Policy Modal -->
-  <div id="cookieModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <!-- <div id="cookieModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
     <div
       class="bg-white rounded-lg w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl mx-2 sm:mx-4 max-h-[85vh] sm:max-h-[90vh] overflow-y-auto shadow-lg modal-content">
       <div class="bg-red-600 text-white p-4 sm:p-6 rounded-t-lg">
@@ -564,7 +578,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Hamburger Toggle Script -->
   <script>
