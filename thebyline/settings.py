@@ -20,7 +20,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    #'storages'
+    'storages'
 ]
 
 # MIDDLEWARE
@@ -106,13 +106,97 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # STATIC_ROOT = BASE_DIR / 'static'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+# Cloudflare R2 Configuration
+AWS_ACCESS_KEY_ID = config("CLOUDFLARE_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = config("CLOUDFLARE_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = config("CLOUDFLARE_STORAGE_BUCKET_NAME")
+AWS_S3_ENDPOINT_URL = config("CLOUDFLARE_R2_ENDPOINT")
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# Cloudflare R2 specific settings
+AWS_S3_SIGNATURE_VERSION = 's3v4'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+AWS_QUERYSTRING_AUTH = False
+AWS_S3_ADDRESSING_STYLE = "virtual"
+AWS_S3_REGION_NAME = 'auto'  # Cloudflare R2 uses 'auto' region
+AWS_S3_USE_SSL = True
+AWS_S3_VERIFY = True
+
+# Storage location for organizing files
+AWS_LOCATION = 'media'
+
+# Custom domain for public access (your R2 custom domain)
+AWS_S3_CUSTOM_DOMAIN = config("CLOUDFLARE_R2_CUSTOM_DOMAIN", default=None)
+
+# Django 4.2+ storage configuration
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+        "OPTIONS": {
+            "access_key": AWS_ACCESS_KEY_ID,
+            "secret_key": AWS_SECRET_ACCESS_KEY,
+            "bucket_name": AWS_STORAGE_BUCKET_NAME,
+            "endpoint_url": AWS_S3_ENDPOINT_URL,
+            "region_name": AWS_S3_REGION_NAME,
+            "signature_version": AWS_S3_SIGNATURE_VERSION,
+            "file_overwrite": AWS_S3_FILE_OVERWRITE,
+            "default_acl": AWS_DEFAULT_ACL,
+            "querystring_auth": AWS_QUERYSTRING_AUTH,
+            "addressing_style": AWS_S3_ADDRESSING_STYLE,
+            "use_ssl": AWS_S3_USE_SSL,
+            "verify": AWS_S3_VERIFY,
+            "location": AWS_LOCATION,
+            "custom_domain": AWS_S3_CUSTOM_DOMAIN,
+        },
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
+
+# Media files configuration
+if AWS_S3_CUSTOM_DOMAIN:
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
+else:
+    MEDIA_URL = 'https://pub-5d5efcd0a9c84f73933ac01758beb8d5.r2.dev'
+
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # DEFAULT PRIMARY KEY
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # THIRD PARTY API
 RAPIDAPI_KEY = config('RAPIDAPI_CRICKBUZZ_KEY')
+
+
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'console': {
+#             'class': 'logging.StreamHandler',
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['console'],
+#             'level': 'DEBUG',
+#         },
+#         'boto3': {
+#             'handlers': ['console'],
+#             'level': 'DEBUG',
+#         },
+#         'botocore': {
+#             'handlers': ['console'],
+#             'level': 'DEBUG',
+#         },
+#         'django.request': {
+#             'handlers': ['console'],
+#             'level': 'DEBUG',
+#         },
+#         'django.db.backends': {
+#             'handlers': ['console'],
+#             'level': 'DEBUG',
+#         },
+#     },
+# }
