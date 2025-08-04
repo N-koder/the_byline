@@ -119,8 +119,8 @@ def home(request, category_slug=None):
     # 🔍 Handle search
     if query:
         search_articles = Article.objects.filter(
-            Q(title__icontains=query) or
-            Q(summary__icontains=query) or
+            Q(title__icontains=query) |
+            Q(summary__icontains=query) |
             Q(content__icontains=query)
         ).distinct()
 
