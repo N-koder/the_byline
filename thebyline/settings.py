@@ -20,7 +20,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'storages'
+    'storages',
+    'admin_interface',
+    'colorfield',
+    'tinymce',
 ]
 
 # MIDDLEWARE
@@ -205,3 +208,62 @@ CSRF_TRUSTED_ORIGINS = [
     'https://www.thebyline.in',
     'https://the-byline.onrender.com',
 ]
+
+# TinyMCE Configuration
+TINYMCE_DEFAULT_CONFIG = {
+    'height': 360,
+    'width': '100%',
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 20,
+    'selector': 'textarea',
+    'plugins': '''
+        textcolor save link image media preview codesample contextmenu
+        table code lists fullscreen insertdatetime nonbreaking
+        contextmenu directionality searchreplace wordcount visualblocks
+        visualchars code fullscreen autolink lists charmap print hr
+        anchor pagebreak
+        ''',
+    'toolbar1': '''
+        fullscreen preview bold italic underline | fontselect,
+        fontsizeselect | forecolor backcolor | alignleft alignright |
+        aligncenter alignjustify | indent outdent | bullist numlist table |
+        | link image media | codesample |
+        ''',
+    'toolbar2': '''
+        visualblocks visualchars |
+        charmap hr pagebreak nonbreaking anchor | code |
+        ''',
+    'contextmenu': 'formats | link image',
+    'menubar': True,
+    'statusbar': True,
+    'relative_urls': False,
+    'remove_script_host': False,
+    'convert_urls': True,
+    'link_assume_external_targets': 'https',
+    'link_default_protocol': 'https',
+    'link_target_list': [
+        {'title': 'None', 'value': ''},
+        {'title': 'New window', 'value': '_blank'}
+    ],
+    'table_default_attributes': {
+        'class': 'table table-bordered table-striped'
+    },
+    'table_default_styles': {
+        'width': '100%',
+        'borderCollapse': 'collapse',
+    },
+    'table_responsive_width': True,
+    'link_default_target': '_blank',
+    'link_assume_external_targets': 'https',
+    'link_class_list': [
+        {'title': 'None', 'value': ''},
+        {'title': 'Button', 'value': 'btn btn-primary'},
+    ],
+    # Media settings for video embedding
+    'media_live_embeds': True,
+    'media_poster': False,
+    'media_alt_source': False,
+    'media_dimensions': True,
+    'extended_valid_elements': 'iframe[src|width|height|frameborder|allowfullscreen]',
+    'valid_children': '+body[style]',
+}

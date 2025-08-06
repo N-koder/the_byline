@@ -45,8 +45,8 @@
       </div>
 
       <!-- Body -->
-      <article class="prose prose-lg max-w-none text-gray-800 font-merriweather leading-relaxed break-words mx-5">
-        {{ article.body|linebreaks }}
+      <article class="article-content prose prose-lg max-w-none text-gray-800 font-merriweather leading-relaxed break-words mx-5">
+        {{ article.body|safe }}
       </article>
     </div>
   </div>

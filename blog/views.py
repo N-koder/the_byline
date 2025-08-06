@@ -37,7 +37,7 @@ def subscribe_newsletter(request):
 #         articles = Article.objects.filter(
 #             Q(title__icontains=query) |
 #             Q(summary__icontains=query) |
-#             Q(content__icontains=query)
+#             Q(body__icontains=query)
 #         ).distinct()[:10]
 
 #         html = render_to_string('blog/partials/search_results.html', {'articles': articles})
@@ -82,7 +82,7 @@ def highlight_keyword(text, keyword):
 
 #     if query:
 #         articles = articles.filter(
-#             Q(title__icontains=query) or Q(summary__icontains=query) or Q(content__icontains=query)
+#             Q(title__icontains=query) or Q(summary__icontains=query) or Q(body__icontains=query)
 #         )
 
 #         # Optional: Highlight search terms
@@ -121,7 +121,7 @@ def home(request, category_slug=None):
         search_articles = Article.objects.filter(
             Q(title__icontains=query) |
             Q(summary__icontains=query) |
-            Q(content__icontains=query)
+            Q(body__icontains=query)
         ).distinct()
 
         for a in search_articles:

@@ -1,9 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
-
-# Register your models here.
-from django.contrib import admin
+from tinymce.widgets import TinyMCE
 from .models import Article, Category, Subscriber, ContactMessage
 
 @admin.register(Article)
@@ -13,6 +11,11 @@ class ArticleAdmin(admin.ModelAdmin):
     search_fields = ('title', 'author', 'summary', 'body')
     prepopulated_fields = {'slug': ('title',)}
     readonly_fields = ('created_at', 'image_preview', 'author_image_preview')
+    
+    def formfield_for_dbfield(self, db_field, request, **kwargs):
+        if db_field.name == 'body':
+            kwargs['widget'] = TinyMCE(attrs={'cols': 80, 'rows': 30})
+        return super().formfield_for_dbfield(db_field, request, **kwargs)
     
     fieldsets = (
         ('Basic Information', {
