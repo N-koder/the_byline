@@ -299,17 +299,40 @@
 // Smooth navbar transition functionality for category page
 let lastScrollTop = 0;
 const navbar = document.getElementById('main-navbar');
-const scrollThreshold = 192.864; // Show navbar after scrolling 100px
+const scrollThreshold = 100; // Reduced threshold for better responsiveness
+
+// Check if navbar exists
+if (!navbar) {
+  console.error('Navbar element not found!');
+  return;
+}
 
 // Add transition classes to navbar
 navbar.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
 navbar.style.transform = 'translateY(0)';
 navbar.style.opacity = '1';
 
+// Ensure navbar has proper initial positioning
+if (navbar) {
+  // Store original styles for restoration
+  navbar.dataset.originalTop = '24px';
+  navbar.dataset.originalPosition = 'sticky';
+  navbar.dataset.originalZIndex = '40';
+}
+
+// Debug: Log navbar element
+console.log('Navbar element:', navbar);
+console.log('Initial navbar position:', navbar.style.position);
+console.log('Initial navbar top:', navbar.style.top);
+
 window.addEventListener('scroll', function() {
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   
+  // Debug: Log scroll information
+  console.log('Scroll position:', scrollTop, 'Threshold:', scrollThreshold);
+  
   if (scrollTop > scrollThreshold) {
+    console.log('Switching to fixed position');
     // Smooth transition to fixed-like behavior
     navbar.style.position = 'fixed';
     navbar.style.top = '0';
@@ -320,7 +343,10 @@ window.addEventListener('scroll', function() {
     navbar.style.opacity = '1';
     // Smooth shadow transition
     navbar.style.boxShadow = '0 4px 20px 0px rgb(0 0 0 / 0.25)';
+    // Ensure navbar is above all content when fixed
+    navbar.style.zIndex = '9999';
   } else {
+    console.log('Switching back to sticky position');
     // Smooth transition back to sticky
     navbar.style.position = 'sticky';
     navbar.style.top = '24px'; // Keep the original top-24 offset for category page
@@ -328,6 +354,8 @@ window.addEventListener('scroll', function() {
     navbar.style.opacity = '1';
     // Smooth shadow transition back
     navbar.style.boxShadow = '6px 4px 20px 0px rgb(0 0 0 / 0.20)';
+    // Restore original z-index
+    navbar.style.zIndex = '40';
   }
   
   lastScrollTop = scrollTop;
