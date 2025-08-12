@@ -204,11 +204,11 @@ if not DEBUG:
     CSRF_COOKIE_SECURE = True
     
 # CSRF trusted origins for production
-CSRF_TRUSTED_ORIGINS = [
-    'https://thebyline.in',
-    'https://www.thebyline.in',
-    'https://the-byline.onrender.com',
-]
+# CSRF_TRUSTED_ORIGINS = [
+#     'https://thebyline.in',
+#     'https://www.thebyline.in',
+#     'https://the-byline.onrender.com',
+# ]
 
 # TinyMCE Configuration
 TINYMCE_DEFAULT_CONFIG = {
