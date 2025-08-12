@@ -9,4 +9,4 @@ class ArticleSitemap(Sitemap):
         return Article.objects.all()
 
     def lastmod(self, obj):
-        return obj.updated_at
+        return obj.created_at
