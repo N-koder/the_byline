@@ -5,26 +5,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>{% block title %}The Byline — Trusted Financial News{% endblock %}</title>
+  <link rel="icon" href="{% static 'blog/images/Logo.png' %}" type="image/x-icon">
+  <title>{% block title %}The Byline{% endblock %}</title>
   {% block meta %}
   <meta name="description"
-    content="The Byline is India's trusted source for financial news — covering markets, crypto, economy, sports, and more in real-time." />
+    content="The Byline, where every line has a name, and every story earns its byline." />
   <meta name="keywords"
     content="financial news, Indian economy, markets, stocks, crypto, sports news, business updates" />
   <meta name="author" content="The Byline Team" />
   {% endblock %}
 
   <link rel="canonical" href="https://www.thebyline.in/" />
-  <meta property="og:title" content="The Byline — Real-Time Financial News" />
+  <meta property="og:title" content="The Byline" />
   <meta property="og:description"
-    content="Breaking financial news on Indian markets, crypto, gold, economy, and sports." />
+    content="Welcome to The Byline, where every line has a name, and every story earns its byline." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.thebyline.in/" />
-  <meta property="og:image" content="{% static 'blog/images/og-image.jpg' %}" />
+  <meta property="og:image" content="{% static 'blog/images/Logo.jpg' %}" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="The Byline — Real-Time Financial News" />
-  <meta name="twitter:description" content="Live insights from India's trusted journalism platform." />
+  <meta name="twitter:title" content="The Byline" />
+  <meta name="twitter:description" content="Welcome to The Byline, where every line has a name, and every story earns its byline." />
   <meta name="twitter:image" content="{% static 'blog/images/twitter-card.jpg' %}" />
 
   <link
@@ -57,9 +57,15 @@
               '0%': { transform: 'translateX(100%)' },
               '100%': { transform: 'translateX(-100%)' },
             },
+
+            fadeIn : {
+              '0%' : { opacity : 0 , transform : 'translateY(-10px)'},
+              '100%' : {opacity : 1 , transform : 'translateY(0)'}
+            }
           },
           animation: {
             scroll: 'scroll 40s linear infinite',
+            fadeIn : 'fadeIn 0.8s ease-out forwards'
           },
         },
       },
@@ -101,6 +107,8 @@
         text-shadow: 10px -2px 3.5px rgb(0 0 0 / 0.20);
       }
     }
+
+    
   </style>
   
   <!-- Article content styles -->
@@ -212,7 +220,7 @@
 <body class="text-gray-900 font-inter overflow-x-hidden max-w-full">
 
 
-  <header class="top-0 z-50 border border-b border-gray-300 shadow-sm md:h-[19vh] w-full">
+  <header class="border border-b border-gray-300 shadow-sm md:h-[19vh] w-full">
     <div class="max-w-7xl mx-auto px-2 sm:px-4">
 
       <!-- Top Bar -->
@@ -247,13 +255,17 @@
 
         <!-- Logo Section -->
         <div class="py-2 w-full">
+          
           <div class="container mx-auto px-2 sm:px-4 text-center">
+            <!-- <img src="{% static 'blog/images/Logo-rbg.png' %}" width="24" height="24"/> -->
             <h1
               class="text-5xl md:text-8xl font-playfair font-bold text-black tracking-wide text-shadow-lap-device md:text-shadow-med-device">
               The Byline
             </h1>
           </div>
         </div>
+
+
       </div>
 
       <!-- Newsletter Popup -->
@@ -411,7 +423,7 @@
           <h3 class="text-lg font-semibold text-gray-900 mb-4">Follow Us</h3>
           <div class="flex flex-wrap gap-3 sm:gap-4">
             <!-- Twitter -->
-            <a href="https://x.com/the_byline_" class="text-gray-600 hover:text-blue-600 transition-colors duration-200" target="_blank">
+            <a href="https://x.com/thebyline_in" class="text-gray-600 hover:text-blue-600 transition-colors duration-200" target="_blank">
               <svg class="w-6 h-6" fill="#1DA1F2" viewBox="0 0 24 24">
                 <path
                   d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
@@ -428,7 +440,7 @@
             </a> -->
            
             <!-- Instagram -->
-            <a href="http://instagram.com/thebyline_/" class="text-gray-600 hover:text-pink-600 transition-colors duration-200" target="_blank">
+            <a href="https://www.instagram.com/thebyline_in/?__pwa=1#" class="text-gray-600 hover:text-pink-600 transition-colors duration-200" target="_blank">
               <svg class="w-6 h-6" fill="url(#instagram-gradient-footer)" viewBox="0 0 24 24">
                 <defs>
                   <linearGradient id="instagram-gradient-footer" x1="0%" y1="0%" x2="100%" y2="100%">
