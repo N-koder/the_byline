@@ -6,7 +6,6 @@ Sitemap: https://www.thebyline.in/sitemap.xml
 
 # Disallow admin and private areas
 Disallow: /admin/
-Disallow: /sec123@/admin/
 Disallow: /static/admin/
 Disallow: /media/admin/
 
