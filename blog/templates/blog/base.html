@@ -6,10 +6,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="{% static 'blog/images/Logo.png' %}" type="image/x-icon">
+  <link rel="icon" href="{% static 'blog/images/Logo.png' %}" type="image/png">
+  <link rel="icon" href="{% static 'blog/images/Logo.png' %}" type="image/x-icon">
+  <link rel="shortcut icon" href="{% static 'blog/images/Logo.png' %}">
   <title>{% block title %}The Byline{% endblock %}</title>
   {% block meta %}
-  <meta name="description"
-    content="The Byline, where every line has a name, and every story earns its byline." />
+  <meta name="description" content="The Byline, where every line has a name, and every story earns its byline." />
   <meta name="keywords"
     content="financial news, Indian economy, markets, stocks, crypto, sports news, business updates" />
   <meta name="author" content="The Byline Team" />
@@ -24,7 +26,8 @@
   <meta property="og:image" content="{% static 'blog/images/Logo.jpg' %}" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The Byline" />
-  <meta name="twitter:description" content="Welcome to The Byline, where every line has a name, and every story earns its byline." />
+  <meta name="twitter:description"
+    content="Welcome to The Byline, where every line has a name, and every story earns its byline." />
   <meta name="twitter:image" content="{% static 'blog/images/twitter-card.jpg' %}" />
 
   <link
@@ -58,14 +61,14 @@
               '100%': { transform: 'translateX(-100%)' },
             },
 
-            fadeIn : {
-              '0%' : { opacity : 0 , transform : 'translateY(-10px)'},
-              '100%' : {opacity : 1 , transform : 'translateY(0)'}
+            fadeIn: {
+              '0%': { opacity: 0, transform: 'translateY(-10px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' }
             }
           },
           animation: {
             scroll: 'scroll 40s linear infinite',
-            fadeIn : 'fadeIn 0.8s ease-out forwards'
+            fadeIn: 'fadeIn 0.8s ease-out forwards'
           },
         },
       },
@@ -107,10 +110,8 @@
         text-shadow: 10px -2px 3.5px rgb(0 0 0 / 0.20);
       }
     }
-
-    
   </style>
-  
+
   <!-- Article content styles -->
   <style>
     /* Table styles for article content */
@@ -120,49 +121,50 @@
       margin: 1rem 0;
       font-size: 0.9rem;
     }
-    
+
     .article-content th,
     .article-content td {
       border: 1px solid #ddd;
       padding: 0.75rem;
       text-align: left;
     }
-    
+
     .article-content th {
       background-color: #f8f9fa;
       font-weight: 600;
     }
-    
+
     .article-content tr:nth-child(even) {
       background-color: #f8f9fa;
     }
-    
+
     /* Link styles for article content */
     .article-content a {
       color: #B91C1C;
       text-decoration: underline;
     }
-    
+
     .article-content a:hover {
       color: #7f1d1d;
     }
-    
+
     /* External link indicator */
     .article-content a[href^="http"]:not([href*="thebyline.in"])::after {
       content: " ↗";
       font-size: 0.8em;
       margin-left: 2px;
     }
-    
+
     /* Video container styles */
     .article-content .video-container {
       position: relative;
-      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      padding-bottom: 56.25%;
+      /* 16:9 aspect ratio */
       height: 0;
       margin: 1rem 0;
       overflow: hidden;
     }
-    
+
     .article-content .video-container iframe {
       position: absolute;
       top: 0;
@@ -172,25 +174,25 @@
       border: none;
     }
   </style>
-  
+
   <!-- Video embedding script -->
   <script>
     // Handle video embedding in article content
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       // Find all iframes in article content
       const iframes = document.querySelectorAll('.article-content iframe');
-      
+
       // Process each iframe
-      iframes.forEach(function(iframe) {
+      iframes.forEach(function (iframe) {
         // Ensure iframe has proper attributes for video playback
         if (!iframe.hasAttribute('frameborder')) {
           iframe.setAttribute('frameborder', '0');
         }
-        
+
         if (!iframe.hasAttribute('allowfullscreen')) {
           iframe.setAttribute('allowfullscreen', '');
         }
-        
+
         // Add responsive container for videos
         if (iframe.src && (iframe.src.includes('youtube.com') || iframe.src.includes('youtu.be') || iframe.src.includes('vimeo.com'))) {
           // Create a responsive container
@@ -200,11 +202,11 @@
           container.style.paddingBottom = '56.25%'; // 16:9 aspect ratio
           container.style.height = '0';
           container.style.margin = '1rem 0';
-          
+
           // Wrap the iframe in the container
           iframe.parentNode.insertBefore(container, iframe);
           container.appendChild(iframe);
-          
+
           // Style the iframe
           iframe.style.position = 'absolute';
           iframe.style.top = '0';
@@ -255,7 +257,7 @@
 
         <!-- Logo Section -->
         <div class="py-2 w-full">
-          
+
           <div class="container mx-auto px-2 sm:px-4 text-center">
             <!-- <img src="{% static 'blog/images/Logo-rbg.png' %}" width="24" height="24"/> -->
             <h1
@@ -423,24 +425,26 @@
           <h3 class="text-lg font-semibold text-gray-900 mb-4">Follow Us</h3>
           <div class="flex flex-wrap gap-3 sm:gap-4">
             <!-- Twitter -->
-            <a href="https://x.com/thebyline_in" class="text-gray-600 hover:text-blue-600 transition-colors duration-200" target="_blank">
+            <a href="https://x.com/thebyline_in"
+              class="text-gray-600 hover:text-blue-600 transition-colors duration-200" target="_blank">
               <svg class="w-6 h-6" fill="#1DA1F2" viewBox="0 0 24 24">
                 <path
                   d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
               </svg>
             </a>
-           
+
             <!-- YouTube -->
-           
+
             <!-- <a href="#" class="text-gray-600 hover:text-red-600 transition-colors duration-200">
               <svg class="w-6 h-6" fill="#FF0000" viewBox="0 0 24 24">
                 <path
                   d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
               </svg>
             </a> -->
-           
+
             <!-- Instagram -->
-            <a href="https://www.instagram.com/thebyline_in/?__pwa=1#" class="text-gray-600 hover:text-pink-600 transition-colors duration-200" target="_blank">
+            <a href="https://www.instagram.com/thebyline_in/?__pwa=1#"
+              class="text-gray-600 hover:text-pink-600 transition-colors duration-200" target="_blank">
               <svg class="w-6 h-6" fill="url(#instagram-gradient-footer)" viewBox="0 0 24 24">
                 <defs>
                   <linearGradient id="instagram-gradient-footer" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -454,7 +458,8 @@
               </svg>
             </a>
             <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/company/thebyline/about/" class="text-gray-600 hover:text-blue-600 transition-colors duration-200" target="_blank">
+            <a href="https://www.linkedin.com/company/thebyline/about/"
+              class="text-gray-600 hover:text-blue-600 transition-colors duration-200" target="_blank">
               <svg class="w-6 h-6" fill="#0077B5" viewBox="0 0 24 24">
                 <path
                   d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -470,7 +475,7 @@
   </footer>
 
   <!-- About Us Modal -->
- 
+
   <!-- <div id="aboutModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
     <div
       class="bg-white rounded-lg w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl mx-2 sm:mx-4 max-h-[85vh] sm:max-h-[90vh] overflow-y-auto shadow-lg modal-content">
@@ -488,15 +493,15 @@
             Finance, and Sports. Founded by three journalism graduates with a
             shared commitment to integrity and quality storytelling.</p> -->
 
-          <!-- <h3 class="text-lg sm:text-2xl font-bold text-black mb-4">Our Mission</h3>
+  <!-- <h3 class="text-lg sm:text-2xl font-bold text-black mb-4">Our Mission</h3>
           <p class="text-gray-700 mb-6">We believe that everyone deserves access to reliable financial information.
             Our team of experienced journalists and analysts work around the clock to bring you the latest market
             developments, expert analysis, and in-depth reporting on the stories that matter most to your financial
             future.</p> -->
 
-          <!-- <h3 class="text-lg sm:text-2xl font-bold text-black mb-4">What We Cover</h3> -->
- 
-          <!-- <ul class="text-sm sm:text-base text-gray-700 mb-6 list-disc list-inside space-y-2">
+  <!-- <h3 class="text-lg sm:text-2xl font-bold text-black mb-4">What We Cover</h3> -->
+
+  <!-- <ul class="text-sm sm:text-base text-gray-700 mb-6 list-disc list-inside space-y-2">
             <li><span class="font-bold">What We Do : </span> We deliver clear, fact‑first journalism—no spin,
               no agendas. From market trends and corporate analysis to live
               match coverage and tactical insights, our reporting is driven
@@ -508,7 +513,7 @@
             <li>Global economic news and analysis</li>
           </ul> -->
 
-          <!-- <h3 class="text-lg sm:text-2xl font-bold text-black mb-4">Our Team</h3>
+  <!-- <h3 class="text-lg sm:text-2xl font-bold text-black mb-4">Our Team</h3>
           <p class="text-gray-700 mb-6">Our editorial team consists of seasoned financial journalists, former Wall
             Street analysts, and economics experts who bring decades of combined experience to our newsroom. We are
             committed to maintaining the highest standards of journalistic integrity and accuracy.</p>
