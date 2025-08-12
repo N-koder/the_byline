@@ -3,7 +3,8 @@
 {%block nav%}
 
 <!-- Navigation Section -->
-<nav id="main-navbar" class="hidden md:block bg-white border-b border-gray-200 sticky top-0 z-40"  style="box-shadow:6px 4px 20px 0px rgb(0 0 0 / 0.20)">
+<nav id="main-navbar" class="hidden md:block bg-white border-b border-gray-200 sticky top-0 z-40"
+  style="box-shadow:6px 4px 20px 0px rgb(0 0 0 / 0.20)">
   <div class="container mx-auto px-4">
     <div class="flex items-center justify-around py-2">
       <!-- Search Bar -->
@@ -56,15 +57,15 @@
                   class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
               </a>
               <a href="{% url 'category_articles' 'startups' %}"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Startups  
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Startups
                 <span
                   class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
               </a>
-              
+
             </div>
           </div>
         </div>
-        
+
         <!-- <a href="{% url 'category_articles' 'business'  %}"
           class="{% if request.path == '/category/market/' or request.path == '/category/gold/' or request.path == '/category/business/' %}text-red-600 font-semibold{% else %}text-black {% endif %} hover:text-red-600 font-medium transition-colors group relative">Business
           <span
@@ -81,41 +82,43 @@
             class="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
             <div class="py-2">
               <a href="{% url 'category_articles' 'stock market' %}"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Stock Market 
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Stock
+                Market
                 <span
                   class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
               </a>
               <a href="{% url 'category_articles' 'mutual funds' %}"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Mutual Funds
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Mutual
+                Funds
                 <span
                   class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
               </a>
               <a href="{% url 'category_articles' 'ipo' %}"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">IPO 
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">IPO
                 <span
                   class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
               </a>
               <a href="{% url 'category_articles' 'economy' %}"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Economy 
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Economy
                 <span
                   class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
               </a>
               <a href="{% url 'category_articles' 'policy' %}"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Policy  
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Policy
                 <span
                   class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
               </a>
               <a href="{% url 'category_articles' 'budget' %}"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Budget 
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Budget
                 <span
                   class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
               </a>
               <a href="{% url 'category_articles' 'taxation' %}"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Taxation     
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Taxation
                 <span
                   class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
               </a>
-              
+
             </div>
           </div>
         </div>
@@ -174,27 +177,28 @@
                   class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
               </a>
               <a href="{% url 'category_articles' 'defense' %}"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Defense 
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Defense
                 <span
                   class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
               </a>
               <a href="{% url 'category_articles' 'aviation' %}"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Aviation  
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Aviation
                 <span
                   class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
               </a>
               <a href="{% url 'category_articles' 'hospitality' %}"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Hospitality   
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Hospitality
                 <span
                   class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
               </a>
               <a href="{% url 'category_articles' 'real estate' %}"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Real Estate    
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Real
+                Estate
                 <span
                   class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
               </a>
               <a href="{% url 'category_articles' 'space' %}"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Space    
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-red-600 group/item relative">Space
                 <span
                   class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
               </a>
@@ -293,7 +297,7 @@
     {% endfor %}
   </div>
   {% else %}
-    <!-- <p class="text-gray-500 text-sm">No articles found in this category.</p> -->
+  <!-- <p class="text-gray-500 text-sm">No articles found in this category.</p> -->
 
   {% endif %}
 </section>
@@ -301,68 +305,41 @@
 {% endblock %}
 
 <script>
-// Smooth navbar transition functionality for category page
-let lastScrollTop = 0;
-const navbar = document.getElementById('main-navbar');
-const scrollThreshold = 100; // Reduced threshold for better responsiveness
+  // Smooth navbar transition functionality for category page
+  let lastScrollTop = 0;
+  const navbar = document.getElementById('main-navbar');
+  const scrollThreshold = 192.864; // Show navbar after scrolling 100px
 
-// Check if navbar exists
-if (!navbar) {
-  console.error('Navbar element not found!');
-  return;
-}
+  // Add transition classes to navbar
+  navbar.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+  navbar.style.transform = 'translateY(0)';
+  navbar.style.opacity = '1';
 
-// Add transition classes to navbar
-navbar.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-navbar.style.transform = 'translateY(0)';
-navbar.style.opacity = '1';
+  window.addEventListener('scroll', function () {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-// Ensure navbar has proper initial positioning
-if (navbar) {
-  // Store original styles for restoration
-  navbar.dataset.originalTop = '0px';
-  navbar.dataset.originalPosition = 'sticky';
-  navbar.dataset.originalZIndex = '40';
-}
+    if (scrollTop > scrollThreshold) {
+      // Smooth transition to fixed-like behavior
+      navbar.style.position = 'fixed';
+      navbar.style.top = '0';
+      navbar.style.left = '0';
+      navbar.style.right = '0';
+      navbar.style.width = '100%';
+      navbar.style.transform = 'translateY(0)';
+      navbar.style.opacity = '1';
+      // Smooth shadow transition
+      navbar.style.boxShadow = '0 4px 20px 0px rgb(0 0 0 / 0.25)';
+    } else {
+      // Smooth transition back to sticky
+      navbar.style.position = 'sticky';
+      navbar.style.top = '0';
+      navbar.style.transform = 'translateY(0)';
+      navbar.style.opacity = '1';
+      // Smooth shadow transition back
+      navbar.style.boxShadow = '6px 4px 20px 0px rgb(0 0 0 / 0.20)';
+    }
 
-// Debug: Log navbar element
-console.log('Navbar element:', navbar);
-console.log('Initial navbar position:', navbar.style.position);
-console.log('Initial navbar top:', navbar.style.top);
+    lastScrollTop = scrollTop;
+  });
 
-window.addEventListener('scroll', function() {
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  
-  // Debug: Log scroll information
-  console.log('Scroll position:', scrollTop, 'Threshold:', scrollThreshold);
-  
-  if (scrollTop > scrollThreshold) {
-    console.log('Switching to fixed position');
-    // Smooth transition to fixed-like behavior
-    navbar.style.position = 'fixed';
-    navbar.style.top = '0';
-    navbar.style.left = '0';
-    navbar.style.right = '0';
-    navbar.style.width = '100%';
-    navbar.style.transform = 'translateY(0)';
-    navbar.style.opacity = '1';
-    // Smooth shadow transition
-    navbar.style.boxShadow = '0 4px 20px 0px rgb(0 0 0 / 0.25)';
-    // Ensure navbar is above all content when fixed
-    navbar.style.zIndex = '9999';
-  } else {
-    console.log('Switching back to sticky position');
-    // Smooth transition back to sticky
-    navbar.style.position = 'sticky';
-    navbar.style.top = '0px'; // Match the HTML top-0 class
-    navbar.style.transform = 'translateY(0)';
-    navbar.style.opacity = '1';
-    // Smooth shadow transition back
-    navbar.style.boxShadow = '6px 4px 20px 0px rgb(0 0 0 / 0.20)';
-    // Restore original z-index
-    navbar.style.zIndex = '40';
-  }
-  
-  lastScrollTop = scrollTop;
-});
 </script>
