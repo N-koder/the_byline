@@ -320,7 +320,7 @@ navbar.style.opacity = '1';
 // Ensure navbar has proper initial positioning
 if (navbar) {
   // Store original styles for restoration
-  navbar.dataset.originalTop = '24px';
+  navbar.dataset.originalTop = '0px';
   navbar.dataset.originalPosition = 'sticky';
   navbar.dataset.originalZIndex = '40';
 }
@@ -354,7 +354,7 @@ window.addEventListener('scroll', function() {
     console.log('Switching back to sticky position');
     // Smooth transition back to sticky
     navbar.style.position = 'sticky';
-    navbar.style.top = '24px'; // Keep the original top-24 offset for category page
+    navbar.style.top = '0px'; // Match the HTML top-0 class
     navbar.style.transform = 'translateY(0)';
     navbar.style.opacity = '1';
     // Smooth shadow transition back
