@@ -116,10 +116,46 @@ function debounce(func, wait) {
     };
 }
 
+function initNavbarBehavior() {
+  const navbar = document.getElementById('cat-navbar'); 
+  if (navbar) {
+    let lastScrollTop = 0;
+    const scrollThreshold = 192.864;
+    
+    navbar.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+    navbar.style.transform = 'translateY(0)';
+    navbar.style.opacity = '1';
+
+    window.addEventListener('scroll', function() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if (scrollTop > scrollThreshold) {
+        navbar.style.position = 'fixed';
+        navbar.style.top = '0';
+        navbar.style.left = '0';
+        navbar.style.right = '0';
+        navbar.style.width = '100%';
+        navbar.style.transform = 'translateY(0)';
+        navbar.style.opacity = '1';
+        navbar.style.boxShadow = '0 4px 20px 0px rgb(0 0 0 / 0.25)';
+      } else {
+        navbar.style.position = 'sticky';
+        navbar.style.top = '0';
+        navbar.style.transform = 'translateY(0)';
+        navbar.style.opacity = '1';
+        navbar.style.boxShadow = '6px 4px 20px 0px rgb(0 0 0 / 0.20)';
+      }
+      
+      lastScrollTop = scrollTop;
+    });
+  }
+}
+
 // Export functions for use in other scripts
 window.TheByline = {
     initScrollAnimations,
     initMobileMenu,
     initSearchFunctionality,
-    initNewsletterSubscription
+    initNewsletterSubscription,
+    initNavbarBehavior
 };
