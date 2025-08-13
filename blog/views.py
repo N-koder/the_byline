@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Article , Category
+from .models import Article , Category , Subscriber
 from .forms import NewsletterForm
 from django.contrib import messages
 from django.db.models import Q
@@ -20,10 +20,26 @@ import re
 def subscribe_newsletter(request):
     form = NewsletterForm(request.POST)
     if form.is_valid():
-        form.save()
-        messages.success(request, "Thank you for subscribing!")
+        email = form.cleaned_data['email']
+        # Check if email already exists
+        if Subscriber.objects.filter(email=email).exists():
+            messages.info(request, "You're already subscribed with this email!")
+        else:
+            try:
+                form.save()
+                # Store email in session
+                # request.session['subscriber_email'] = subscriber.email
+                messages.success(request, "Thank you for subscribing!")
+            except Exception as e:
+                # Handle any database errors
+                messages.error(request, "An error occurred. Please try again.")
     else:
-        messages.error(request, "Please enter a valid email.")
+         # Check if it's a duplicate email error
+        email = request.POST.get('email', '')
+        if email and Subscriber.objects.filter(email=email).exists():
+            messages.info(request, "You're already subscribed with this email!")
+        else:
+            messages.error(request, "Please enter a valid email.")
     
     # Redirect back to the referring page
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
