@@ -235,7 +235,7 @@
           <h3 class="text-2xl font-semibold text-black   hover:text-red-600 transition">
             <a href="{% url 'article_detail' slug=featured.slug %}">{{ featured.title }}</a>
           </h3>
-          <p class="text-sm text-gray-600 mt-3">{{ featured.summary|truncatechars:200 }}</p>
+          <p class="text-sm text-gray-600 mt-3">{{ featured.summary|safe|truncatechars:200 }}</p>
           <!-- author info -->
           <div class="flex flex-wrap items-center text-sm text-gray-500 mt-6 space-x-4 font-roboto ">
             {% if featured.authorImage %}
@@ -272,7 +272,7 @@
         <h3 class="text-lg font-semibold text-gray-900   hover:text-red-600 transition">
           <a href="{% url 'article_detail' slug=article.slug %}">{{ article.title }}</a>
         </h3>
-        <p class="text-sm text-gray-600 mt-2">{{ article.summary|truncatechars:120 }}</p>
+        <p class="text-sm text-gray-600 mt-2">{{ article.summary|safe|truncatechars:120 }}</p>
         <!-- author info -->
         <div class="flex flex-wrap items-center text-sm text-gray-500 mt-6 space-x-4 font-roboto ">
           {% if article.authorImage %}
