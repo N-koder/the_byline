@@ -17,18 +17,43 @@
   <meta name="author" content="The Byline Team" />
   {% endblock %}
 
-  <link rel="canonical" href="https://www.thebyline.in/" />
+  <link rel="canonical" href="{{ request.build_absolute_uri }}" />
+  <meta name="robots" content="index, follow" />
   <meta property="og:title" content="The Byline" />
   <meta property="og:description"
     content="Welcome to The Byline, where every line has a name, and every story earns its byline." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.thebyline.in/" />
-  <meta property="og:image" content="{% static 'blog/images/Logo.png' %}" />
+  <meta property="og:image" content="https://www.thebyline.in{% static 'blog/images/Logo.png' %}" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The Byline" />
   <meta name="twitter:description"
     content="Welcome to The Byline, where every line has a name, and every story earns its byline." />
-  <meta name="twitter:image" content="{% static 'blog/images/Logo.png' %}" />
+  <meta name="twitter:image" content="https://www.thebyline.in{% static 'blog/images/Logo.png' %}" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "The Byline",
+    "url": "https://www.thebyline.in/",
+    "logo": "https://www.thebyline.in{% static 'blog/images/Logo.png' %}"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://www.thebyline.in/",
+    "name": "The Byline",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.thebyline.in/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
 
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap"
@@ -261,7 +286,6 @@
         <div class="py-2 w-full">
 
           <div class="container mx-auto px-2 sm:px-4 text-center">
-            <!-- <img src="{% static 'blog/images/Logo-rbg.png' %}" width="24" height="24"/> -->
             <h1
               class="text-5xl md:text-8xl font-playfair font-bold text-black tracking-wide text-shadow-lap-device md:text-shadow-med-device">
               The Byline
@@ -278,7 +302,7 @@
         <div class="bg-white rounded-lg p-4 sm:p-8 max-w-sm sm:max-w-md w-full mx-4">
           <div class="text-center">
             <h2 class="text-xl sm:text-2xl font-bold text-black mb-4 font-inter">Subscribe to The Byline</h2>
-            <p class="text-sm sm:text-base text-gray-600 mb-6 font-inter">Stay updated with the latest financial news
+            <p class="text-sm sm:text-base text-gray-600 mb-6 font-inter">Stay updated with the latest News
               and analysis.</p>
 
             <form method="POST" action="{% url 'subscribe_newsletter' %}" class="space-y-4">

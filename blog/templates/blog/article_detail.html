@@ -1,5 +1,48 @@
 {% extends "blog/base.html" %}
 {% block title %}{{ article.title }} - The Byline{% endblock %}
+{% block meta %}
+  <meta name="description" content="{{ article.summary|striptags|truncatechars:160 }}" />
+  <meta property="og:title" content="{{ article.title }}" />
+  <meta property="og:description" content="{{ article.summary|striptags|truncatechars:200 }}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+  {% if article.image %}
+  <meta property="og:image" content="{{ article.image.url }}" />
+  <meta name="twitter:image" content="{{ article.image.url }}" />
+  {% endif %}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ article.title }}" />
+  <meta name="twitter:description" content="{{ article.summary|striptags|truncatechars:200 }}" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "{{ article.title|escapejs }}",
+    "datePublished": "{{ article.created_at|date:'c' }}",
+    "dateModified": "{{ article.updated_at|default:article.created_at|date:'c' }}",
+    {% if article.image %}
+    "image": ["{{ article.image.url }}"],
+    {% endif %}
+    "author": {
+      "@type": "Person",
+      "name": "{{ article.author|escapejs }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Byline",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.thebyline.in{% static 'blog/images/Logo.png' %}"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ request.build_absolute_uri }}"
+    }
+  }
+  </script>
+{% endblock %}
 
 {% block content %}
 <div class="max-w-6xl mx-auto px-4 lg:px-0">
