@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %}
+{% load static %}
 {% block title %}{{ article.title }} - The Byline{% endblock %}
 {% block meta %}
   <meta name="description" content="{{ article.summary|striptags|truncatechars:160 }}" />
