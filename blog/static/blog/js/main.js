@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     initMobileMenu();
     initSearchFunctionality();
+    initNavbarBehavior();
 });
 
 // Scroll animations
