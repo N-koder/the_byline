@@ -18,6 +18,7 @@ class Article(models.Model):
     summary = models.TextField()
     body = models.TextField()
     image = models.ImageField(upload_to='article_images/')
+    image_credit = models.CharField(max_length=200, default='')
     authorImage = models.ImageField(upload_to='author_images/' , default='avtar.jpg')
     author = models.CharField(max_length=200)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
