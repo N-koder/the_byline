@@ -230,6 +230,7 @@
       <div class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300">
         {% if featured.image %}
         <img src="{{ featured.image.url }}" alt="{{ featured.title }}" class="w-full h-64 object-cover">
+        <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ featured.image_credit }}</div>
         {% endif %}
         <div class="p-6">
           <h3 class="text-2xl font-semibold text-black   hover:text-red-600 transition">
@@ -267,6 +268,7 @@
     <div class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300">
       {% if article.image %}
       <img src="{{ article.image.url }}" alt="{{ article.title }}" class="w-full h-64 object-cover">
+      <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ article.image_credit }}</div>
       {% endif %}
       <div class="p-4">
         <h3 class="text-lg font-semibold text-gray-900   hover:text-red-600 transition">
