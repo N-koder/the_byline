@@ -22,7 +22,7 @@ class ArticleAdmin(admin.ModelAdmin):
             'fields': ('title', 'slug', 'summary', 'body', 'author')
         }),
         ('Images', {
-            'fields': ('image', 'image_preview', 'authorImage', 'author_image_preview'),
+            'fields': ('image', 'image_preview', 'authorImage', 'author_image_preview' , 'image_credit'),
             'classes': ('collapse',)
         }),
         ('Categorization', {
