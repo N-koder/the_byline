@@ -6,6 +6,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 
+from taggit.managers import TaggableManager
+
 class Category(models.Model):
     name = models.CharField(max_length=100)
 
@@ -22,6 +24,7 @@ class Article(models.Model):
     authorImage = models.ImageField(upload_to='author_images/' , default='avtar.jpg')
     author = models.CharField(max_length=200)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    tags = TaggableManager()
     created_at = models.DateTimeField(auto_now_add=True)
     is_featured = models.BooleanField(default=False)
     is_opinion = models.BooleanField(default=False)
