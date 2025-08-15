@@ -15,7 +15,7 @@ from django.template.loader import render_to_string
 from django.utils.html import mark_safe
 import re
 from taggit.models import Tag
-
+from django.contrib.auth.models import User
 
 @require_POST
 def subscribe_newsletter(request):
@@ -198,6 +198,16 @@ def category_articles(request, category_name):
         'current_date': current_date
     }
     return render(request, 'blog/category.html', context)
+
+def author_articles(request, username):
+    author = get_object_or_404(User, username=username)
+    articles = Article.objects.filter(author=author).order_by("-created_at")
+    
+    context = {
+        "author": author,
+        "articles": articles,
+    }
+    return render(request, "blog/author_articles.html", context)
 
 
 def contact(request):
