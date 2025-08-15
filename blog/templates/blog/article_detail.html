@@ -99,5 +99,16 @@
   </div>
 </div>
 
-<div class="mt-16"></div>
+<div class="mt-6">
+  <h3 class="text-center font-semibold mt-8">READ MORE NEWS ON</h3>
+  <div class="flex flex-wrap justify-center gap-3 mt-4">
+    {% for tag in article.tags.all %}
+    <a href="{% url 'tagged_articles' tag.slug %}" class="bg-gray-200 px-3 py-1 rounded-md hover:bg-gray-300">
+      {{ tag.name }}
+    </a>
+    {% empty %}
+    <p>No tags for this article</p>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}
