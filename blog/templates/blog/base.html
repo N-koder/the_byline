@@ -353,6 +353,17 @@
         </details>
 
         <details class="py-2 border-b">
+          <summary class="cursor-pointer font-medium text-gray-700">Tech</summary>
+          <div class="ml-4 mt-2 space-y-1 text-sm">
+            <a href="{% url 'category_articles' 'ai' %}" class="block">AI</a>
+            <a href="{% url 'category_articles' 'fintech' %}" class="block">Fintech</a>
+            <a href="{% url 'category_articles' 'gadgets' %}" class="block">Gadgets</a>
+            <a href="{% url 'category_articles' 'social media' %}" class="block">Social media</a>
+            <a href="{% url 'category_articles' 'cyber security' %}" class="block">Cyber security</a>
+          </div>
+        </details>
+
+        <details class="py-2 border-b">
           <summary class="cursor-pointer font-medium text-gray-700">Sports</summary>
           <div class="ml-4 mt-2 space-y-1 text-sm">
             <a href="{% url 'category_articles' 'cricket' %}" class="block">Cricket</a>
@@ -363,7 +374,6 @@
         <details class="py-2 border-b">
           <summary class="cursor-pointer font-medium text-gray-700">Sectors</summary>
           <div class="ml-4 mt-2 space-y-1 text-sm">
-            <a href="{% url 'category_articles' 'fintech' %}" class="block">Fintech</a>
             <a href="{% url 'category_articles' 'banking' %}" class="block">Banking</a>
             <a href="{% url 'category_articles' 'defense' %}" class="block">Defense</a>
             <a href="{% url 'category_articles' 'aviation' %}" class="block">Aviation</a>
