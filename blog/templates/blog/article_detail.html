@@ -53,7 +53,7 @@
     {% if article.image %}
     <div class="w-full">
       <img src="{{ article.image.url }}" alt="{{ article.title }}"
-           class="w-full max-h-[400px] object-contain rounded-lg shadow-md" loading="lazy">
+           class="w-full h-auto object-cover rounded-lg shadow-md" loading="lazy">
       <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ article.image_credit }}</div>
     </div>
     {% endif %}
