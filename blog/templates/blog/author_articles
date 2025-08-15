@@ -1,0 +1,51 @@
+<!-- blog/templates/blog/author_articles.html -->
+{% extends "blog/base.html" %}
+
+{% block title %}Articles by {{ author }} - The Byline{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 py-6">
+    <h2 class="text-3xl font-medium text-gray-500 mb-6 border-b-2 border-[#BA0000] pb-2">
+      Articles written by : <span class="text-black">{{ author }}</span>
+    </h2>
+
+    {% if articles %}
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for article in articles %}
+                <div class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300">
+                    <a href="{% url 'article_detail' article.slug %}">
+                        {% if article.image %}
+                            <img src="{{ article.image.url }}" alt="{{ article.title }}"
+                                 class="w-full h-48 object-cover">
+                            {% if article.image_credit %}
+                            <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ article.image_credit }}</div>
+                            {% endif %}
+                        {% endif %}
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-900 font-bold hover:text-red-600 transition">
+                                {{ article.title }}
+                            </h3>
+                            <p class="text-sm text-gray-600 mt-2">
+                                {{ article.summary|truncatewords:20 }}
+                            </p>
+                            <!-- author info -->
+                            <div class="flex flex-wrap items-center text-sm text-gray-500 mt-6 space-x-4 font-roboto ">
+                                {% if article.authorImage %}
+                                <img src="{{ article.authorImage.url }}" alt="{{ article.author }}"
+                                    class="w-6 h-6 rounded-full object-cover">
+                                {% endif %}
+                                <span>•</span>
+                                <span class="text-gray-800">{{ article.author|capfirst }}</span>
+                                <span>•</span>
+                                <span>{{ article.created_at|date:"F j, Y" }}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-gray-500 text-sm">No articles by {{ author }} yet.</p>
+    {% endif %}
+</div>
+{% endblock %}
