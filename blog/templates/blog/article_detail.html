@@ -79,7 +79,10 @@
         {% if article.authorImage %}
         <img src="{{ article.authorImage.url }}" alt="{{ article.author }}" class="w-12 h-12 rounded-full object-cover">
         {% endif %}
-        <span>By <span class="font-semibold text-gray-800">{{ article.author }}</span></span>
+        <span>By : <a href="{% url 'author_articles' article.author %}"
+            class="text-red-600 font-semibold hover:underline">
+            {{ article.author }}
+          </a></span>
         <span>•</span>
         <span>{{ article.created_at|date:"F j, Y" }}</span>
         {% if article.category %}
