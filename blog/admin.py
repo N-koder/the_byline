@@ -7,7 +7,7 @@ from .models import Article, Category, Subscriber, ContactMessage
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'category', 'is_featured', 'is_opinion', 'created_at', 'image_preview', 'author_image_preview')
-    list_filter = ('category', 'is_featured', 'is_opinion', 'created_at')
+    list_filter = ('category', 'tags' , 'is_featured', 'is_opinion', 'created_at')
     search_fields = ('title', 'author', 'summary', 'body')
     prepopulated_fields = {'slug': ('title',)}
     readonly_fields = ('created_at', 'image_preview', 'author_image_preview')
@@ -26,7 +26,7 @@ class ArticleAdmin(admin.ModelAdmin):
             'classes': ('collapse',)
         }),
         ('Categorization', {
-            'fields': ('category', 'is_featured', 'is_opinion')
+            'fields': ('category', 'tags' , 'is_featured', 'is_opinion')
         }),
         ('Metadata', {
             'fields': ('created_at',),
