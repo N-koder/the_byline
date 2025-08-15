@@ -51,7 +51,7 @@
 
     <!-- Left: Article Image -->
     {% if article.image %}
-    <div class="w-fit h-[450px] mx-auto  flex items-center justify-center shadow-md">
+    <div class="w-fit h-fit md:h-[450px]  mx-auto  flex items-center justify-center shadow-md">
       <img src="{{ article.image.url }}" alt="{{ article.title }}"
            class="max-w-full max-h-full object-contain" loading="lazy">
     </div>
