@@ -383,7 +383,7 @@
       <div
         class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 flex flex-col sm:flex-row">
         {% if data.featured.image %}
-        <div>
+        <div class="flex flex-col justify-center">
           <img src="{{ data.featured.image.url }}" alt="{{ data.featured.title }}"
             class="w-full h-64 object-cover">
           <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ data.featured.image_credit }}</div>
