@@ -23,10 +23,10 @@
                         {% endif %}
                         <div class="p-4">
                             <h3 class="text-lg font-semibold text-gray-900 font-bold hover:text-red-600 transition">
-                                {{ article.title }}
+                                {{ article.title|safe }}
                             </h3>
                             <p class="text-sm text-gray-600 mt-2">
-                                {{ article.summary|truncatewords:20 }}
+                                {{ article.summary|safe|truncatewords:20 }}
                             </p>
                             <!-- author info -->
                             <div class="flex flex-wrap items-center text-sm text-gray-500 mt-6 space-x-4 font-roboto ">
@@ -35,7 +35,7 @@
                                     class="w-6 h-6 rounded-full object-cover">
                                 {% endif %}
                                 <span>•</span>
-                                <span class="text-gray-800">{{ article.author|capfirst }}</span>
+                                <span class="text-gray-800">{{ article.author|safe|capfirst }}</span>
                                 <span>•</span>
                                 <span>{{ article.created_at|date:"F j, Y" }}</span>
                             </div>
