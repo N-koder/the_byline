@@ -14,6 +14,7 @@ from collections import OrderedDict
 from django.template.loader import render_to_string
 from django.utils.html import mark_safe
 import re
+from taggit.models import Tag
 
 
 @require_POST
@@ -168,6 +169,17 @@ def article_detail(request, slug):
     current_date = datetime.now().strftime("%A, %B %d, %Y")
     article = get_object_or_404(Article, slug=slug)
     return render(request, 'blog/article_detail.html', {'article': article , 'current_date' : current_date})
+
+
+def tagged_articles(request, slug):
+    tag = get_object_or_404(Tag, slug=slug)
+    articles = Article.objects.filter(tags__in=[tag])
+    context = {
+        'articles': articles,
+        'search_query': tag.name,
+        'tag': tag
+    }
+    return render(request, 'blog/home.html', context)
 
 
 def category_articles(request, category_name):
