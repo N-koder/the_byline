@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'admin_interface',
     'colorfield',
     'tinymce',
+    'taggit',
 ]
 
 # MIDDLEWARE
