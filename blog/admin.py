@@ -6,11 +6,30 @@ from .models import Article, Category, Subscriber, ContactMessage
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'category', 'is_featured', 'is_opinion', 'created_at', 'image_preview', 'author_image_preview')
-    list_filter = ('category', 'tags' , 'is_featured', 'is_opinion', 'created_at')
+    list_display = ('title', 'author', 'category', 'is_featured', 'is_opinion', 'created_at', 'image_preview', 'author_image_preview' , 'status')
+    list_filter = ('status' ,'category', 'tags' , 'is_featured', 'is_opinion', 'created_at')
     search_fields = ('title', 'author', 'summary', 'body')
     prepopulated_fields = {'slug': ('title',)}
     readonly_fields = ('created_at', 'image_preview', 'author_image_preview')
+    actions = ["make_published", "make_draft"]
+
+    def colored_status(self, obj):
+        """Show colored status in Admin"""
+        if obj.status == "published":
+            return format_html('<span style="color: green; font-weight: bold;">{}</span>', obj.status)
+        return format_html('<span style="color: red; font-weight: bold;">{}</span>', obj.status)
+    colored_status.admin_order_field = "status"
+    colored_status.short_description = "Status"
+
+    def make_published(self, request, queryset):
+        updated = queryset.update(status="published")
+        self.message_user(request, f"{updated} articles marked as Published ✅")
+    make_published.short_description = "Mark selected as Published"
+
+    def make_draft(self, request, queryset):
+        updated = queryset.update(status="draft")
+        self.message_user(request, f"{updated} articles marked as Draft 📝")
+    make_draft.short_description = "Mark selected as Draft"
     
     def formfield_for_dbfield(self, db_field, request, **kwargs):
         if db_field.name == 'body':
