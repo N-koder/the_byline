@@ -127,8 +127,8 @@ def home(request, category_slug=None):
     categories = Category.objects.all()
     context = {
         'crick_key': settings.RAPIDAPI_KEY,
-        'opinion_articles': Article.objects.filter(is_opinion=True),
-        'featured_articles': Article.objects.filter(is_featured=True).order_by('-created_at')[:5],
+        'opinion_articles': Article.objects.filter(is_opinion=True, status='published'),
+        'featured_articles': Article.objects.filter(is_featured=True,  status='published').order_by('-created_at')[:5],
         'current_category': category_slug.capitalize() if category_slug else None,
         'current_date': current_date
     }
@@ -139,7 +139,7 @@ def home(request, category_slug=None):
             Q(title__icontains=query) |
             Q(summary__icontains=query) |
             Q(body__icontains=query)
-        ).distinct()
+        ).filter(status='published').distinct()
 
         for a in search_articles:
             a.title = highlight_keyword(a.title, query)
@@ -153,7 +153,7 @@ def home(request, category_slug=None):
     from collections import OrderedDict
     category_articles = OrderedDict()
     for category in categories:
-        cat_articles = Article.objects.filter(category=category).order_by('-created_at')[:4]
+        cat_articles = Article.objects.filter(category=category ,  status='published').order_by('-created_at')[:4]
         if cat_articles:
             featured = cat_articles[0]
             others = cat_articles[1:]
@@ -167,13 +167,13 @@ def home(request, category_slug=None):
 
 def article_detail(request, slug):
     current_date = datetime.now().strftime("%A, %B %d, %Y")
-    article = get_object_or_404(Article, slug=slug)
+    article = get_object_or_404(Article, slug=slug , status='published')
     return render(request, 'blog/article_detail.html', {'article': article , 'current_date' : current_date})
 
 
 def tagged_articles(request, slug):
     tag = get_object_or_404(Tag, slug=slug)
-    articles = Article.objects.filter(tags__in=[tag])
+    articles = Article.objects.filter(tags__in=[tag] , status='published')
     context = {
         'articles': articles,
         'search_query': tag.name,
@@ -185,7 +185,7 @@ def tagged_articles(request, slug):
 def category_articles(request, category_name):
     current_date = datetime.now().strftime("%A, %B %d, %Y")
     category = get_object_or_404(Category, name__iexact=category_name)
-    articles = Article.objects.filter(category=category).order_by('-created_at')
+    articles = Article.objects.filter(category=category , status='published').order_by('-created_at')
 
     featured = articles[0] if articles else None
     others = articles[1:] if articles.count() > 1 else []
@@ -201,7 +201,7 @@ def category_articles(request, category_name):
 
 def author_articles(request, username):
     author = get_object_or_404(User, username=username)
-    articles = Article.objects.filter(author=author).order_by("-created_at")
+    articles = Article.objects.filter(author=author , status='published').order_by("-created_at")
     
     context = {
         "author": author,
