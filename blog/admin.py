@@ -27,6 +27,13 @@ class ArticleAdmin(admin.ModelAdmin):
         self.message_user(request, f"{updated} articles marked as Published ✅")
     make_published.short_description = "Mark selected as Published"
 
+    def get_actions(self, request):
+        actions = super().get_actions(request)
+        if not request.user.has_perm('blog.can_publish'):
+            if 'make_published' in actions:
+                del actions['make_published']
+        return actions
+
     # def save_model(self, request, obj, form, change):
     #     """Prevent unauthorized users from publishing"""
     #     if obj.status == "published" and not request.user.has_perm("blog.can_publish"):
