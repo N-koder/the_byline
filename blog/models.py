@@ -37,6 +37,12 @@ class Article(models.Model):
         max_length=10, choices=STATUS_CHOICES, default="draft"
     )
     
+    class Meta:
+        permissions = [
+            ("can_publish", "Can publish articles"),
+        ]
+        
+    
     def __str__(self):
         return f"{self.title } ({self.status})"
 
