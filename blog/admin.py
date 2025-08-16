@@ -3,6 +3,7 @@ from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 from tinymce.widgets import TinyMCE
 from .models import Article, Category, Subscriber, ContactMessage
+from django.core.exceptions import PermissionDenied
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
@@ -26,6 +27,12 @@ class ArticleAdmin(admin.ModelAdmin):
         self.message_user(request, f"{updated} articles marked as Published ✅")
     make_published.short_description = "Mark selected as Published"
 
+    def save_model(self, request, obj, form, change):
+        """Prevent unauthorized users from publishing"""
+        if obj.status == "published" and not request.user.has_perm("blog.can_publish"):
+            raise PermissionDenied("🚫 You don’t have permission to publish articles.")
+        super().save_model(request, obj, form, change)
+
     def make_draft(self, request, queryset):
         updated = queryset.update(status="draft")
         self.message_user(request, f"{updated} articles marked as Draft 📝")
@@ -38,7 +45,7 @@ class ArticleAdmin(admin.ModelAdmin):
     
     fieldsets = (
         ('Basic Information', {
-            'fields': ('title', 'slug', 'summary', 'body', 'author')
+            'fields': ('title', 'slug', 'summary', 'body', 'author' , 'status')
         }),
         ('Images', {
             'fields': ('image', 'image_preview', 'authorImage', 'author_image_preview' , 'image_credit'),
