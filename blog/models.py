@@ -15,6 +15,10 @@ class Category(models.Model):
         return self.name
 
 class Article(models.Model):
+    STATUS_CHOICES = (
+        ("draft", "Draft"),
+        ("published", "Published"),
+    )
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     summary = models.TextField()
@@ -29,8 +33,12 @@ class Article(models.Model):
     is_featured = models.BooleanField(default=False)
     is_opinion = models.BooleanField(default=False)
 
+    status = models.CharField(
+        max_length=10, choices=STATUS_CHOICES, default="draft"
+    )
+    
     def __str__(self):
-        return self.title
+        return f"{self.title } ({self.status})"
 
     def get_absolute_url(self):
         return reverse('article_detail', kwargs={'slug': self.slug})
