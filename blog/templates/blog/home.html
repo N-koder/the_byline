@@ -345,7 +345,7 @@
     {% if forloop.first %}
     <div class="mb-6">
       <div
-        class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 flex flex-col sm:flex-row relative">
+        class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 flex flex-col sm:flex-row relative border-r-4 border-red-600">
         {% if article.image %}
           <div class="flex flex-col justify-center">
             <img src="{{ article.image.url }}" alt="{{ article.title }}" class="w-full h-64 object-cover">
@@ -438,7 +438,7 @@
     <!-- Featured full-width article -->
     <div class="mb-6">
       <div
-        class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 flex flex-col sm:flex-row">
+        class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 flex flex-col sm:flex-row border-r-4 border-red-600">
         {% if data.featured.image %}
         <div class="flex flex-col justify-center" style="width:23rem;">
           <img src="{{ data.featured.image.url }}" alt="{{ data.featured.title }}" class="w-full h-64 object-cover" />
