@@ -340,44 +340,39 @@
       Latest News
     </h2>
 
-    {% comment %} First featured item (full width) {% endcomment %}
-    {% for category, data in category_articles.items %}
+    {% comment %} First recent article (full width) {% endcomment %}
+    {% for article in recent_articles %}
     {% if forloop.first %}
     <div class="mb-6">
       <div
         class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 flex flex-col relative">
-        {% if data.featured.image %}
-        <img src="{{ data.featured.image.url }}" alt="{{ data.featured.title }}" class="w-full h-fit object-cover">
-        <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ data.featured.image_credit }}</div>
+        {% if article.image %}
+        <img src="{{ article.image.url }}" alt="{{ article.title }}" class="w-full h-fit object-cover">
+        <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ article.image_credit }}</div>
         {% endif %}
         <div class="p-6">
+          {% if article.category %}
           <span class="absolute top-0 left-0 bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-br-lg">
-            {{ category.name|safe|capfirst }}
+            {{ article.category.name|safe|capfirst }}
           </span>
+          {% endif %}
           <h3 class="text-2xl font-semibold text-gray-900 font-bold hover:text-red-600 transition">
-            <a href="{% url 'article_detail' slug=data.featured.slug %}">{{ data.featured.title|safe }}</a>
+            <a href="{% url 'article_detail' slug=article.slug %}">{{ article.title|safe }}</a>
           </h3>
-          <p class="text-sm text-gray-600 mt-3">{{ data.featured.summary|safe|truncatechars:200 }}</p>
+          <p class="text-sm text-gray-600 mt-3">{{ article.summary|safe|truncatechars:200 }}</p>
           <!-- author info -->
           <div class="flex flex-wrap items-center text-sm text-gray-500 mt-6 space-x-4 font-roboto ">
-            {% if data.featured.authorImage %}
-            <img src="{{ data.featured.authorImage.url }}" alt="{{ article.author }}"
+            {% if article.authorImage %}
+            <img src="{{ article.authorImage.url }}" alt="{{ article.author }}"
               class="w-6 h-6 rounded-full object-cover">
             {% endif %}
             <span>•</span>
-            <span class="text-gray-800">{{ data.featured.author|safe|capfirst }}</span>
+            <span class="text-gray-800">{{ article.author|safe|capfirst }}</span>
             <span>•</span>
-            <span>{{ data.featured.created_at|date:"F j, Y" }}</span>
-            <!-- {% if data.featured.category %}
-            <span>•</span>
-            <span class="bg-red-600 text-white px-2 py-0.5 rounded-full text-xs uppercase tracking-wide font-semibold">
-              {{ data.featured.category }}
-            </span>
-            {% endif %} -->
+            <span>{{ article.created_at|date:"F j, Y" }}</span>
           </div>
 
-
-          <a href="{% url 'article_detail' slug=data.featured.slug %}"
+          <a href="{% url 'article_detail' slug=article.slug %}"
             class="text-red-600 hover:text-black text-sm font-medium mt-4 inline-block">
             Read more →
           </a>
@@ -387,51 +382,47 @@
     {% endif %}
     {% endfor %}
 
-    <!-- Next 3 featured articles in grid -->
+    <!-- Next 3 recent articles in grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {% for category, data in category_articles.items %}
-      {% if not forloop.first and forloop.counter <= 4 %} <div
-        class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 relative">
-        {% if data.featured.image %}
-        <img src="{{ data.featured.image.url }}" alt="{{ data.featured.title }}" class="w-full h-48 object-cover">
-        <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ data.featured.image_credit }}</div>
+      {% for article in recent_articles %}
+      {% if not forloop.first %}
+      <div class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 relative">
+        {% if article.image %}
+        <img src="{{ article.image.url }}" alt="{{ article.title }}" class="w-full h-48 object-cover">
+        <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ article.image_credit }}</div>
         {% endif %}
+        {% if article.category %}
         <span class="absolute top-0 left-0 bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-br-lg">
-          {{ category.name|safe|capfirst }}
+          {{ article.category.name|safe|capfirst }}
         </span>
+        {% endif %}
         <div class="p-4">
           <h3 class="text-lg font-semibold text-gray-900 font-bold hover:text-red-600 transition">
-            <a href="{% url 'article_detail' slug=data.featured.slug %}">{{ data.featured.title|safe }}</a>
+            <a href="{% url 'article_detail' slug=article.slug %}">{{ article.title|safe }}</a>
           </h3>
-          <p class="text-sm text-gray-600 mt-2">{{ data.featured.summary|safe|truncatechars:120 }}</p>
+          <p class="text-sm text-gray-600 mt-2">{{ article.summary|safe|truncatechars:120 }}</p>
 
           <!-- author info -->
           <div class="flex flex-wrap items-center text-sm text-gray-500 mt-6 space-x-2 font-roboto ">
-            {% if data.featured.authorImage %}
-            <img src="{{ data.featured.authorImage.url }}" alt="{{ article.author }}"
+            {% if article.authorImage %}
+            <img src="{{ article.authorImage.url }}" alt="{{ article.author }}"
               class="w-6 h-6 rounded-full object-cover">
             {% endif %}
             <span>•</span>
-            <span class="text-gray-800">{{ data.featured.author|safe|capfirst }}</span>
+            <span class="text-gray-800">{{ article.author|safe|capfirst }}</span>
             <span>•</span>
-            <span>{{ data.featured.created_at|safe|date:"F j, Y" }}</span>
-            <!-- {% if data.featured.category %}
-            <span>•</span>
-            <span class="bg-red-600 text-white px-2 py-0.5 rounded-full text-xs uppercase tracking-wide font-semibold">
-              {{ data.featured.category }}
-            </span>
-            {% endif %} -->
+            <span>{{ article.created_at|date:"F j, Y" }}</span>
           </div>
 
-          <a href="{% url 'article_detail' slug=data.featured.slug %}"
+          <a href="{% url 'article_detail' slug=article.slug %}"
             class="text-red-600 hover:text-black text-sm font-medium mt-3 inline-block">
             Read more →
           </a>
         </div>
+      </div>
+      {% endif %}
+      {% endfor %}
     </div>
-    {% endif %}
-    {% endfor %}
-  </div>
 
   <!-- 🗂️ CATEGORY SECTIONS -->
   {% for category, data in category_articles.items %}
