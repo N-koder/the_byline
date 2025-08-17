@@ -32,7 +32,7 @@
       <!-- Navigation Links -->
       <div class="flex items-center space-x-8 mr-[28rem]">
         <a href="{% url 'home' %}"
-          class="{% if request.path == '/' %}text-red-600 font-semibold{% else %}text-black{% endif %} hover:text-red-600 transition-colors group relative">
+          class="{% if request.path == '/' %}text-red-600 {% else %}text-black{% endif %} hover:text-red-600 transition-colors group relative">
           Home
           <span
             class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
