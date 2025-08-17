@@ -345,10 +345,12 @@
     {% if forloop.first %}
     <div class="mb-6">
       <div
-        class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 flex flex-col relative">
+        class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 flex flex-col sm:flex-row relative">
         {% if article.image %}
-        <img src="{{ article.image.url }}" alt="{{ article.title }}" class="w-full h-fit object-cover">
-        <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ article.image_credit }}</div>
+          <div class="flex flex-col justify-center">
+            <img src="{{ article.image.url }}" alt="{{ article.title }}" class="w-full h-64 object-cover">
+            <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ article.image_credit }}</div>
+          </div>
         {% endif %}
         <div class="p-6">
           {% if article.category %}
