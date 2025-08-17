@@ -441,8 +441,7 @@
         class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 flex flex-col sm:flex-row">
         {% if data.featured.image %}
         <div class="flex flex-col justify-center">
-          <img src="{{ data.featured.image.url }}" alt="{{ data.featured.title }}"
-            class="w-full h-64 object-cover">
+          <img src="{{ data.featured.image.url }}" alt="{{ data.featured.title }}" class="w-full h-64 object-cover" />
           <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ data.featured.image_credit }}</div>
         </div>
         {% endif %}
@@ -532,9 +531,10 @@
     <div class="max-h-[600px] overflow-y-auto pr-2 space-y-4">
       {% for opinion in opinion_articles %}
       <div class="bg-white p-4 rounded-xl shadow flex items-start gap-4 hover:shadow-md transition">
-        {% if opinion.authorImage %}
+<!--         {% if opinion.authorImage %}
         <img src="{{ opinion.authorImage.url }}" alt="{{ opinion.author }}" class="w-12 h-12 rounded-full object-cover">
-        {% endif %}
+        {% endif %} -->
+        <img src="{{ opinion.image.url }}" alt="{{ opinion.author }}" class="w-12 h-12 rounded-full object-cover">
         <a href="{% url 'article_detail' slug=opinion.slug %}">
           <h4 class="font-semibold text-gray-900">{{ opinion.title|safe }}</h4>
           <p class="text-sm text-gray-500 mb-1">{{ opinion.author|safe|capfirst }}</p>
