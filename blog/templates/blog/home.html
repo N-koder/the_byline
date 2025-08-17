@@ -299,7 +299,7 @@
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
   <!-- 📄 LEFT: News and Search -->
-  <div class="lg:col-span-2">
+  <div class="{% if opinion_articles %}lg:col-span-2{% else %}lg:col-span-3{% endif %}">
     {% if search_query %}
     <!-- 🔍 Search Result Block -->
      <h2 class="text-3xl font-medium text-gray-500 mb-6 border-b-2 border-[#BA0000] pb-2">
@@ -523,24 +523,26 @@
 </div>
 
 <!-- 🧠 RIGHT: Opinions Sidebar -->
-<div>
-  <h2 class="text-3xl font-bold mb-4 border-b-2 border-red-600 pb-2">Opinion Articles</h2>
-
-  <div class="max-h-[600px] overflow-y-auto pr-2 space-y-4">
-    {% for opinion in opinion_articles %}
-    <div class="bg-white p-4 rounded-xl shadow flex items-start gap-4 hover:shadow-md transition">
-      {% if opinion.authorImage %}
-      <img src="{{ opinion.authorImage.url }}" alt="{{ opinion.author }}" class="w-12 h-12 rounded-full object-cover">
-      {% endif %}
-      <a href="{% url 'article_detail' slug=opinion.slug %}">
-        <h4 class="font-semibold text-gray-900">{{ opinion.title|safe }}</h4>
-        <p class="text-sm text-gray-500 mb-1">{{ opinion.author|safe|capfirst }}</p>
-        <p class="text-sm text-gray-600">{{ opinion.snippet|safe|truncatewords:15 }}</p>
-      </a>
+{% if opinion_articles %}
+  <div>
+    <h2 class="text-3xl font-bold mb-4 border-b-2 border-red-600 pb-2">Opinion Articles</h2>
+  
+    <div class="max-h-[600px] overflow-y-auto pr-2 space-y-4">
+      {% for opinion in opinion_articles %}
+      <div class="bg-white p-4 rounded-xl shadow flex items-start gap-4 hover:shadow-md transition">
+        {% if opinion.authorImage %}
+        <img src="{{ opinion.authorImage.url }}" alt="{{ opinion.author }}" class="w-12 h-12 rounded-full object-cover">
+        {% endif %}
+        <a href="{% url 'article_detail' slug=opinion.slug %}">
+          <h4 class="font-semibold text-gray-900">{{ opinion.title|safe }}</h4>
+          <p class="text-sm text-gray-500 mb-1">{{ opinion.author|safe|capfirst }}</p>
+          <p class="text-sm text-gray-600">{{ opinion.snippet|safe|truncatewords:15 }}</p>
+        </a>
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
-</div>
+{% endif %}
 </div> <!-- End of main grid -->
 
 
