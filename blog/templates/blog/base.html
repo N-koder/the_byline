@@ -331,16 +331,30 @@
           class="block py-2 border-b text-sm text-gray-700">Business</a>
         <a href="{% url 'category_articles' 'economy' %}" class="block py-2 border-b text-sm text-gray-700">Economy</a> -->
 
-        <details class="py-2 border-b">
-          <summary class="cursor-pointer font-medium text-gray-700">Business</summary>
+        <details class="py-2 border-b group" id="businessDetails">
+          <summary class="cursor-pointer font-medium text-gray-700 flex items-center select-none">
+            <a href="{% url 'category_articles' 'business' %}" class="flex-1 block py-1">Business</a>
+            <button type="button" aria-label="Toggle Business submenu"
+              onclick="event.preventDefault(); event.stopPropagation(); document.getElementById('businessDetails').open = !document.getElementById('businessDetails').open;"
+              class="ml-2 focus:outline-none" tabindex="0">
+              <span class="inline-block transition-transform group-open:rotate-90">&#9654;</span>
+            </button>
+          </summary>
           <div class="ml-4 mt-2 space-y-1 text-sm">
             <a href="{% url 'category_articles' 'corporates' %}" class="block">Corporates</a>
             <a href="{% url 'category_articles' 'smes' %}" class="block">SMEs</a>
             <a href="{% url 'category_articles' 'startups' %}" class="block">Startups</a>
           </div>
         </details>
-        <details class="py-2 border-b">
-          <summary class="cursor-pointer font-medium text-gray-700">Finance</summary>
+        <details class="py-2 border-b group" id="financeDetails">
+          <summary class="cursor-pointer font-medium text-gray-700 flex items-center select-none">
+            <a href="{% url 'category_articles' 'finance' %}" class="flex-1 block py-1">Finance</a>
+            <button type="button" aria-label="Toggle Finance submenu"
+              onclick="event.preventDefault(); event.stopPropagation(); document.getElementById('financeDetails').open = !document.getElementById('financeDetails').open;"
+              class="ml-2 focus:outline-none" tabindex="0">
+              <span class="inline-block transition-transform group-open:rotate-90">&#9654;</span>
+            </button>
+          </summary>
           <div class="ml-4 mt-2 space-y-1 text-sm">
             <a href="{% url 'category_articles' 'stock market' %}" class="block">Stock Market</a>
             <a href="{% url 'category_articles' 'mutual funds' %}" class="block">Mutual Funds</a>
@@ -352,8 +366,15 @@
           </div>
         </details>
 
-        <details class="py-2 border-b">
-          <summary class="cursor-pointer font-medium text-gray-700">Tech</summary>
+        <details class="py-2 border-b group" id="techDetails">
+          <summary class="cursor-pointer font-medium text-gray-700 flex items-center select-none">
+            <a href="{% url 'category_articles' 'technology' %}" class="flex-1 block py-1">Tech</a>
+            <button type="button" aria-label="Toggle Tech submenu"
+              onclick="event.preventDefault(); event.stopPropagation(); document.getElementById('techDetails').open = !document.getElementById('techDetails').open;"
+              class="ml-2 focus:outline-none" tabindex="0">
+              <span class="inline-block transition-transform group-open:rotate-90">&#9654;</span>
+            </button>
+          </summary>
           <div class="ml-4 mt-2 space-y-1 text-sm">
             <a href="{% url 'category_articles' 'ai' %}" class="block">AI</a>
             <a href="{% url 'category_articles' 'fintech' %}" class="block">Fintech</a>
@@ -363,8 +384,15 @@
           </div>
         </details>
 
-        <details class="py-2 border-b">
-          <summary class="cursor-pointer font-medium text-gray-700">Sports</summary>
+        <details class="py-2 border-b group" id="sportsDetails">
+          <summary class="cursor-pointer font-medium text-gray-700 flex items-center select-none">
+            <a href="{% url 'category_articles' 'sports' %}" class="flex-1 block py-1">Sports</a>
+            <button type="button" aria-label="Toggle Sports submenu"
+              onclick="event.preventDefault(); event.stopPropagation(); document.getElementById('sportsDetails').open = !document.getElementById('sportsDetails').open;"
+              class="ml-2 focus:outline-none" tabindex="0">
+              <span class="inline-block transition-transform group-open:rotate-90">&#9654;</span>
+            </button>
+          </summary>
           <div class="ml-4 mt-2 space-y-1 text-sm">
             <a href="{% url 'category_articles' 'cricket' %}" class="block">Cricket</a>
             <a href="{% url 'category_articles' 'football' %}" class="block">Football</a>
