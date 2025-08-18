@@ -376,7 +376,7 @@
           </h3>
           <p class="text-sm text-gray-600 mt-3">{{ article.summary|safe|truncatechars:200 }}</p>
           <!-- author info -->
-          <div class="flex flex-wrap items-center text-sm text-gray-500 mt-6 space-x-4 font-roboto ">
+          <div class="flex flex-wrap items-center text-sm text-gray-500 mt-6 space-x-2 font-roboto ">
             {% if article.authorImage %}
             <img src="{{ article.authorImage.url }}" alt="{{ article.author }}"
               class="w-6 h-6 rounded-full object-cover">
