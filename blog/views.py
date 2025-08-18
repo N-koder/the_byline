@@ -185,18 +185,36 @@ def tagged_articles(request, slug):
 
 def category_articles(request, category_name):
     current_date = datetime.now().strftime("%A, %B %d, %Y")
+    normalized_name = category_name.lower()
+        
+    # Get the primary category object for page header/title
     category = get_object_or_404(Category, name__iexact=category_name)
-    articles = Article.objects.filter(category=category , status='published').order_by('-created_at')
+    
+    # Get all subcategories for this category
+    subcategories = category.subcategories.all()
+
+    # Build a query to get articles from this category and its subcategories
+    article_query = Q(category=category)
+    
+    # If there are subcategories, include articles from those as well
+    if subcategories:
+        article_query |= Q(subcategory__in=subcategories)
+
+    
+    articles = Article.objects.filter(article_query , status='published').order_by('-created_at')
 
     featured = articles[0] if articles else None
     others = articles[1:] if articles.count() > 1 else []
 
     context = {
         'category': category,
+        'subcategories': subcategories,
         'featured': featured,
         'others': others,
         'current_category': category.name,
-        'current_date': current_date
+        'current_date': current_date,
+         # Show category badge on cards for all category pages
+        'show_badges': True,
     }
     return render(request, 'blog/category.html', context)
 
