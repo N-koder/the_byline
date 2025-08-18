@@ -68,7 +68,7 @@ class ArticleAdmin(admin.ModelAdmin):
             'classes': ('collapse',)
         }),
         ('Categorization', {
-            'fields': ('category', ' subcategory' 'tags' , 'is_featured', 'is_opinion')
+            'fields': ('category', ' subcategory' ,'tags' , 'is_featured', 'is_opinion')
         }),
         ('Metadata', {
             'fields': ('created_at',),
