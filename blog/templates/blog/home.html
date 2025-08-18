@@ -307,7 +307,7 @@
     </h2>
 
     {% if articles %}
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 {% if opinion_articles %}md:w-[77rem] mx-auto{% endif %} ">
       {% for article in articles %}
       <div class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300">
         {% if article.image %}
