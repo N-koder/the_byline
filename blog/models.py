@@ -14,6 +14,13 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+class Subcategory(models.Model):
+    name = models.CharField(max_length=100)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='subcategories')
+    
+    def __str__(self):
+        return f"{self.category.name} - {self.name}"
+
 class Article(models.Model):
     STATUS_CHOICES = (
         ("draft", "Draft"),
@@ -27,7 +34,8 @@ class Article(models.Model):
     image_credit = models.CharField(max_length=200, default='')
     authorImage = models.ImageField(upload_to='author_images/' , default='avtar.jpg')
     author = models.CharField(max_length=200)
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
+    subcategory = models.ForeignKey(Subcategory, on_delete=models.SET_NULL, null=True, blank=True)
     tags = TaggableManager()
     created_at = models.DateTimeField(auto_now_add=True)
     is_featured = models.BooleanField(default=False)
