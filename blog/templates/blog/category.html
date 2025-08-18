@@ -286,7 +286,16 @@
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
     {% if featured %}
     <div class="">
-      <div class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300">
+      <div class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 relative">
+        {% if show_badges %}
+          <span class="absolute top-0 left-0 bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-br-lg">
+            {% if featured.subcategory %}
+              {{ featured.subcategory.name|capfirst }}
+            {% else %}
+              {{ featured.category.name|capfirst }}
+            {% endif %}
+          </span>
+        {% endif %}
         {% if featured.image %}
         <img src="{{ featured.image.url }}" alt="{{ featured.title }}" class="w-full h-64 object-cover">
         <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ featured.image_credit }}</div>
@@ -324,7 +333,16 @@
     {% if others %}
 
     {% for article in others %}
-    <div class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300">
+    <div class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 relative">
+      {% if show_badges %}
+        <span class="absolute top-0 left-0 bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-br-lg">
+          {% if article.subcategory %}
+            {{ article.subcategory.name|capfirst }}
+          {% else %}
+            {{ article.category.name|capfirst }}
+          {% endif %}
+        </span>
+      {% endif %}
       {% if article.image %}
       <img src="{{ article.image.url }}" alt="{{ article.title }}" class="w-full h-64 object-cover">
       <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ article.image_credit }}</div>
