@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 from tinymce.widgets import TinyMCE
-from .models import Article, Category, Subscriber, ContactMessage
+from .models import Article, Category,  Subcategory, Subscriber, ContactMessage
 # from django.core.exceptions import PermissionDenied
 
 @admin.register(Article)
@@ -68,7 +68,7 @@ class ArticleAdmin(admin.ModelAdmin):
             'classes': ('collapse',)
         }),
         ('Categorization', {
-            'fields': ('category', 'tags' , 'is_featured', 'is_opinion')
+            'fields': ('category', ' subcategory' 'tags' , 'is_featured', 'is_opinion')
         }),
         ('Metadata', {
             'fields': ('created_at',),
@@ -119,3 +119,9 @@ class ContactMessageAdmin(admin.ModelAdmin):
     search_fields = ('first_name', 'last_name', 'email', 'subject')
     ordering = ('-created_at',)
     readonly_fields = ('created_at',)
+    
+@admin.register(Subcategory)
+class SubcategoryAdmin(admin.ModelAdmin):
+    list_display = ('name', 'category')
+    list_filter = ('category',)
+    search_fields = ('name', 'category__name')
