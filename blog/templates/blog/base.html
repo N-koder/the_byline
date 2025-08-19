@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 
 <head>
   <meta charset="UTF-8" />
@@ -15,28 +15,33 @@
   <meta name="keywords"
     content="financial news, Indian economy, markets, stocks, crypto, sports news, business updates" />
   <meta name="author" content="The Byline Team" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="The Byline" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The Byline" />
+  <meta property="og:description"
+    content="The Byline, where every line has a name, and every story earns its byline." />
+  <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+  <meta property="og:image" content="https://www.thebyline.in{% static 'blog/images/Logo.png' %}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@thebyline_in" />
+  <meta name="twitter:title" content="The Byline" />
+  <meta name="twitter:description"
+    content="The Byline, where every line has a name, and every story earns its byline." />
+  <meta name="twitter:image" content="https://www.thebyline.in{% static 'blog/images/Logo.png' %}" />
   {% endblock %}
 
   <link rel="canonical" href="{{ request.build_absolute_uri }}" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="The Byline" />
-  <meta property="og:description"
-    content="Welcome to The Byline, where every line has a name, and every story earns its byline." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.thebyline.in/" />
-  <meta property="og:image" content="https://www.thebyline.in{% static 'blog/images/Logo.png' %}" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="The Byline" />
-  <meta name="twitter:description"
-    content="Welcome to The Byline, where every line has a name, and every story earns its byline." />
-  <meta name="twitter:image" content="https://www.thebyline.in{% static 'blog/images/Logo.png' %}" />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "The Byline",
-    "url": "https://www.thebyline.in/",
+    "url": "{{ request.build_absolute_uri }}",
     "logo": "https://www.thebyline.in{% static 'blog/images/Logo.png' %}"
   }
   </script>
@@ -45,11 +50,11 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "url": "https://www.thebyline.in/",
+    "url": "{{ request.build_absolute_uri }}",
     "name": "The Byline",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://www.thebyline.in/?q={search_term_string}",
+      "target": "{{ request.build_absolute_uri }}?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   }
