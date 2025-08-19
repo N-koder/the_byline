@@ -128,8 +128,8 @@ def home(request, category_slug=None):
     context = {
         'crick_key': settings.RAPIDAPI_KEY,
         'opinion_articles': Article.objects.filter(is_opinion=True, status='published'),
-        'featured_articles': Article.objects.filter(is_featured=True,  status='published').order_by('-created_at')[:5],
-        'recent_articles': Article.objects.filter(status='published').order_by('-created_at')[:5],
+        'featured_articles': Article.objects.filter(is_featured=True,  status='published').order_by('-created_at')[:7],
+        'recent_articles': Article.objects.filter(status='published').order_by('-created_at')[:7],
         'current_category': category_slug.capitalize() if category_slug else None,
         'current_date': current_date
     }
