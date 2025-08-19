@@ -1,6 +1,5 @@
 {% extends "blog/base.html" %}
 {% load static %}
-{% get_current_site request as site %}
 {% block title %}{{ article.title }} - The Byline{% endblock %}
 {% block meta %}
 <meta name="description" content="{{ article.summary|striptags|truncatechars:160 }}" />
@@ -12,18 +11,18 @@
 <meta property="og:description" content="{{ article.summary|striptags|truncatechars:200 }}" />
 <meta property="og:url" content="{{ request.build_absolute_uri }}" />
 {% if article.image %}
-  <meta property="og:image" content="https://{{ site.domain }}{{ article.image.url }}" />
-  <meta name="twitter:image" content="https://{{ site.domain }}{{ article.image.url }}" />
+<meta property="og:image" content="https://www.thebyline.in{{ article.image.url }}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 {% else %}
-  <meta property="og:image" content="https://{{ site.domain }}{% static 'blog/images/Logo.png' %}" />
-  <meta name="twitter:image" content="https://{{ site.domain }}{% static 'blog/images/Logo.png' %}" />
+<meta property="og:image" content="https://www.thebyline.in{% static 'blog/images/Logo.png' %}" />
 {% endif %}
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@thebyline_in" />
 <meta name="twitter:title" content="{{ article.title }}" />
 <meta name="twitter:description" content="{{ article.summary|striptags|truncatechars:200 }}" />
 {% if article.image %}
-<meta name="twitter:image" content="{{ request.build_absolute_uri }}{{ article.image.url }}" />
+<meta name="twitter:image" content="https://www.thebyline.in{{ article.image.url }}" />
 {% else %}
 <meta name="twitter:image" content="https://www.thebyline.in{% static 'blog/images/Logo.png' %}" />
 {% endif %}
@@ -37,7 +36,7 @@
     "datePublished": "{{ article.created_at|date:'c' }}",
     "dateModified": "{{ article.updated_at|default:article.created_at|date:'c' }}",
     {% if article.image %}
-    "image": "{{ request.build_absolute_uri }}{{ article.image.url }}",
+    "image": "https://www.thebyline.in{{ article.image.url }}",
     {% else %}
     "image": "https://www.thebyline.in{% static 'blog/images/Logo.png' %}",
     {% endif %}
