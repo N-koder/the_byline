@@ -22,7 +22,7 @@
   <meta property="og:title" content="The Byline" />
   <meta property="og:description"
     content="The Byline, where every line has a name, and every story earns its byline." />
-  <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+  <meta property="og:url" content="https://www.thebyline.in/" />
   <meta property="og:image" content="https://www.thebyline.in{% static 'blog/images/Logo.png' %}" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -34,14 +34,14 @@
   <meta name="twitter:image" content="https://www.thebyline.in{% static 'blog/images/Logo.png' %}" />
   {% endblock %}
 
-  <link rel="canonical" href="{{ request.build_absolute_uri }}" />
+  <link rel="canonical" href="{https://www.thebyline.in/" />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "The Byline",
-    "url": "{{ request.build_absolute_uri }}",
+    "url": "https://www.thebyline.in/",
     "logo": "https://www.thebyline.in{% static 'blog/images/Logo.png' %}"
   }
   </script>
@@ -54,7 +54,7 @@
     "name": "The Byline",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "{{ request.build_absolute_uri }}?q={search_term_string}",
+      "target": "https://www.thebyline.in/?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   }
