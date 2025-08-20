@@ -296,6 +296,13 @@
             {% endif %}
           </span>
         {% endif %}
+
+        {% if featured.is_opinion  %}
+            <span class="absolute bottom-0 right-0 bg-black text-white text-xs font-semibold px-3 py-1 rounded-tl-lg">
+              opinion
+            </span>
+          {% endif %}
+
         {% if featured.image %}
         <img src="{{ featured.image.url }}" alt="{{ featured.title }}" class="w-full h-64 object-cover">
         <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ featured.image_credit }}</div>
@@ -347,6 +354,15 @@
       <img src="{{ article.image.url }}" alt="{{ article.title }}" class="w-full h-64 object-cover">
       <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ article.image_credit }}</div>
       {% endif %}
+
+      
+      {% if article.is_opinion  %}
+        <span class="absolute bottom-0 right-0 bg-black text-white text-xs font-semibold px-3 py-1 rounded-tl-lg">
+          opinion
+        </span>
+      {% endif %}
+
+      
       <div class="p-4">
         <h3 class="text-lg font-semibold text-gray-900   hover:text-red-600 transition">
           <a href="{% url 'article_detail' slug=article.slug %}">{{ article.title }}</a>
