@@ -309,13 +309,20 @@
     {% if articles %}
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
       {% for article in articles %}
-      <div class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 flex flex-col sm:flex-row">
+      <div class="relative bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 flex flex-col sm:flex-row">
         {% if article.image %}
         <div class="flex flex-col justify-center">
           <img src="{{ article.image.url }}" class="w-full h-48 object-cover" />
           <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ article.image_credit }}</div>
         </div>
         {% endif %}
+
+        {% if article.is_opinion  %}
+            <span class="absolute bottom-0 right-0 bg-black text-white text-xs font-semibold px-3 py-1 rounded-tl-lg">
+              opinion
+            </span>
+          {% endif %}
+
         <div class="p-4">
           <h3 class="text-lg font-semibold text-gray-900 font-bold hover:text-red-600 transition">
             <a href="{% url 'article_detail' slug=article.slug %}">{{ article.title|safe }}</a>
@@ -415,6 +422,7 @@
         <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ article.image_credit }}</div>
         {% endif %}
         
+        
         {% if article.category %}
         <span class="absolute top-0 left-0 bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-br-lg">
           {{ article.category.name|safe|capfirst }}
@@ -467,13 +475,20 @@
     <!-- Featured full-width article -->
     <div class="mb-6">
       <div
-        class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 flex flex-col sm:flex-row border-r-4 border-red-600">
+        class="relative bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 flex flex-col sm:flex-row border-r-4 border-red-600">
         {% if data.featured.image %}
         <div class="flex flex-col justify-center" style="width:23rem;">
           <img src="{{ data.featured.image.url }}" alt="{{ data.featured.title }}" class="w-full h-64 object-cover" />
           <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ data.featured.image_credit }}</div>
         </div>
         {% endif %}
+
+        {% if data.featured.is_opinion  %}
+            <span class="absolute bottom-0 right-0 bg-black text-white text-xs font-semibold px-3 py-1 rounded-tl-lg">
+              opinion
+            </span>
+        {% endif %}
+
         <div class="p-6 sm:w-2/3">
           <h3 class="text-2xl font-semibold text-gray-900 font-bold hover:text-red-600 transition">
             <a href="{% url 'article_detail' slug=data.featured.slug %}">{{ data.featured.title|safe }}</a>
@@ -509,11 +524,18 @@
     {% if data.others %}
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 {% if opinion_articles %}md:w-[77rem] mx-auto{% endif %}">
       {% for article in data.others %}
-      <div class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300">
+      <div class="relative bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300">
         {% if article.image %}
         <img src="{{ article.image.url }}" alt="{{ article.title }}" class="w-full h-48 object-cover">
         <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ article.image_credit }}</div>
         {% endif %}
+
+        {% if article.is_opinion  %}
+            <span class="absolute bottom-0 right-0 bg-black text-white text-xs font-semibold px-3 py-1 rounded-tl-lg">
+              opinion
+            </span>
+        {% endif %}
+
         <div class="p-4">
           <h3 class="text-lg font-semibold text-gray-900 font-bold hover:text-red-600 transition">
             <a href="{% url 'article_detail' slug=article.slug %}">{{ article.title|safe }}</a>
