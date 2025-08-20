@@ -127,7 +127,7 @@ def home(request, category_slug=None):
     categories = Category.objects.all()
     context = {
         'crick_key': settings.RAPIDAPI_KEY,
-        'opinion_articles': Article.objects.filter(is_opinion=True, status='published'),
+        'opinion_articles': Article.objects.filter(is_opinion=True, status='published').order_by('-created_at'),
         'featured_articles': Article.objects.filter(is_featured=True,  status='published').order_by('-created_at')[:7],
         'recent_articles': Article.objects.filter(status='published').order_by('-created_at')[:7],
         'current_category': category_slug.capitalize() if category_slug else None,
