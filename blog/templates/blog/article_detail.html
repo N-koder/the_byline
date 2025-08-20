@@ -32,9 +32,9 @@
     "datePublished": "{{ article.created_at|date:'c' }}",
     "dateModified": "{{ article.updated_at|default:article.created_at|date:'c' }}",
     {% if article.image %}
-    "image": "https://www.thebyline.in{{ article.image.url }}",
+      "image": "{{ article.image.url }}",
     {% else %}
-    "image": "https://www.thebyline.in{% static 'blog/images/Logo.png' %}",
+      "image": "https://www.thebyline.in{% static 'blog/images/Logo.png' %}",
     {% endif %}
     "author": {
       "@type": "Person",
