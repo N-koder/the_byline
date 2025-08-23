@@ -174,7 +174,7 @@ def article_detail(request, slug):
 
 def tagged_articles(request, slug):
     tag = get_object_or_404(Tag, slug=slug)
-    articles = Article.objects.filter(tags__in=[tag] , status='published')
+    articles = Article.objects.filter(tags__in=[tag] , status='published').order_by('-created_at')
     context = {
         'articles': articles,
         'search_query': tag.name,
