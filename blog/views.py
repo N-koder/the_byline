@@ -140,7 +140,7 @@ def home(request, category_slug=None):
             Q(title__icontains=query) |
             Q(summary__icontains=query) |
             Q(body__icontains=query)
-        ).filter(status='published').distinct()
+        ).filter(status='published').order_by('-created_at').distinct()
 
         for a in search_articles:
             a.title = highlight_keyword(a.title, query)
