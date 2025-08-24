@@ -776,13 +776,13 @@
     </div>
   </div> -->
 
-    <script async src="//www.instagram.com/embed.js"></script>
+    <script async src="https://www.instagram.com/embed.js"></script>
     <script>
-        window.onload = function() {
-            if (typeof instgrm !== 'undefined') {
-                instgrm.Embeds.process();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.instgrm) {
+                window.instgrm.Embeds.process();
             }
-        };
+        });
     </script>
     
   <!-- Hamburger Toggle Script -->
