@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Article , Category , Subscriber
+from .models import Article , Category , Subcategory, Subscriber
 from .forms import NewsletterForm
 from django.contrib import messages
 from django.db.models import Q
@@ -183,40 +183,120 @@ def tagged_articles(request, slug):
     return render(request, 'blog/home.html', context)
 
 
-def category_articles(request, category_name):
-    current_date = datetime.now().strftime("%A, %B %d, %Y")
-    normalized_name = category_name.lower()
+# def category_articles(request, category_name):
+#     current_date = datetime.now().strftime("%A, %B %d, %Y")
+#     normalized_name = category_name.lower()
         
-    # Get the primary category object for page header/title
-    category = get_object_or_404(Category, name__iexact=category_name)
+#     # Get the primary category object for page header/title
+#     category = get_object_or_404(Category, name__iexact=category_name)
     
-    # Get all subcategories for this category
-    subcategories = category.subcategories.all()
+#     # Get all subcategories for this category
+#     subcategories = category.subcategories.all()
 
-    # Build a query to get articles from this category and its subcategories
-    article_query = Q(category=category)
+#     # Build a query to get articles from this category and its subcategories
+#     article_query = Q(category=category)
     
-    # If there are subcategories, include articles from those as well
-    if subcategories:
-        article_query |= Q(subcategory__in=subcategories)
+#     # If there are subcategories, include articles from those as well
+#     if subcategories:
+#         article_query |= Q(subcategory__in=subcategories)
 
     
-    articles = Article.objects.filter(article_query , status='published').order_by('-created_at')
+#     articles = Article.objects.filter(article_query , status='published').order_by('-created_at')
 
-    featured = articles[0] if articles else None
-    others = articles[1:] if articles.count() > 1 else []
+#     featured = articles[0] if articles else None
+#     others = articles[1:] if articles.count() > 1 else []
 
-    context = {
-        'category': category,
-        'subcategories': subcategories,
-        'featured': featured,
-        'others': others,
-        'current_category': category.name,
-        'current_date': current_date,
-         # Show category badge on cards for all category pages
-        'show_badges': True,
-    }
-    return render(request, 'blog/category.html', context)
+#     context = {
+#         'category': category,
+#         'subcategories': subcategories,
+#         'featured': featured,
+#         'others': others,
+#         'current_category': category.name,
+#         'current_date': current_date,
+#          # Show category badge on cards for all category pages
+#         'show_badges': True,
+#     }
+#     return render(request, 'blog/category.html', context)
+
+
+def category_articles(request, category_name):
+    print(f"DEBUG: category_articles called with category_name: {category_name}")
+    current_date = datetime.now().strftime("%A, %B %d, %Y")
+    
+    # First, try to find subcategories with the matching name
+    print(f"DEBUG: Trying to find subcategories with name: {category_name}")
+    subcategories = Subcategory.objects.filter(name__iexact=category_name)
+    print(f"DEBUG: Found {subcategories.count()} subcategories with name {category_name}")
+    
+    if subcategories.exists():
+        print(f"DEBUG: Found subcategories: {list(subcategories)}")
+        # Fetch all articles for these subcategories
+        articles = Article.objects.filter(
+            subcategory__in=subcategories,
+            status='published',
+            is_deleted=False
+        ).order_by('-created_at').distinct()
+        print(f"DEBUG: Found {articles.count()} articles for subcategories")
+        
+        # Create a mock category object with the subcategory name for page title
+        from django.db.models import Model
+        class MockCategory:
+            def __init__(self, name):
+                self.name = name
+                
+            def __str__(self):
+                return self.name
+        
+        mock_category = MockCategory(category_name)
+        
+        context = {
+            'category': mock_category,  # Use mock category with subcategory name for page title
+            'subcategories': subcategories,
+            'featured': articles[0] if articles else None,
+            'others': articles[1:] if articles.count() > 1 else [],
+            'current_category': category_name,  # Use the subcategory name for the page title
+            'current_date': current_date,
+            # Show category badge on cards for all category pages
+            'show_badges': True,
+        }
+        return render(request, 'blog/category.html', context)
+    
+    # If no subcategories found, try to find a category
+    print(f"DEBUG: No subcategories found, trying to find category with name: {category_name}")
+    try:
+        category = Category.objects.get(name__iexact=category_name)
+        print(f"DEBUG: Found category: {category}")
+        # Get all subcategories for this category
+        subcategories = category.subcategories.all()
+        print(f"DEBUG: Found subcategories: {subcategories}")
+        
+        # Build a query to get articles from this category and its subcategories
+        article_query = Q(category=category)
+        
+        # If there are subcategories, include articles from those as well
+        if subcategories:
+            article_query |= Q(subcategory__in=subcategories)
+        
+        # Fetch all matching articles
+        articles = Article.objects.filter(article_query, status='published', is_deleted=False).order_by('-created_at')
+        print(f"DEBUG: Found {articles.count()} articles for category {category_name}")
+        
+        context = {
+            'category': category,
+            'subcategories': subcategories,
+            'featured': articles[0] if articles else None,
+            'others': articles[1:] if articles.count() > 1 else [],
+            'current_category': category.name,
+            'current_date': current_date,
+            # Show category badge on cards for all category pages
+            'show_badges': True,
+        }
+        return render(request, 'blog/category.html', context)
+    except Category.DoesNotExist:
+        print(f"DEBUG: Category {category_name} not found")
+        # If neither category nor subcategory found, return 404
+        from django.http import Http404
+        raise Http404("Category or subcategory does not exist")
 
 def author_articles(request, username):
     author = get_object_or_404(User, username=username)
