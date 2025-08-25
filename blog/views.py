@@ -234,7 +234,6 @@ def category_articles(request, category_name):
         articles = Article.objects.filter(
             subcategory__in=subcategories,
             status='published',
-            is_deleted=False
         ).order_by('-created_at').distinct()
         print(f"DEBUG: Found {articles.count()} articles for subcategories")
         
@@ -278,7 +277,7 @@ def category_articles(request, category_name):
             article_query |= Q(subcategory__in=subcategories)
         
         # Fetch all matching articles
-        articles = Article.objects.filter(article_query, status='published', is_deleted=False).order_by('-created_at')
+        articles = Article.objects.filter(article_query, status='published').order_by('-created_at')
         print(f"DEBUG: Found {articles.count()} articles for category {category_name}")
         
         context = {
