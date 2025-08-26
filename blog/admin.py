@@ -7,6 +7,9 @@ from .models import Article, Category,  Subcategory, Subscriber, ContactMessage
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
+    class Media:
+        js = ('blog/js/autosave.js',)
+        
     list_display = ('title', 'author', 'category', 'is_featured', 'is_opinion', 'created_at', 'image_preview', 'author_image_preview' , 'status')
     list_filter = ('status' ,'category', 'tags' , 'is_featured', 'is_opinion', 'created_at')
     search_fields = ('title', 'author', 'summary', 'body')
@@ -55,7 +58,7 @@ class ArticleAdmin(admin.ModelAdmin):
     make_draft.short_description = "Mark selected as Draft"
     
     def formfield_for_dbfield(self, db_field, request, **kwargs):
-        if db_field.name == 'body':
+        if db_field.name in ( 'body' , 'summary'):
             kwargs['widget'] = TinyMCE(attrs={'cols': 80, 'rows': 30})
         return super().formfield_for_dbfield(db_field, request, **kwargs)
     
