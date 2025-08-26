@@ -14,6 +14,8 @@ from collections import OrderedDict
 from django.template.loader import render_to_string
 from django.utils.html import mark_safe
 import re
+from django.views.decorators.csrf import csrf_protect , csrf_exempt
+from django.contrib.auth.decorators import login_required
 from taggit.models import Tag
 from django.contrib.auth.models import User
 
@@ -338,3 +340,81 @@ def terms_of_service(request):
 
 def cookie_policy(request):
     return render(request, 'blog/cookie_policy.html')
+
+
+
+@csrf_exempt
+@login_required
+def autosave_draft(request):
+    print("Autosave function called")
+    try:
+        if request.method == "POST":
+            print("Autosave request received")
+            # Fix: Remove the comma that was making article_id a tuple
+            article_id = request.POST.get("id")
+            title = request.POST.get("title", "")
+            slug = request.POST.get("slug", "")
+            summary = request.POST.get("summary", "")
+            body = request.POST.get("body", "")
+            author = request.POST.get("author", "")
+            tags = request.POST.get("tags", "")  # Fix: This should be a string, not a list
+
+        print(f"Article ID: {article_id}")
+        print(f"Title: {title}")
+        print(f"Summary :  {summary}")
+        print(f"Author: {author}")
+
+        # Handle the case where we're updating an existing article
+        if article_id:
+  
+            try:
+                article = Article.objects.get(id=article_id)
+                    # Don't overwrite slug unless explicitly changed
+                if 'slug' not in request.POST or not request.POST['slug']:
+                    del request.POST['slug']
+                print(f"Updating existing article with ID: {article_id}")
+                article.title = title
+                article.slug = slug
+                article.summary = summary
+                article.body = body
+                article.author = author
+                article.status = "draft"
+                article.save()
+                print(f"Article updated successfully with ID: {article.id}")
+                
+                # Handle tags properly
+                if tags:
+                    article.tags.set([t.strip() for t in tags.split(',') if t.strip()])
+                else:
+                    article.tags.clear()
+                    
+            except Article.DoesNotExist:
+                print(f"Article with ID {article_id} not found")
+                return JsonResponse({"status": "error", "message": "Article not found"}, status=404)
+        else:
+            # Creating a new article
+            print("Creating new article")
+            article = Article.objects.create(
+                title=title,
+                slug=slug,
+                summary=summary,
+                body=body,
+                author=author,
+                status="draft"
+            )
+            print(f"New article created with ID: {article.id}")
+            
+            # Handle tags for new article
+            if tags:
+                article.tags.set([t.strip() for t in tags.split(',') if t.strip()])
+            
+
+        return JsonResponse({"status": "ok", "id": article.id})
+    except Exception as e:
+        print(f"Error in autosave_draft: {e}")
+        import traceback
+        traceback.print_exc()
+        return JsonResponse({"status": "error", "message": str(e)}, status=500)
+        
+    print("Invalid request method")
+ 
