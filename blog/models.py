@@ -32,7 +32,7 @@ class Article(models.Model):
     body = models.TextField()
     image = models.ImageField(upload_to='article_images/')
     image_credit = models.CharField(max_length=200, default='')
-    authorImage = models.ImageField(upload_to='author_images/' , default='avtar.jpg')
+    authorImage = models.ImageField(upload_to='author_images/' , default='author_images/writer.jpg')
     author = models.CharField(max_length=200)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     subcategory = models.ForeignKey(Subcategory, on_delete=models.SET_NULL, null=True, blank=True)
