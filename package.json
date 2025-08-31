@@ -4,7 +4,7 @@
   "description": "**The Byline** is a modern, mobile-friendly financial news platform built with Django. It delivers real-time updates on markets, crypto, economy, and sports — with a focus on simplicity, SEO, and admin-driven content publishing.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build:css": "tailwindcss -i ./blog/static/blog/css/input.css -o ./blog/static/blog/css/output.css --minify"
   },
   "repository": {
