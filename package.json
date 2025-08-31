@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+    "build:css": "tailwindcss -i ./blog/static/blog/css/input.css -o ./blog/static/blog/css/output.css --minify"
   },
   "repository": {
     "type": "git",
