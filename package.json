@@ -1,0 +1,26 @@
+{
+  "name": "the_byline",
+  "version": "1.0.0",
+  "description": "**The Byline** is a modern, mobile-friendly financial news platform built with Django. It delivers real-time updates on markets, crypto, economy, and sports — with a focus on simplicity, SEO, and admin-driven content publishing.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/N-koder/the_byline.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/N-koder/the_byline/issues"
+  },
+  "homepage": "https://github.com/N-koder/the_byline#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.12"
+  }
+}
