@@ -314,7 +314,7 @@
       <div class="relative bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 flex flex-col sm:flex-row">
         {% if article.image %}
         <div class="flex flex-col justify-center">
-          <img src="{{ article.image.url }}" class="w-full h-48 object-cover" />
+          <img src="{{ article.image.url }}" class="w-full h-48 object-contain" />
           <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ article.image_credit }}</div>
         </div>
         {% endif %}
@@ -335,7 +335,7 @@
           <div class="flex flex-wrap items-center text-sm text-gray-500 mt-6 space-x-4 font-roboto ">
             {% if article.authorImage %}
             <img src="{{ article.authorImage.url }}" alt="{{ article.author }}"
-              class="w-6 h-6 rounded-full object-cover">
+              class="w-6 h-6 rounded-full object-contain">
             {% endif %}
             <span>•</span>
             <span class="text-gray-800">{{ article.author|safe|capfirst }}</span>
@@ -370,7 +370,7 @@
         class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 flex flex-col sm:flex-row relative border-r-4 border-red-600">
         {% if article.image %}
           <div class="flex flex-col justify-center w-full sm:w-[30rem] md:w-[50rem] lg:w-[70rem]">
-            <img src="{{ article.image.url }}" alt="{{ article.title }}" class="w-full h-64 object-cover">
+            <img src="{{ article.image.url }}" alt="{{ article.title }}" class="w-full h-64 object-contain">
             <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ article.image_credit }}</div>
           </div>
         {% endif %}
@@ -396,7 +396,7 @@
           <div class="flex flex-wrap items-center text-sm text-gray-500 mt-6 space-x-2 font-roboto ">
             {% if article.authorImage %}
             <img src="{{ article.authorImage.url }}" alt="{{ article.author }}"
-              class="w-6 h-6 rounded-full object-cover">
+              class="w-6 h-6 rounded-full object-contain">
             {% endif %}
             <span>•</span>
             <span class="text-gray-800">{{ article.author|safe|capfirst }}</span>
@@ -420,7 +420,7 @@
       {% if not forloop.first %}
       <div class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 relative">
         {% if article.image %}
-        <img src="{{ article.image.url }}" alt="{{ article.title }}" class="w-full h-48 object-cover">
+        <img src="{{ article.image.url }}" alt="{{ article.title }}" class="w-full h-48 object-contain">
         <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ article.image_credit }}</div>
         {% endif %}
         
@@ -447,7 +447,7 @@
           <div class="flex flex-wrap items-center text-sm text-gray-500 mt-6 space-x-2 font-roboto ">
             {% if article.authorImage %}
             <img src="{{ article.authorImage.url }}" alt="{{ article.author }}"
-              class="w-6 h-6 rounded-full object-cover">
+              class="w-6 h-6 rounded-full object-contain">
             {% endif %}
             <span>•</span>
             <span class="text-gray-800">{{ article.author|safe|capfirst }}</span>
@@ -480,7 +480,7 @@
         class="relative bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 flex flex-col sm:flex-row border-r-4 border-red-600">
         {% if data.featured.image %}
         <div class="flex flex-col justify-center" style="width:23rem;">
-          <img src="{{ data.featured.image.url }}" alt="{{ data.featured.title }}" class="w-full h-64 object-cover" />
+          <img src="{{ data.featured.image.url }}" alt="{{ data.featured.title }}" class="w-full h-64 object-contain" />
           <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ data.featured.image_credit }}</div>
         </div>
         {% endif %}
@@ -500,7 +500,7 @@
           <div class="flex flex-wrap items-center text-sm text-gray-500 mt-6 space-x-2 font-roboto ">
             {% if data.featured.authorImage %}
             <img src="{{ data.featured.authorImage.url }}" alt="{{ article.author }}"
-              class="w-6 h-6 rounded-full object-cover">
+              class="w-6 h-6 rounded-full object-contain">
             {% endif %}
             <span>•</span>
             <span class="text-gray-800">{{ data.featured.author|safe|capfirst }}</span>
@@ -528,7 +528,7 @@
       {% for article in data.others %}
       <div class="relative bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300">
         {% if article.image %}
-        <img src="{{ article.image.url }}" alt="{{ article.title }}" class="w-full h-48 object-cover">
+        <img src="{{ article.image.url }}" alt="{{ article.title }}" class="w-full h-48 object-contain">
         <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ article.image_credit }}</div>
         {% endif %}
 
@@ -548,7 +548,7 @@
           <div class="flex flex-wrap items-center text-sm text-gray-500 mt-6 space-x-3 font-roboto ">
             {% if article.authorImage %}
             <img src="{{ article.authorImage.url }}" alt="{{ article.author }}"
-              class="w-6 h-6 rounded-full object-cover">
+              class="w-6 h-6 rounded-full object-contain">
             {% endif %}
             <span>•</span>
             <span class="text-gray-800">{{ article.author|safe|capfirst }}</span>
@@ -585,9 +585,9 @@
       {% for opinion in opinion_articles %}
       <div class="bg-white p-4 rounded-xl shadow flex items-start gap-4 hover:shadow-md transition border-r-4 border-red-600">
 <!--         {% if opinion.authorImage %}
-        <img src="{{ opinion.authorImage.url }}" alt="{{ opinion.author }}" class="w-12 h-12 rounded-full object-cover">
+        <img src="{{ opinion.authorImage.url }}" alt="{{ opinion.author }}" class="w-12 h-12 rounded-full object-contain">
         {% endif %} -->
-        <img src="{{ opinion.image.url }}" alt="{{ opinion.author }}" class="w-12 h-12 rounded-full object-cover">
+        <img src="{{ opinion.image.url }}" alt="{{ opinion.author }}" class="w-12 h-12 rounded-full object-contain">
         <a href="{% url 'article_detail' slug=opinion.slug %}">
           <h4 class="font-semibold text-gray-900">{{ opinion.title|safe }}</h4>
           <p class="text-sm text-gray-500 mb-1">{{ opinion.author|safe|capfirst }}</p>
