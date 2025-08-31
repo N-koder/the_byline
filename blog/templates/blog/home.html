@@ -335,7 +335,7 @@
           <div class="flex flex-wrap items-center text-sm text-gray-500 mt-6 space-x-4 font-roboto ">
             {% if article.authorImage %}
             <img src="{{ article.authorImage.url }}" alt="{{ article.author }}"
-              class="w-6 h-6 rounded-full object-contain">
+              class="w-6 h-6 rounded-full object-cover">
             {% endif %}
             <span>•</span>
             <span class="text-gray-800">{{ article.author|safe|capfirst }}</span>
@@ -396,7 +396,7 @@
           <div class="flex flex-wrap items-center text-sm text-gray-500 mt-6 space-x-2 font-roboto ">
             {% if article.authorImage %}
             <img src="{{ article.authorImage.url }}" alt="{{ article.author }}"
-              class="w-6 h-6 rounded-full object-contain">
+              class="w-6 h-6 rounded-full object-cover">
             {% endif %}
             <span>•</span>
             <span class="text-gray-800">{{ article.author|safe|capfirst }}</span>
@@ -447,7 +447,7 @@
           <div class="flex flex-wrap items-center text-sm text-gray-500 mt-6 space-x-2 font-roboto ">
             {% if article.authorImage %}
             <img src="{{ article.authorImage.url }}" alt="{{ article.author }}"
-              class="w-6 h-6 rounded-full object-contain">
+              class="w-6 h-6 rounded-full object-cover">
             {% endif %}
             <span>•</span>
             <span class="text-gray-800">{{ article.author|safe|capfirst }}</span>
@@ -500,7 +500,7 @@
           <div class="flex flex-wrap items-center text-sm text-gray-500 mt-6 space-x-2 font-roboto ">
             {% if data.featured.authorImage %}
             <img src="{{ data.featured.authorImage.url }}" alt="{{ article.author }}"
-              class="w-6 h-6 rounded-full object-contain">
+              class="w-6 h-6 rounded-full object-cover">
             {% endif %}
             <span>•</span>
             <span class="text-gray-800">{{ data.featured.author|safe|capfirst }}</span>
@@ -548,7 +548,7 @@
           <div class="flex flex-wrap items-center text-sm text-gray-500 mt-6 space-x-3 font-roboto ">
             {% if article.authorImage %}
             <img src="{{ article.authorImage.url }}" alt="{{ article.author }}"
-              class="w-6 h-6 rounded-full object-contain">
+              class="w-6 h-6 rounded-full object-cover">
             {% endif %}
             <span>•</span>
             <span class="text-gray-800">{{ article.author|safe|capfirst }}</span>
@@ -587,7 +587,7 @@
 <!--         {% if opinion.authorImage %}
         <img src="{{ opinion.authorImage.url }}" alt="{{ opinion.author }}" class="w-12 h-12 rounded-full object-contain">
         {% endif %} -->
-        <img src="{{ opinion.image.url }}" alt="{{ opinion.author }}" class="w-12 h-12 rounded-full object-contain">
+        <img src="{{ opinion.image.url }}" alt="{{ opinion.author }}" class="w-12 h-12 rounded-full object-cover">
         <a href="{% url 'article_detail' slug=opinion.slug %}">
           <h4 class="font-semibold text-gray-900">{{ opinion.title|safe }}</h4>
           <p class="text-sm text-gray-500 mb-1">{{ opinion.author|safe|capfirst }}</p>
