@@ -264,7 +264,7 @@
   </script>
 </head>
 
-<body class="text-gray-900 font-inter overflow-x-hidden max-w-full {% if request.resolver_match.url_name == 'home' %}home-page{% endif %}">
+<body class="text-gray-900 font-inter overflow-x-hidden max-w-full {% if request.resolver_match.url_name == 'home' or request.resolver_match.url_name == 'category_articles' %}home-page{% endif %}">
 
 
   <header class="border border-b border-gray-300 shadow-sm md:h-[19vh] w-full">
