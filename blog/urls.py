@@ -14,4 +14,9 @@ urlpatterns = [
     path('terms-of-service/', views.terms_of_service, name='terms_of_service'),
     path('cookie-policy/', views.cookie_policy, name='cookie_policy'),
     path('blog/autosave/', views.autosave_draft, name='autosave_draft'),
+    
+    path("ads.txt", TemplateView.as_view(
+        template_name="blog/ads.txt",
+        content_type="text/plain"
+    )),
 ]
