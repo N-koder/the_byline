@@ -10,11 +10,16 @@
   scrollbar-width: none;
 }
 
+*{
+    background: ghostwhite;
+}
+
 /* Prevent horizontal scroll */
 html,
 body {
   overflow-x: hidden;
   max-width: 100vw;
+
 }
 
 /* Mobile modal fixes */
