@@ -227,7 +227,7 @@
 
         <div class="relative group">
           <button
-            class="{% if request.path == '/category/entertainment' %}text-red-600 font-semibold{% else %}text-black{% endif %} hover:text-red-600 font-medium transition-colors relative">
+            class="{% if request.path == '/category/entertainment/' %}text-red-600 font-semibold{% else %}text-black{% endif %} hover:text-red-600 font-medium transition-colors relative">
             <a href="{% url 'category_articles' 'entertainment' %}"
               class="hover:text-red-600 font-medium transition-colors relative"> Entertainment
               <span
