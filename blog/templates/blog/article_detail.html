@@ -390,7 +390,7 @@
       </a>
 
       <!-- WhatsApp -->
-      <a href="https://api.whatsapp.com/send?text={{ article.title }} - {{ request.build_absolute_uri }}"
+      <a href="https://api.whatsapp.com/send?text={{ article.title|urlencode }} - {{ request.build_absolute_uri }}"
         target="_blank" rel="noopener noreferrer" class="p-2 hover:bg-green-100 rounded-full transition">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 32 32">
           <path
