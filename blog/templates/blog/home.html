@@ -287,14 +287,40 @@
 
 
       <div style="margin-right:5rem; text-align: center;">
-        <a href="/podcasts" style="
-            background: linear-gradient(to right, #ff0000, #000000);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-decoration: none;
-        ">Podcast
-        <span class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
-        </a>
+       <a href="/podcasts" style="
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(to right, #ff0000, #000000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+">
+    <!-- Mic SVG -->
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="20" height="20">
+        <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 14 0h-2zM12 17v4m-4 0h8"/>
+    </svg>
+
+    Podcast
+
+    <!-- Underline -->
+    <span style="
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 100%;
+        background-color: #ff0000;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+    " onmouseover="this.style.transform='scaleX(1)'" onmouseout="this.style.transform='scaleX(0)'"></span>
+</a>
+
 
 
 
