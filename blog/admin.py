@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 from tinymce.widgets import TinyMCE
-from .models import Article, Category,  Subcategory, Subscriber, ContactMessage
+from .models import Article, Category,  Subcategory, Subscriber, ContactMessage, Podcast
 # from django.core.exceptions import PermissionDenied
 
 @admin.register(Article)
@@ -128,3 +128,54 @@ class SubcategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'category')
     list_filter = ('category',)
     search_fields = ('name', 'category__name')
+
+
+
+@admin.register(Podcast)
+class PodcastAdmin(admin.ModelAdmin):
+    class Media:
+        js = ('blog/js/podcast_autosave.js',)
+
+    list_display = ("title", "author", "published_at")
+    list_filter = ('status', 'published_at')
+    search_fields = ("title", "description")
+    actions = ["make_published", "make_draft"]
+    
+    def formfield_for_dbfield(self, db_field, request, **kwargs):
+        if db_field.name in ['description', 'transcript']:
+            kwargs['widget'] = TinyMCE(attrs={'cols': 80, 'rows': 30})
+        return super().formfield_for_dbfield(db_field, request, **kwargs)
+    
+    def colored_status(self, obj):
+        """Show colored status in Admin"""
+        if obj.status == "published":
+            return format_html('<span style="color: green; font-weight: bold;">{}</span>', obj.status)
+        return format_html('<span style="color: red; font-weight: bold;">{}</span>', obj.status)
+    colored_status.admin_order_field = "status"
+    colored_status.short_description = "Status"
+    
+    def make_published(self, request, queryset):
+        updated = queryset.update(status="published")
+        self.message_user(request, f"{updated} podcast episodes marked as Published ✅")
+    make_published.short_description = "Mark selected as Published"
+    
+    def make_draft(self, request, queryset):
+        updated = queryset.update(status="draft")
+        self.message_user(request, f"{updated} podcast episodes marked as Draft 📝")
+    make_draft.short_description = "Mark selected as Draft"
+    
+    def get_actions(self, request):
+        actions = super().get_actions(request)
+        if not request.user.has_perm('blog.can_publish'):
+            if 'make_published' in actions:
+                del actions['make_published']
+        return actions
+        
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        if not request.user.has_perm("blog.can_publish"):
+            # Only show "Draft" to unauthorized users
+            form.base_fields["status"].choices = [
+                choice for choice in form.base_fields["status"].choices if choice[0] == "draft"
+            ]
+        return form
