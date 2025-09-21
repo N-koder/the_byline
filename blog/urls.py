@@ -15,6 +15,14 @@ urlpatterns = [
     path('terms-of-service/', views.terms_of_service, name='terms_of_service'),
     path('cookie-policy/', views.cookie_policy, name='cookie_policy'),
     path('blog/autosave/', views.autosave_draft, name='autosave_draft'),
+
+    path("podcasts/" , views.podcast_list, name = "podcast_list"),
+    path("podcasts/<slug:slug>/", views.podcast_detail, name="podcast_detail"),
+
+     # Podcast auto-save URLs
+    path('admin/blog/podcast/save-draft/', views.save_podcast_draft, name='save_podcast_draft'),
+    path('admin/blog/podcast/autosave-draft/', views.autosave_podcast_draft, name='autosave_podcast_draft'),
+
     
     path("ads.txt", TemplateView.as_view(
         template_name="blog/ads.txt",
