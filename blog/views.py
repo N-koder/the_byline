@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Article , Category , Subcategory, Subscriber
+from .models import Article , Category , Subcategory, Subscriber, Podcast
 from .forms import NewsletterForm
 from django.contrib import messages
 from django.db.models import Q
@@ -417,4 +417,167 @@ def autosave_draft(request):
         return JsonResponse({"status": "error", "message": str(e)}, status=500)
         
     print("Invalid request method")
+
+
+def podcast_list(request):
+    episodes = Podcast.objects.filter(status='published')  # Only show published episodes
+    query = request.GET.get('q')
+    
+    if query:
+        episodes = Podcast.objects.filter(
+            Q(title__icontains=query) |
+            Q(description__icontains=query) |
+            Q(transcript__icontains=query),
+            status='published'  # Ensure search also filters by published
+        ).distinct()
+    
+    context = {
+        'episodes': episodes,
+        'search_query': query
+    }
+    return render(request, "blog/podcast_list.html", context)
+
+
+
+def podcast_detail(request, slug):
+    episode = get_object_or_404(Podcast, slug=slug, status='published')  # Only show published episodes
+    return render(request, "blog/podcast_detail.html", {"episode": episode})
+
+
+@csrf_exempt
+@login_required
+def save_podcast_draft(request):
+    """
+    Custom view for auto-saving podcast drafts in Django admin.
+    """
+    try:
+        # Log received data for debugging
+        print("Received podcast POST data:")
+        for key, value in request.POST.items():
+            print(f"  {key}: {value[:100]}{'...' if len(value) > 100 else ''} (length: {len(value)})")
+        
+        # Get the podcast ID from the request, if it exists
+        podcast_id = request.POST.get('podcast_id')
+        
+        # Check if this is a new podcast or an existing one
+        if podcast_id:
+            # Editing existing podcast
+            try:
+                podcast = Podcast.objects.get(id=podcast_id)
+            except Podcast.DoesNotExist:
+                return JsonResponse({'success': False, 'error': 'Podcast not found'}, status=404)
+        else:
+            # Creating new podcast
+            podcast = Podcast()
+            
+        # Update podcast fields from POST data
+        field_mapping = {
+            'title': 'title',
+            'slug': 'slug',
+            'description': 'description',
+            'author': 'author',
+        }
+        
+        # Update text fields
+        for form_field, model_field in field_mapping.items():
+            if form_field in request.POST:
+                value = request.POST[form_field]
+                print(f"Setting {model_field} to: {value[:100]}{'...' if len(value) > 100 else ''} (length: {len(value)})")
+                setattr(podcast, model_field, value)
+        
+        # Handle status field
+        if 'status' in request.POST:
+            podcast.status = request.POST['status']
+        elif not podcast.status:  # Set default status if not set
+            podcast.status = 'draft'
+            
+        # Handle audio_link, youtube_embed and transcript
+        if 'audio_link' in request.POST:
+            podcast.audio_link = request.POST['audio_link']
+        if 'youtube_embed' in request.POST:
+            podcast.youtube_embed = request.POST['youtube_embed']
+        if 'transcript' in request.POST:
+            podcast.transcript = request.POST['transcript']
+        
+        # Save the podcast
+        print(f"Saving podcast with title: {podcast.title}")
+        podcast.save()
+        print(f"Podcast saved with ID: {podcast.id}")
+        
+        return JsonResponse({
+            'success': True,
+            'podcast_id': podcast.id,
+            'message': 'Draft saved successfully'
+        })
+        
+    except Exception as e:
+        print(f"Error saving podcast draft: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        return JsonResponse({
+            'success': False,
+            'error': str(e)
+        }, status=500)
+
+@csrf_exempt
+@login_required
+def autosave_podcast_draft(request):
+    print("Podcast autosave function called")
+    try:
+        if request.method == "POST":
+            print("Podcast autosave request received")
+            podcast_id = request.POST.get("id")
+            title = request.POST.get("title", "")
+            slug = request.POST.get("slug", "")
+            description = request.POST.get("description", "")
+            author = request.POST.get("author", "")
+            audio = request.POST.get("audio_link", "")
+            youtube_link = request.POST.get("youtube_embed", "")
+            transcript = request.POST.get("transcript", "")
+
+            print(f"Podcast ID: {podcast_id}")
+            print(f"Title: {title}")
+
+            # Handle the case where we're updating an existing podcast
+            if podcast_id:
+                try:
+                    podcast = Podcast.objects.get(id=podcast_id)
+                    print(f"Updating existing podcast with ID: {podcast_id}")
+                    podcast.title = title
+                    podcast.slug = slug
+                    podcast.description = description
+                    podcast.author = author
+                    podcast.audio_link = audio
+                    podcast.youtube_embed = youtube_link
+                    podcast.transcript = transcript
+                    podcast.status = "draft"
+                    podcast.save()
+                    print(f"Podcast updated successfully with ID: {podcast.id}")
+                except Podcast.DoesNotExist:
+                    print(f"Podcast with ID {podcast_id} not found")
+                    return JsonResponse({"status": "error", "message": "Podcast not found"}, status=404)
+            else:
+                # Creating a new podcast
+                print("Creating new podcast")
+                podcast = Podcast.objects.create(
+                    title=title,
+                    slug=slug,
+                    description=description,
+                    author=author,
+                    audio_link = audio,
+                    youtube_embed = youtube_link,
+                    transcript=transcript,
+                    status="draft"
+                )
+                print(f"New podcast created with ID: {podcast.id}")
+
+            return JsonResponse({"status": "ok", "id": podcast.id})
+    except Exception as e:
+        print(f"Error in autosave_podcast_draft: {e}")
+        import traceback
+        traceback.print_exc()
+        return JsonResponse({"status": "error", "message": str(e)}, status=500)
+    
+    print("Invalid request method")
+
  
