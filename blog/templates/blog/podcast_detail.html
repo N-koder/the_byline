@@ -3,32 +3,30 @@
 
 {% block content %}
 <!-- Hero Section with Episode Cover -->
-<div class="relative bg-gradient-to-br from-black via-gray-900 to-red-900 text-white overflow-hidden">
-  <div class="absolute inset-0 bg-black/20"></div>
-  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <div
-          class="inline-flex items-center px-4 py-2 bg-red-600/20 backdrop-blur-sm rounded-full text-red-300 text-sm font-medium mb-6">
-          <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+<div style="position: relative; background: linear-gradient(to bottom right, black, #111827, #7f1d1d); color: white; overflow: hidden;">
+  <div style="position:absolute; inset:0; background: rgba(0,0,0,0.2);"></div>
+  <div style="position:relative; max-width:1200px; margin:0 auto; padding:4rem 1.5rem;">
+    <div style="display:grid; grid-template-columns:1fr; gap:3rem; align-items:center;">
+      <div style="max-width:90%;">
+        <div style="display:inline-flex; align-items:center; padding:0.5rem 1rem; background:rgba(220,38,38,0.2); border-radius:9999px; color:#fca5a5; font-size:0.875rem; font-weight:500; margin-bottom:1.5rem;">
+          <svg style="width:1rem; height:1rem; margin-right:0.5rem;" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
           </svg>
           Now Playing
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+        <h1 style="font-size:2.5rem; font-weight:700; margin-bottom:1.5rem; line-height:1.2;">
           {{ episode.title|safe }}
         </h1>
-        <p class="text-xl text-gray-300 leading-relaxed">
+        <p style="font-size:1.25rem; color:#d1d5db; line-height:1.75;">
           {{ episode.description|safe }}
         </p>
       </div>
-      <div class="relative">
-        <div class="aspect-w-16 aspect-h-10 rounded-2xl overflow-hidden shadow-2xl">
-          <img src="{{ episode.cover_image.url }}" alt="{{ episode.title }}" class="w-full h-full object-cover">
+      <div style="position:relative;">
+        <div style="position:relative; border-radius:1rem; overflow:hidden; box-shadow:0 25px 50px -12px rgba(0,0,0,0.5);">
+          <img src="{{ episode.cover_image.url }}" alt="{{ episode.title }}" style="width:100%; height:100%; object-fit:cover;">
         </div>
-        <div
-          class="absolute -bottom-4 -right-4 w-24 h-24 bg-red-600 rounded-full flex items-center justify-center shadow-xl">
-          <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+        <div style="position:absolute; bottom:-1rem; right:-1rem; width:6rem; height:6rem; background:#dc2626; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 20px 25px rgba(0,0,0,0.5);">
+          <svg style="width:2.5rem; height:2.5rem; color:white;" fill="currentColor" viewBox="0 0 24 24">
             <path d="M8 5v14l11-7z" />
           </svg>
         </div>
@@ -38,52 +36,49 @@
 </div>
 
 <!-- Main Content -->
-<div class="bg-gradient-to-b from-gray-50 to-white">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+<div style="background:linear-gradient(to bottom, #f9fafb, white);">
+  <div style="max-width:800px; margin:0 auto; padding:4rem 1.5rem;">
 
     <!-- Audio Player Section -->
     {% if episode.audio_file %}
-    <div class="bg-white rounded-2xl shadow-xl p-8 mb-12 border border-gray-100">
-      <div class="flex items-center mb-6">
-        <div
-          class="w-12 h-12 bg-gradient-to-r from-red-600 to-red-700 rounded-full flex items-center justify-center mr-4">
-          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div style="background:white; border-radius:1rem; box-shadow:0 10px 25px rgba(0,0,0,0.05); padding:2rem; margin-bottom:3rem; border:1px solid #f3f4f6;">
+      <div style="display:flex; align-items:center; margin-bottom:1.5rem;">
+        <div style="width:3rem; height:3rem; background:linear-gradient(to right,#dc2626,#b91c1c); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:1rem;">
+          <svg style="width:1.5rem; height:1.5rem; color:white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 14.142M9 9a3 3 0 000 6v-6a3 3 0 000-6zm0 0V7a2 2 0 012-2h4a2 2 0 012 2v2M9 9a3 3 0 000 6v-6a3 3 0 000-6z">
             </path>
           </svg>
         </div>
         <div>
-          <h3 class="text-xl font-bold text-gray-900">Audio Episode</h3>
-          <p class="text-gray-600">Listen to the full conversation</p>
+          <h3 style="font-size:1.25rem; font-weight:700; color:#111827;">Audio Episode</h3>
+          <p style="color:#4b5563;">Listen to the full conversation</p>
         </div>
       </div>
-      <audio controls class="w-full h-12 rounded-lg"
-        style="filter: sepia(100%) saturate(200%) hue-rotate(320deg) brightness(0.8);">
+      <audio controls style="width:100%; height:3rem; border-radius:0.5rem; filter: sepia(100%) saturate(200%) hue-rotate(320deg) brightness(0.8);">
         <source src="{{ episode.audio_file.url }}" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
     </div>
     {% elif episode.audio_link %}
-    <div class="bg-white rounded-2xl shadow-xl p-8 mb-12 border border-gray-100">
-      <div class="flex items-center mb-6">
-        <div
-          class="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center mr-4">
-          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div style="background:white; border-radius:1rem; box-shadow:0 10px 25px rgba(0,0,0,0.05); padding:2rem; margin-bottom:3rem; border:1px solid #f3f4f6;">
+      <div style="display:flex; align-items:center; margin-bottom:1.5rem;">
+        <div style="width:3rem; height:3rem; background:linear-gradient(to right,#2563eb,#1d4ed8); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:1rem;">
+          <svg style="width:1.5rem; height:1.5rem; color:white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 14.142M9 9a3 3 0 000 6v-6a3 3 0 000-6zm0 0V7a2 2 0 012-2h4a2 2 0 012 2v2M9 9a3 3 0 000 6v-6a3 3 0 000-6z">
             </path>
           </svg>
         </div>
         <div>
-          <h3 class="text-xl font-bold text-gray-900">Audio Episode</h3>
-          <p class="text-gray-600">Listen to the full conversation</p>
+          <h3 style="font-size:1.25rem; font-weight:700; color:#111827;">Audio Episode</h3>
+          <p style="color:#4b5563;">Listen to the full conversation</p>
         </div>
       </div>
-      <div class="text-center">
+      <div style="text-align:center;">
         <a href="{{ episode.audio_link }}" target="_blank"
-          class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300">
-          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          style="display:inline-flex; align-items:center; padding:0.75rem 1.5rem; background:#2563eb; color:white; font-weight:600; border-radius:0.5rem; text-decoration:none; transition:0.3s;">
+          <svg style="width:1.25rem; height:1.25rem; margin-right:0.5rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
           </svg>
@@ -93,106 +88,40 @@
     </div>
     {% endif %}
 
-
-    <!-- YouTube Video Section -->
-    {% if episode.youtube_embed %}
-    <div class="bg-white rounded-2xl shadow-xl p-8 mb-12 border border-gray-100">
-      <div class="flex items-center mb-6">
-        <div
-          class="w-12 h-12 bg-gradient-to-r from-red-600 to-red-700 rounded-full flex items-center justify-center mr-4">
-          <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+    <!-- Transcript Section -->
+    {% if episode.transcript %}
+    <div style="background:white; border-radius:1rem; box-shadow:0 10px 25px rgba(0,0,0,0.05); border:1px solid #f3f4f6; overflow:hidden;">
+      <div style="background:linear-gradient(to right, #f9fafb, #f3f4f6); padding:1.5rem 2rem; border-bottom:1px solid #e5e7eb; display:flex; align-items:center;">
+        <div style="width:3rem; height:3rem; background:linear-gradient(to right,#374151,#1f2937); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:1rem;">
+          <svg style="width:1.5rem; height:1.5rem; color:white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+            </path>
           </svg>
         </div>
         <div>
-          <h3 class="text-xl font-bold text-gray-900">Watch on YouTube</h3>
-          <p class="text-gray-600">Experience the full visual conversation</p>
+          <h3 style="font-size:1.5rem; font-weight:700; color:#111827;">Episode Transcript</h3>
+          <p style="color:#4b5563;">Read along with the conversation</p>
         </div>
       </div>
-      <div class="relative rounded-xl overflow-hidden shadow-lg bg-black">
-        <div class="aspect-w-16 aspect-h-9">
-          {% load static %}
-          <iframe src="{% if 'embed' in episode.youtube_embed %}
-         {{ episode.youtube_embed }}
-       {% elif 'watch?v=' in episode.youtube_embed %}
-         https://www.youtube.com/embed/{{ episode.youtube_embed|cut:'https://www.youtube.com/watch?v=' }}
-       {% else %}
-         https://www.youtube.com/embed/{{ episode.youtube_embed }}
-       {% endif %}" frameborder="0" allowfullscreen class="w-full h-full">
-          </iframe>
-
-        </div>
-      </div>
-    </div>
-    {% endif %}
-
-
-    <!-- Transcript Section -->
-    {% if episode.transcript %}
-    <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-      <div class="bg-gradient-to-r from-gray-50 to-gray-100 px-8 py-6 border-b border-gray-200">
-        <div class="flex items-center">
-          <div
-            class="w-12 h-12 bg-gradient-to-r from-gray-700 to-gray-800 rounded-full flex items-center justify-center mr-4">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-              </path>
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-2xl font-bold text-gray-900">Episode Transcript</h3>
-            <p class="text-gray-600">Read along with the conversation</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-8">
-        <div class="prose prose-lg max-w-none">
-          <div class="text-gray-800 leading-relaxed whitespace-pre-line text-lg">
-            {{ episode.transcript|safe }}
-          </div>
+      <div style="padding:2rem;">
+        <div style="color:#1f2937; line-height:1.75; font-size:1.125rem; white-space:pre-line;">
+          {{ episode.transcript|safe }}
         </div>
       </div>
     </div>
     {% endif %}
 
     <!-- Back to Episodes -->
-    <div class="mt-16 text-center">
+    <div style="margin-top:4rem; text-align:center;">
       <a href="{% url 'podcast_list' %}"
-        class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-gray-800 to-black text-white font-semibold rounded-xl hover:from-gray-900 hover:to-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        style="display:inline-flex; align-items:center; padding:1rem 2rem; background:linear-gradient(to right,#1f2937,black); color:white; font-weight:600; border-radius:0.75rem; text-decoration:none; box-shadow:0 10px 20px rgba(0,0,0,0.25); transition:0.3s;">
+        <svg style="width:1.25rem; height:1.25rem; margin-right:0.5rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
         </svg>
-        <span>Back to All Episodes</span>
+        Back to All Episodes
       </a>
     </div>
   </div>
 </div>
-
-<!-- Related Episodes Section -->
-<!-- <div class="bg-gradient-to-r from-black to-red-900 text-white">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="text-center mb-12">
-      <h3 class="text-3xl font-bold mb-4">More Episodes</h3>
-      <p class="text-xl text-gray-300">Continue your journey with more exclusive conversations</p>
-    </div>
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-all duration-300">
-        <h4 class="text-xl font-semibold mb-2">Subscribe for Updates</h4>
-        <p class="text-gray-300 mb-4">Get notified when new episodes are released</p>
-        <button class="px-6 py-2 bg-red-600 hover:bg-red-700 rounded-lg font-medium transition-colors duration-300">
-          Subscribe Now
-        </button>
-      </div>
-      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-all duration-300">
-        <h4 class="text-xl font-semibold mb-2">Share This Episode</h4>
-        <p class="text-gray-300 mb-4">Spread the word about this conversation</p>
-        <button class="px-6 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg font-medium transition-colors duration-300">
-          Share Episode
-        </button>
-      </div>
-    </div>
-  </div>
-</div> -->
 {% endblock %}
