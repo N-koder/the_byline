@@ -76,3 +76,31 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f"Message from {self.first_name} {self.last_name or ''} - {self.subject}"
+        
+
+class Podcast(models.Model):
+
+    STATUS_CHOICES = (
+        ("draft" , "Draft"),
+        ("published" , "Published")
+    )
+
+    title = models.CharField(max_length=255)
+    slug = models.SlugField(unique=True)
+    cover_image = models.ImageField(upload_to="podcasts/covers/")
+    description = models.TextField()
+    author = models.CharField(max_length=200, null=True)
+    audio_file = models.FileField(upload_to="podcasts/audio/", blank=True, null=True)
+    audio_link = models.URLField(blank=True, null=True)  
+    youtube_embed = models.URLField(blank=True, null=True)  
+    transcript = models.TextField(blank=True, null=True)
+    published_at = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(
+        max_length=10, choices=STATUS_CHOICES, default="draft"
+    )
+    
+    class Meta:
+        ordering = ["-published_at"]
+
+    def __str__(self):
+        return self.title
