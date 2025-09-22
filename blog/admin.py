@@ -136,7 +136,7 @@ class PodcastAdmin(admin.ModelAdmin):
     class Media:
         js = ('blog/js/podcast_autosave.js',)
 
-    list_display = ("title", "author", "published_at")
+    list_display = ("title", "published_at")
     list_filter = ('status', 'published_at')
     search_fields = ("title", "description")
     actions = ["make_published", "make_draft"]
