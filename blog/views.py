@@ -475,7 +475,7 @@ def save_podcast_draft(request):
             'title': 'title',
             'slug': 'slug',
             'description': 'description',
-            'author': 'author',
+            # 'author': 'author',
         }
         
         # Update text fields
@@ -530,7 +530,7 @@ def autosave_podcast_draft(request):
             title = request.POST.get("title", "")
             slug = request.POST.get("slug", "")
             description = request.POST.get("description", "")
-            author = request.POST.get("author", "")
+            # author = request.POST.get("author", "")
             audio = request.POST.get("audio_link", "")
             youtube_link = request.POST.get("youtube_embed", "")
             transcript = request.POST.get("transcript", "")
@@ -546,7 +546,7 @@ def autosave_podcast_draft(request):
                     podcast.title = title
                     podcast.slug = slug
                     podcast.description = description
-                    podcast.author = author
+                    # podcast.author = author
                     podcast.audio_link = audio
                     podcast.youtube_embed = youtube_link
                     podcast.transcript = transcript
@@ -563,7 +563,7 @@ def autosave_podcast_draft(request):
                     title=title,
                     slug=slug,
                     description=description,
-                    author=author,
+                    # author=author,
                     audio_link = audio,
                     youtube_embed = youtube_link,
                     transcript=transcript,
