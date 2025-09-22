@@ -89,7 +89,7 @@ class Podcast(models.Model):
     slug = models.SlugField(unique=True)
     cover_image = models.ImageField(upload_to="podcasts/covers/")
     description = models.TextField()
-    author = models.CharField(max_length=200, null=True)
+    # author = models.CharField(max_length=200, null=True)
     audio_file = models.FileField(upload_to="podcasts/audio/", blank=True, null=True)
     audio_link = models.URLField(blank=True, null=True)  
     youtube_embed = models.URLField(blank=True, null=True)  
