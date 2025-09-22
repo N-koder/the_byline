@@ -100,7 +100,8 @@ class Podcast(models.Model):
     )
     
     class Meta:
-        ordering = ["-published_at"]
+        ordering = ["-published_at"],
+        app_label = 'Podcasts'
 
     def __str__(self):
         return self.title
