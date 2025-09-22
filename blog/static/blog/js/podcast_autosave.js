@@ -32,7 +32,7 @@
             let title = $("#id_title").val() || "";
             let slug = $("#id_slug").val() || "";
             let description = tinymce.get("id_description")?.getContent() || "";;
-            let author = $("#id_author").val() || "";
+            // let author = $("#id_author").val() || "";
             let audio_link = $("#id_audio_link").val() || "";
             let youtube_embed = $("#id_youtube_embed").val() || "";
             let transcript = tinymce.get("id_transcript")?.getContent() || "";
@@ -45,7 +45,7 @@
                 audio_link,
                 youtube_embed,
                 transcript: transcript.slice(0, 50) + "...",
-                author
+                // author
             });
 
             $.ajax({
@@ -56,7 +56,7 @@
                     title,
                     slug,
                     description,
-                    author,
+                    // author,
                     audio_link,
                     youtube_embed,
                     transcript,
