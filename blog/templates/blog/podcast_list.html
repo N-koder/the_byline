@@ -91,7 +91,7 @@
     <div style="display:grid; gap:3rem;">
       {% for episode in episodes %}
       <article style="background:white; border-radius:1rem; border:1px solid #f3f4f6; box-shadow:0 4px 6px rgba(0,0,0,0.05); overflow:hidden; transition:all 0.3s ease;">
-        <div class="flex-col md:flex-row" style="display:flex; flex-direction:row;">
+        <div class="flex flex-col md:flex-row">
           <!-- Episode Image -->
           <div style="width:24rem; flex-shrink:0; overflow:hidden; position:relative;">
             <img src="{{ episode.cover_image.url }}" alt="{{ episode.title }}"
