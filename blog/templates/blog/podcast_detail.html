@@ -104,8 +104,8 @@
           <p class="text-gray-600">Experience the full visual conversation</p>
         </div>
       </div>
-      <div class="relative rounded-xl overflow-hidden shadow-lg bg-black">
-        <div class="aspect-w-16 aspect-h-9">
+      <!-- <div class="video-container"> -->
+        <div class="video-container">
           {% load static %}
           <iframe src="{% if 'embed' in episode.youtube_embed %}
          {{ episode.youtube_embed }}
@@ -117,7 +117,7 @@
           </iframe>
 
         </div>
-      </div>
+      <!-- </div> -->
     </div>
     {% endif %}
     
