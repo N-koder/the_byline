@@ -91,7 +91,7 @@
     <div style="display:grid; gap:3rem;">
       {% for episode in episodes %}
       <article style="background:white; border-radius:1rem; border:1px solid #f3f4f6; box-shadow:0 4px 6px rgba(0,0,0,0.05); overflow:hidden; transition:all 0.3s ease;">
-        <div style="display:flex; flex-direction:row;">
+        <div class="flex-col md:flex-row" style="display:flex; flex-direction:row;">
           <!-- Episode Image -->
           <div style="width:24rem; flex-shrink:0; overflow:hidden; position:relative;">
             <img src="{{ episode.cover_image.url }}" alt="{{ episode.title }}"
@@ -118,7 +118,7 @@
                 </svg>
               </a>
 
-              <div style="display:flex; gap:1rem; color:#6b7280; font-size:0.875rem;">
+              <div class = "hidden md:block" style="display:flex; gap:1rem; color:#6b7280; font-size:0.875rem;">
                 <div style="display:flex; align-items:center;">
                   <svg style="width:1rem; height:1rem; margin-right:0.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
