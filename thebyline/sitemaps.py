@@ -43,4 +43,4 @@ class PodcastSitemap(Sitemap):
         return Podcast.objects.all()
 
     def lastmod(self, obj):
-        return obj.updated_at if hasattr(obj, "updated_at") else obj.created_at
+        return obj.updated_at if hasattr(obj, "updated_at") else obj.published_at
