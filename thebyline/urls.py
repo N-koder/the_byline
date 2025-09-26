@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from django.views.generic import TemplateView, RedirectView
 from django.templatetags.static import static
-from .sitemaps import ArticleSitemap
+from .sitemaps import HomeSitemap, StaticViewSitemap, ArticleSitemap, PodcastSitemap
 
 sitemaps = {
     "home": HomeSitemap,
