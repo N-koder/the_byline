@@ -1,5 +1,29 @@
 from django.contrib.sitemaps import Sitemap
-from blog.models import Article
+from django.urls import reverse
+from blog.models import Article, Podcast
+
+
+class HomeSitemap(Sitemap):
+    changefreq = "always"
+    priority = 1.0
+
+    def items(self):
+        return ["home"]  # name of your URL pattern for homepage
+
+    def location(self, item):
+        return reverse(item)
+
+# 📄 Static Pages
+class StaticViewSitemap(Sitemap):
+    changefreq = "yearly"
+    priority = 0.3
+
+    def items(self):
+        return ["about" , "privacy_policy" , "terms_of_service" , "cookie_policy" , "contact"]  # add more URL names if needed (about, contact, etc.)
+
+    def location(self, item):
+        return reverse(item)
+
 
 class ArticleSitemap(Sitemap):
     changefreq = "daily"
@@ -9,4 +33,14 @@ class ArticleSitemap(Sitemap):
         return Article.objects.all()
 
     def lastmod(self, obj):
-        return obj.created_at
+        return obj.updated_at if hasattr(obj, "updated_at") else obj.created_at
+
+class PodcastSitemap(Sitemap):
+    changefreq = "weekly"
+    priority = 0.8
+
+    def items(self):
+        return Podcast.objects.all()
+
+    def lastmod(self, obj):
+        return obj.updated_at if hasattr(obj, "updated_at") else obj.created_at
