@@ -24,7 +24,10 @@ from django.templatetags.static import static
 from .sitemaps import ArticleSitemap
 
 sitemaps = {
-    'articles': ArticleSitemap,
+    "home": HomeSitemap,
+    "static": StaticViewSitemap,
+    "articles": ArticleSitemap,
+    "podcasts": PodcastSitemap,
 }
 
 urlpatterns = [
