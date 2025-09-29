@@ -9,7 +9,7 @@
 <nav id="main-navbar" class="hidden md:block bg-white border-b border-gray-200 sticky top-0 z-40"
   style="box-shadow:6px 4px 20px 0px rgb(0 0 0 / 0.20)">
   <div class="container mx-auto px-4">
-    <div class="flex items-center justify-around py-2">
+    <div class="flex items-center justify-between py-2">
       <!-- Search Bar -->
       <div class="flex items-center space-x-6">
         <div class="relative">
@@ -32,7 +32,7 @@
 
 
       <!-- Navigation Links -->
-      <div class="flex items-center space-x-8" style="margin-right: 7rem">
+      <div class="flex items-center space-x-8">
         <a href="{% url 'home' %}"
           class="{% if request.path == '/' %}text-red-600 {% else %}text-black{% endif %} hover:text-red-600 transition-colors group relative">
           Home
@@ -286,7 +286,7 @@
       </div>
 
 
-      <div style="margin-right:5rem; text-align: center;">
+      <div style="margin-left:9rem; text-align: center;">
      <a href="/podcasts" class="podcast-link" style="
     position: relative;
     display: inline-flex;
