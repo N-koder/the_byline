@@ -498,6 +498,10 @@ def save_podcast_draft(request):
             podcast.youtube_embed = request.POST['youtube_embed']
         if 'transcript' in request.POST:
             podcast.transcript = request.POST['transcript']
+        if 'summary' in request.POST:
+            podcast.transcript = request.POST['summary']
+        if 'anecdote' in request.POST:
+            podcast.transcript = request.POST['anecdote']
         
         # Save the podcast
         print(f"Saving podcast with title: {podcast.title}")
@@ -534,6 +538,8 @@ def autosave_podcast_draft(request):
             audio = request.POST.get("audio_link", "")
             youtube_link = request.POST.get("youtube_embed", "")
             transcript = request.POST.get("transcript", "")
+            summary = request.POST.get("summary", "")
+            anecdote = request.POST.get("anecdote", "")
 
             print(f"Podcast ID: {podcast_id}")
             print(f"Title: {title}")
@@ -550,6 +556,8 @@ def autosave_podcast_draft(request):
                     podcast.audio_link = audio
                     podcast.youtube_embed = youtube_link
                     podcast.transcript = transcript
+                    podcast.summary = summary
+                    podcast.anecdote = anecdote
                     podcast.status = "draft"
                     podcast.save()
                     print(f"Podcast updated successfully with ID: {podcast.id}")
@@ -567,6 +575,8 @@ def autosave_podcast_draft(request):
                     audio_link = audio,
                     youtube_embed = youtube_link,
                     transcript=transcript,
+                    summary=summary,
+                    anecdote=anecdote,
                     status="draft"
                 )
                 print(f"New podcast created with ID: {podcast.id}")
