@@ -36,6 +36,8 @@
             let audio_link = $("#id_audio_link").val() || "";
             let youtube_embed = $("#id_youtube_embed").val() || "";
             let transcript = tinymce.get("id_transcript")?.getContent() || "";
+            let summary = tinymce.get("id_summary")?.getContent() || "";
+            let anecdote = tinymce.get("id_anecdote")?.getContent() || "";
 
             console.log("Podcast autosave data:", {
                 podcastId,
@@ -45,6 +47,8 @@
                 audio_link,
                 youtube_embed,
                 transcript: transcript.slice(0, 50) + "...",
+                summary: summary.slice(0, 50) + "...",
+                anecdote: anecdote.slice(0, 50) + "...",
                 // author
             });
 
@@ -60,6 +64,8 @@
                     audio_link,
                     youtube_embed,
                     transcript,
+                    summary,
+                    anecdote,
                     csrfmiddlewaretoken: csrfToken
                 },
                 beforeSend: function () {
@@ -169,6 +175,8 @@
                 audio_link: $("#id_audio_link").val() || "",
                 youtube_embed: $("#id_youtube_embed").val() || "",
                 transcript: tinymce.get("id_transcript")?.getContent() || "",
+                summary: tinymce.get("id_summary")?.getContent() || "",
+                anecdote: tinymce.get("id_anecdote")?.getContent() || "",
                 csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val()
             });
             navigator.sendBeacon("/blog/admin/blog/podcast/autosave-draft/", params);
