@@ -163,7 +163,7 @@
 
     <!-- Transcript Section -->
     {% if episode.transcript %}
-    <div style="background:white; border-radius:1rem; box-shadow:0 10px 25px rgba(0,0,0,0.05); border:1px solid #f3f4f6; overflow:hidden;">
+    <div style="background:white; border-radius:1rem; box-shadow:0 10px 25px rgba(0,0,0,0.05); border:1px solid #f3f4f6; overflow:hidden; margin-bottom:2rem;">
       <div style="background:linear-gradient(to right, #f9fafb, #f3f4f6); padding:1.5rem 2rem; border-bottom:1px solid #e5e7eb; display:flex; align-items:center;">
         <div style="width:3rem; height:3rem; background:linear-gradient(to right,#374151,#1f2937); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:1rem;">
           <svg style="width:1.5rem; height:1.5rem; color:white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -173,13 +173,61 @@
           </svg>
         </div>
         <div>
-          <h3 style="font-size:1.5rem; font-weight:700; color:#111827;">Episode Transcript</h3>
-          <p style="color:#4b5563;">Read along with the conversation</p>
+          <h3 style="font-size:1.5rem; font-weight:700; color:#111827;">Full Episode Transcript</h3>
+          <p style="color:#4b5563;">Delve into the complete conversation, word for word</p>
         </div>
       </div>
       <div style="padding:2rem;">
         <div style="color:#1f2937; line-height:1.75; font-size:1.125rem; white-space:pre-line;">
           {{ episode.transcript|safe }}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- summary Section -->
+    {% if episode.summary %}
+    <div style="background:white; border-radius:1rem; box-shadow:0 10px 25px rgba(0,0,0,0.05); border:1px solid #f3f4f6; overflow:hidden; margin-bottom:2rem;">
+      <div style="background:linear-gradient(to right, #f9fafb, #f3f4f6); padding:1.5rem 2rem; border-bottom:1px solid #e5e7eb; display:flex; align-items:center;">
+        <div style="width:3rem; height:3rem; background:linear-gradient(to right,#374151,#1f2937); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:1rem;">
+          <svg style="width:1.5rem; height:1.5rem; color:white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+            </path>
+          </svg>
+        </div>
+        <div>
+          <h3 style="font-size:1.5rem; font-weight:700; color:#111827;">Episode Highlights</h3>
+          <p style="color:#4b5563;">Explore the key moments and insights from this episode.</p>
+        </div>
+      </div>
+      <div style="padding:2rem;">
+        <div style="color:#1f2937; line-height:1.75; font-size:1.125rem; white-space:pre-line;">
+          {{ episode.transcript|safe }}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- anecdote Section -->
+    {% if episode.anecdote %}
+    <div style="background:white; border-radius:1rem; box-shadow:0 10px 25px rgba(0,0,0,0.05); border:1px solid #f3f4f6; overflow:hidden; margin-bottom:2rem;">
+      <div style="background:linear-gradient(to right, #f9fafb, #f3f4f6); padding:1.5rem 2rem; border-bottom:1px solid #e5e7eb; display:flex; align-items:center;">
+        <div style="width:3rem; height:3rem; background:linear-gradient(to right,#374151,#1f2937); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:1rem;">
+          <svg style="width:1.5rem; height:1.5rem; color:white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+            </path>
+          </svg>
+        </div>
+        <div>
+          <h3 style="font-size:1.5rem; font-weight:700; color:#111827;">Behind the Mic</h3>
+          <p style="color:#4b5563;">Discover exclusive stories and memorable moments shared during the recording.</p>
+        </div>
+      </div>
+      <div style="padding:2rem;">
+        <div style="color:#1f2937; line-height:1.75; font-size:1.125rem; white-space:pre-line;">
+          {{ episode.anecdote|safe }}
         </div>
       </div>
     </div>
