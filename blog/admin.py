@@ -142,7 +142,7 @@ class PodcastAdmin(admin.ModelAdmin):
     actions = ["make_published", "make_draft"]
     
     def formfield_for_dbfield(self, db_field, request, **kwargs):
-        if db_field.name in ['description', 'transcript']:
+        if db_field.name in ['description', 'transcript' , 'summary' , 'anecdote']:
             kwargs['widget'] = TinyMCE(attrs={'cols': 80, 'rows': 30})
         return super().formfield_for_dbfield(db_field, request, **kwargs)
     
