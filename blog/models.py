@@ -93,6 +93,8 @@ class Podcast(models.Model):
     audio_link = models.URLField(blank=True, null=True)  
     youtube_embed = models.URLField(blank=True, null=True)  
     transcript = models.TextField(blank=True, null=True)
+    summary = models.TextField(blank=True, null=True)
+    anecdote = models.TextField(blank=True, null=True)
     published_at = models.DateTimeField(auto_now_add=True)
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICES, default="draft"
