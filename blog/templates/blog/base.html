@@ -422,6 +422,23 @@
           class="block py-2 border-b text-sm text-gray-700">Business</a>
         <a href="{% url 'category_articles' 'economy' %}" class="block py-2 border-b text-sm text-gray-700">Economy</a> -->
 
+         <details class="py-2 border-b group" id="politicsDetails">
+          <summary class="cursor-pointer font-medium text-gray-700 flex items-center select-none">
+            <a href="{% url 'category_articles' 'politics' %}" class="flex-1 block py-1">Politics</a>
+            <button type="button" aria-label="Toggle Politics submenu"
+              onclick="event.preventDefault(); event.stopPropagation(); document.getElementById('politicsDetails').open = !document.getElementById('politicsDetails').open;"
+              class="ml-2 focus:outline-none" tabindex="0">
+              <span class="inline-block transition-transform group-open:rotate-90">&#9654;</span>
+            </button>
+          </summary>
+          <div class="ml-4 mt-2 space-y-1 text-sm">
+            <a href="{% url 'category_articles' 'national' %}" class="block">National</a>
+            <a href="{% url 'category_articles' 'state' %}" class="block">State</a>
+            <a href="{% url 'category_articles' 'elections' %}" class="block">Elections</a>
+            <a href="{% url 'category_articles' 'global' %}" class="block">Global</a>
+          </div>
+        </details>
+
         <details class="py-2 border-b group" id="businessDetails">
           <summary class="cursor-pointer font-medium text-gray-700 flex items-center select-none">
             <a href="{% url 'category_articles' 'business' %}" class="flex-1 block py-1">Business</a>
@@ -502,6 +519,7 @@
             <a href="{% url 'category_articles' 'hospitality' %}" class="block">Hospitality</a>
             <a href="{% url 'category_articles' 'real-estate' %}" class="block">Real Estate</a>
             <a href="{% url 'category_articles' 'space' %}" class="block">Space</a>
+            <a href="{% url 'category_articles' 'automobiles' %}" class="block">Automobiles</a>
           </div>
         </details>
 
