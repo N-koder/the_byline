@@ -463,7 +463,7 @@
     {% if forloop.first %}
     <div class="mb-6">
       <div
-        class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 flex flex-col sm:flex-row relative border-r-4 border-red-600">
+        class="bg-white shadow rounded-xs overflow-hidden hover:shadow-lg transition duration-300 flex flex-col sm:flex-row relative">
         {% if article.image %}
           <div class="flex flex-col justify-center w-full sm:w-[30rem] md:w-[50rem] lg:w-[70rem]">
             <img src="{{ article.image.url }}" alt="{{ article.title }}" class="w-full h-64 object-contain">
@@ -514,7 +514,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  {% if opinion_articles %}md:w-[77rem] mx-auto mt-16{% endif %}">
       {% for article in recent_articles %}
       {% if not forloop.first %}
-      <div class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 relative">
+      <div class="bg-white shadow rounded-xs overflow-hidden hover:shadow-lg transition duration-300 relative">
         {% if article.image %}
         <img src="{{ article.image.url }}" alt="{{ article.title }}" class="w-full h-48 object-contain">
         <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ article.image_credit }}</div>
@@ -573,7 +573,7 @@
     <!-- Featured full-width article -->
     <div class="mb-6">
       <div
-        class="relative bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 flex flex-col sm:flex-row border-r-4 border-red-600">
+        class="relative bg-white shadow rounded-xs overflow-hidden hover:shadow-lg transition duration-300 flex flex-col sm:flex-row">
         {% if data.featured.image %}
         <div class="flex flex-col justify-center" style="width:23rem;">
           <img src="{{ data.featured.image.url }}" alt="{{ data.featured.title }}" class="w-full h-64 object-contain" />
