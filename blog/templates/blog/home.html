@@ -679,13 +679,13 @@
   
     <div class="max-h-[370px] overflow-y-auto pr-2 space-y-4  bg-white p-4 rounded-xs shadow hover:shadow-md transition">
       {% for opinion in opinion_articles %}
-      <div class="bg-[#f9f9f9] p-2 flex items-center gap-4 border-b">
+      <div class="bg-white p-2 flex items-center gap-4 border-b">
 <!--         {% if opinion.authorImage %}
         <img src="{{ opinion.authorImage.url }}" alt="{{ opinion.author }}" class="w-12 h-12 rounded-full object-contain">
         {% endif %} -->
         <img src="{{ opinion.image.url }}" alt="{{ opinion.author }}" class="w-12 h-12 rounded-xs object-cover">
         <a href="{% url 'article_detail' slug=opinion.slug %}">
-          <h6 class="font-semibold text-gray-900 hover:text-red-600">{{ opinion.title|safe }}</h6>
+          <h6 class="text-gray-900 hover:text-red-600">{{ opinion.title|safe }}</h6>
           <p class="text-sm text-gray-500 mb-1">{{ opinion.author|safe|capfirst }}</p>
           <!-- <p class="text-sm text-gray-600">{{ opinion.snippet|safe|truncatewords:15 }}</p> -->
         </a>
