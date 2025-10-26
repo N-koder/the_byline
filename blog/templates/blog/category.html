@@ -346,7 +346,7 @@
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
     {% if featured %}
     <div class="">
-      <div class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 relative">
+      <div class="bg-white shadow rounded-xs overflow-hidden hover:shadow-lg transition duration-300 relative">
         {% if show_badges %}
           <span class="absolute top-0 left-0 bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-br-lg">
             {% if featured.subcategory %}
@@ -371,7 +371,7 @@
           <h3 class="text-2xl font-semibold text-black   hover:text-red-600 transition">
             <a href="{% url 'article_detail' slug=featured.slug %}">{{ featured.title }}</a>
           </h3>
-          <p class="text-sm text-gray-600 mt-3">{{ featured.summary|safe|truncatechars:200 }}</p>
+          <p class="text-sm text-gray-600 mt-3">{{ featured.summary|safe}}</p>
           <!-- author info -->
           <div class="flex flex-wrap items-center text-sm text-gray-500 mt-6 space-x-4 font-roboto ">
             {% if featured.authorImage %}
