@@ -400,7 +400,7 @@
     {% if others %}
 
     {% for article in others %}
-    <div class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition duration-300 relative">
+    <div class="bg-white shadow rounded-xs overflow-hidden hover:shadow-lg transition duration-300 relative">
       {% if show_badges %}
         <span class="absolute top-0 left-0 bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-br-lg">
           {% if article.subcategory %}
@@ -427,7 +427,7 @@
         <h3 class="text-lg font-semibold text-gray-900   hover:text-red-600 transition">
           <a href="{% url 'article_detail' slug=article.slug %}">{{ article.title }}</a>
         </h3>
-        <p class="text-sm text-gray-600 mt-2">{{ article.summary|safe|truncatechars:120 }}</p>
+        <p class="text-sm text-gray-600 mt-2">{{ article.summary|safe}}</p>
         <!-- author info -->
         <div class="flex flex-wrap items-center text-sm text-gray-500 mt-6 space-x-4 font-roboto ">
           {% if article.authorImage %}
