@@ -685,7 +685,7 @@
         {% endif %} -->
         <img src="{{ opinion.image.url }}" alt="{{ opinion.author }}" class="w-12 h-12 rounded-xs object-cover">
         <a href="{% url 'article_detail' slug=opinion.slug %}">
-          <h6 class="text-gray-900 hover:text-red-600 font-inter">{{ opinion.title|safe }}</h6>
+          <h6 class="text-black hover:text-gray-600 font-inter">{{ opinion.title|safe }}</h6>
           <p class="text-sm text-red-600 mb-1 flex justify-end">{{ opinion.author|safe|capfirst }}</p>
           <!-- <p class="text-sm text-gray-600">{{ opinion.snippet|safe|truncatewords:15 }}</p> -->
         </a>
