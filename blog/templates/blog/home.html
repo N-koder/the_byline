@@ -511,10 +511,10 @@
     {% endfor %}
 
     <!-- Next 3 recent articles in grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  {% if opinion_articles %}md:w-[77rem] mx-auto mt-16{% endif %} h-fit">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  {% if opinion_articles %}md:w-[77rem] mx-auto mt-16{% endif %}">
       {% for article in recent_articles %}
       {% if not forloop.first %}
-      <div class="bg-white shadow rounded-xs overflow-hidden hover:shadow-lg transition duration-300 relative">
+      <div class="bg-white shadow rounded-xs overflow-hidden hover:shadow-lg transition duration-300 relative  h-fit">
         {% if article.image %}
         <img src="{{ article.image.url }}" alt="{{ article.title }}" class="w-full h-48 object-contain">
         <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ article.image_credit }}</div>
