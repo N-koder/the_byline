@@ -399,18 +399,6 @@
 <div class="max-w-6xl mx-auto px-4 lg:px-0">
   <div class="grid grid-cols-1 gap-8 items-start">
 
-    <!-- Left: Article Image -->
-    {% if article.image %}
-    <div class="w-fit h-fit md:h-[450px]  mx-auto  flex items-center justify-center shadow-md">
-      <img src="{{ article.image.url }}" alt="{{ article.title }}"
-           class="max-w-full max-h-full object-contain" loading="lazy">
-    </div>
-    <div class="image-credit text-xs text-gray-500 text-right px-2 py-1">{{ article.image_credit }}</div>
-    
-   
-    {% endif %}
-
-
     
 
      <!-- Floating Share Bar -->
@@ -497,8 +485,8 @@
 
     
 
-    <!-- Right: Text Content -->
-    <div class="break-words rounded-md shadow-md my-5 py-5 border-r-4 border-black" style="max-width:100%; overflow-x:auto; line-height:1.75; font-family:Roboto, sans-serif;">
+    <!-- Text Content -->
+    <div class="break-words rounded-md shadow-md my-5 py-5" style="max-width:100%; overflow-x:auto; line-height:1.75; font-family:Roboto, sans-serif;">
       <!-- Back link -->
       <div class="mb-4">
         <a href="{% url 'home' %}" class="text-red-600 hover:text-black text-md flex items-center ml-3">
@@ -507,7 +495,7 @@
       </div>
 
       <!-- Title -->
-      <h1 class="text-3xl sm:text-4xl font-playfair font-bold text-gray-900 leading-snug mb-4 ml-4">
+      <h1 class="text-3xl sm:text-4xl font-inter font-bold text-gray-900 leading-snug mb-4 ml-4">
         {{ article.title }}
       </h1>
 
@@ -530,6 +518,18 @@
         </span>
         {% endif %}
       </div>
+
+
+      <!--  Article Image -->
+    {% if article.image %}
+    <div class="w-fit h-fit md:h-[450px]  mx-auto  flex items-center justify-center shadow-md">
+      <img src="{{ article.image.url }}" alt="{{ article.title }}"
+           class="max-w-full max-h-full object-contain" loading="lazy">
+    </div>
+    <div class="image-credit text-xs text-gray-500 text-right px-2 py-1 mb-5">{{ article.image_credit }}</div>
+    
+   
+    {% endif %}
 
       <!-- Body -->
       <article class="article-content prose prose-lg max-w-none text-gray-800 font-roboto leading-relaxed break-words mx-5">
