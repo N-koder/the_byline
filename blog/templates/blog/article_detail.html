@@ -509,7 +509,7 @@
             {{ article.author }}
           </a></span>
         <span>•</span>
-        <span>{{ article.created_at|date:"F j, Y" }}</span>
+        <span class="hidden sm:block">{{ article.created_at|date:"F j, Y" }}</span>
         {% if article.category %}
         <span>•</span>
         <span
