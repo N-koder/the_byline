@@ -477,7 +477,7 @@
             {{ article.category.name|safe|capfirst }}
           </span>
           {% elif article.subcategory %}
-          <span class="absolute top-0 left-0 bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-br-lg">
+          <span class="absolute top-0 left-0 bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-br-lg">
             {{ article.subcategory.name|safe|capfirst }}
           </span>
           {% endif %}
@@ -528,6 +528,10 @@
         {% if article.category %}
         <span class="absolute top-0 left-0 bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-br-lg">
           {{ article.category.name|safe|capfirst }}
+        </span>
+        {% elif article.subcategory %}
+        <span class="absolute top-0 left-0 bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-br-lg">
+          {{ article.subcategory.name|safe|capfirst }}
         </span>
         {% endif %}
 
