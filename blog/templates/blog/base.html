@@ -343,14 +343,14 @@
   </script>
 </head>
 
-<body class="text-gray-900 font-inter overflow-x-hidden max-w-full {% if request.resolver_match.url_name == 'home' or request.resolver_match.url_name == 'category_articles' %}home-page{% endif %}">
+<body class="absolute w-[100vw] text-gray-900 font-inter overflow-x-hidden {% if request.resolver_match.url_name == 'home' or request.resolver_match.url_name == 'category_articles' %}home-page{% endif %}">
 
 
   <header class="border border-b border-gray-300 shadow-sm md:h-[19vh] w-full  {% if request.resolver_match.url_name == 'podcast_list' or request.resolver_match.url_name == 'podcast_detail' %}top-bar-none{% endif %}">
     <div class="max-w-7xl mx-auto px-2 sm:px-4">
 
       <!-- Top Bar -->
-      <div class="flex items-center justify-between py-2 text-sm md:text-md md:absolute md:top-5 w-full md:w-[79rem]">
+      <div class="flex items-center justify-between py-2 text-sm md:text-md md:absolute md:top-5 w-full md:w-[89vw]">
         <div class="flex items-center space-x-4 text-black justify-between">
           <span>{{ current_date }}</span>
         </div>
