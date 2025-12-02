@@ -23,6 +23,11 @@ urlpatterns = [
     path('admin/blog/podcast/save-draft/', views.save_podcast_draft, name='save_podcast_draft'),
     path('admin/blog/podcast/autosave-draft/', views.autosave_podcast_draft, name='autosave_podcast_draft'),
 
+
+    # press-releases 
+    path("press-releases/" , views.pressRelease , name ='pr'),
+    path("press-release/detail/<slug:slug>/" , views.pressReleaseDetail , name ='pr-detail'),
+
     
     path("ads.txt", TemplateView.as_view(
         template_name="blog/ads.txt",
