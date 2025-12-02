@@ -300,7 +300,7 @@
                                 </svg>
                                 {{ release.published_at|date:"F d, Y" }}
                             </span>
-                            <span class="source-label">Source: {{ release.source }}</span>
+                            <!-- <span class="source-label">Source: {{ release.source }}</span> -->
                         </div>
                         <a href="{% url 'pr-detail' release.slug %}" class="read-more-btn">Read More</a>
                     </div>
