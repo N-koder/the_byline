@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 from tinymce.widgets import TinyMCE
-from .models import Article, Category,  Subcategory, Subscriber, ContactMessage, Podcast
+from .models import Article, Category,  Subcategory, Subscriber, ContactMessage, Podcast, ExternalFeed, PressRelease
 # from django.core.exceptions import PermissionDenied
 
 @admin.register(Article)
@@ -179,3 +179,21 @@ class PodcastAdmin(admin.ModelAdmin):
                 choice for choice in form.base_fields["status"].choices if choice[0] == "draft"
             ]
         return form
+
+
+
+@admin.register(ExternalFeed)
+class ExternalFeedAdmin(admin.ModelAdmin):
+    list_display = ("provider", "target_category", "url", "is_active", "last_fetched")
+    list_filter = ("provider", "is_active")
+
+@admin.register(PressRelease)
+class PressReleaseAdmin(admin.ModelAdmin):
+    list_display = ("title", "source", "category", "published_at")
+    search_fields = ("title",)
+    list_filter = ("source", "category")
+
+    def formfield_for_dbfield(self, db_field, request, **kwargs):
+        if db_field.name in ('summary' , 'content'):
+            kwargs['widget'] = TinyMCE(attrs={'cols': 80, 'rows': 30})
+        return super().formfield_for_dbfield(db_field, request, **kwargs)
