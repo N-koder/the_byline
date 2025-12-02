@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Article , Category , Subcategory, Subscriber, Podcast
+from .models import Article , Category , Subcategory, Subscriber, Podcast,  PressRelease
 from .forms import NewsletterForm
 from django.contrib import messages
 from django.db.models import Q
@@ -590,4 +590,44 @@ def autosave_podcast_draft(request):
     
     print("Invalid request method")
 
+
+
+def pressRelease(request, category_slug=None):
+    query = request.GET.get("q" , "")  # read ?q=something from URL
+    
+    # Base queryset
+    press_releases = PressRelease.objects.filter(status='published')
+
+    # Apply search
+    if query:
+        press_releases = press_releases.filter(
+            Q(title__icontains=query) |
+            Q(summary__icontains=query)
+        )
+
+    # Always order by date
+    press_releases = press_releases.order_by('-published_at')
+
+    context = {
+        'press_releases': press_releases,
+        'current_date': datetime.now().strftime("%A, %B %d, %Y"),
+        'query': query
+    }
+
+    return render(request, "blog/pr.html", context)
+
+
+def pressReleaseDetail(request, slug):
+    release = get_object_or_404(PressRelease, slug=slug, status='published')
+
+    # Related articles (same category, exclude itself)
+    related = PressRelease.objects.filter(
+        category=release.category,
+        status='published'
+    ).exclude(id=release.id).order_by('-published_at')[:3]
+
+    return render(request, "blog/pr-detail.html", {
+        "release": release,
+        "press_releases_cat": related
+    })
  
