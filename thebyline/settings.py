@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'colorfield',
     'tinymce',
     'taggit',
+    'django_crontab',
 ]
 
 # MIDDLEWARE
@@ -269,3 +270,8 @@ TINYMCE_DEFAULT_CONFIG = {
     'extended_valid_elements': 'iframe[src|width|height|frameborder|allowfullscreen]',
     'valid_children': '+body[style]',
 }
+
+CRONJOBS = [
+    # Fetch external RSS every 10 minutes
+    ('*/5 * * * *', 'django.core.management.call_command', ['fetch_pr_articles'])
+]
