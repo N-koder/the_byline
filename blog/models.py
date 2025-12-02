@@ -1,5 +1,6 @@
 from email.policy import default
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 from django.db import models
@@ -7,6 +8,8 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 from taggit.managers import TaggableManager
+
+from django.utils.text import slugify
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -108,3 +111,56 @@ class Podcast(models.Model):
         
     def get_absolute_url(self):
         return reverse("podcast_detail", kwargs={"slug": self.slug})
+
+
+
+class ExternalFeed(models.Model):
+    """
+    Stores NewsVoir RSS feeds
+    """
+    provider = models.CharField(max_length=100, default="NewsVoir")
+    url = models.URLField(unique=True)
+    target_category = models.CharField(max_length=255)  # maps to your category
+    is_active = models.BooleanField(default=True)
+    last_fetched = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.provider} → {self.target_category}"
+
+
+class PressRelease(models.Model):
+
+    STATUS_CHOICES = (
+        ("draft" , "Draft"),
+        ("published" , "Published")
+    )
+
+    """
+    Stores imported Press Releases separately from editorial articles
+    """
+    guid = models.CharField(max_length=500, unique=True) 
+    title = models.CharField(max_length=300)
+    slug = models.SlugField(unique=True , max_length=300)
+    summary = models.TextField(null=True, blank=True)
+    # content = models.TextField()
+    image = models.URLField(null=True, blank=True)
+    link = models.URLField(unique=True)  # original NewsVoir URL
+    published_at = models.DateTimeField()
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default="draft"
+    )
+    source = models.CharField(max_length=255, default="NewsVoir")
+    category = models.ForeignKey(
+        Category,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="press_releases",
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
