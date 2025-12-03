@@ -372,7 +372,7 @@
       <div class="flex items-center justify-between py-4">
         <!-- Left: Hamburger & Search -->
         <div class="flex items-center space-x-4">
-          <button id="menuToggle" class="text-gray-700 {% if request.resolver_match.url_name == 'home' or request.resolver_match.url_name == 'category_articles' %}block xl:hidden{% endif %}">
+          <button id="menuToggle" class="text-gray-700 {% if request.resolver_match.url_name == 'home' or request.resolver_match.url_name == 'category_articles' or request.resolver_match.url_name == 'article_detail' or request.resolver_match.url_name == 'author_articles' or request.resolver_match.url_name == 'tagged_articles' %}block xl:hidden{% endif %}">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
