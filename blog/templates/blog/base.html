@@ -350,7 +350,7 @@
     <div class="max-w-7xl mx-auto px-2 sm:px-4">
 
       <!-- Top Bar -->
-      <div class="flex items-center justify-between py-2 text-sm md:text-md md:absolute md:top-5 w-full md:w-[82vw]">
+      <div class="flex items-center justify-between py-2 text-sm md:text-md md:absolute md:top-[0.25rem] w-full lg:w-[97vw] md:w-[97vw] xl:w-[82vw]">
         <div class="flex items-center space-x-4 text-black justify-between">
           <span>{{ current_date }}</span>
         </div>
@@ -421,7 +421,7 @@
 
       <!-- Mobile Menu -->
       <div id="mobileMenu"
-        class="md:hidden max-h-0 overflow-x-hidden transition-all duration-300 ease-in-out bg-white border-t border-gray-200 px-2 sm:px-4">
+        class="hidden md:hidden lg:block max-h-0 overflow-x-hidden transition-all duration-300 ease-in-out bg-white border-t border-gray-200 px-2 sm:px-4">
         <a href="{% url 'home' %}" class="block py-2 border-b text-sm text-gray-700">Home</a>
 
         <!-- <a href="{% url 'category_articles' 'business' %}"
