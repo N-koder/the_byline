@@ -21,13 +21,14 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from django.views.generic import TemplateView, RedirectView
 from django.templatetags.static import static
-from .sitemaps import HomeSitemap, StaticViewSitemap, ArticleSitemap, PodcastSitemap
+from .sitemaps import HomeSitemap, StaticViewSitemap, ArticleSitemap, PodcastSitemap, PressReleaseSitemap
 
 sitemaps = {
     "home": HomeSitemap,
     "static": StaticViewSitemap,
     "articles": ArticleSitemap,
     "podcasts": PodcastSitemap,
+    "press_releases": PressReleaseSitemap,
 }
 
 urlpatterns = [
