@@ -26,7 +26,7 @@ urlpatterns = [
 
     # press-releases 
     path("press-releases/" , views.pressRelease , name ='pr'),
-    path("press-release/detail/<slug:slug>/" , views.pressReleaseDetail , name ='pr-detail'),
+    path("press-release/<slug:slug>/" , views.pressReleaseDetail , name ='pr-detail'),
 
     
     path("ads.txt", TemplateView.as_view(
