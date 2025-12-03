@@ -1,6 +1,6 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
-from blog.models import Article, Podcast
+from blog.models import Article, Podcast, PressRelease
 
 
 class HomeSitemap(Sitemap):
@@ -44,3 +44,14 @@ class PodcastSitemap(Sitemap):
 
     def lastmod(self, obj):
         return obj.updated_at if hasattr(obj, "updated_at") else obj.published_at
+
+
+class PressReleaseSitemap(Sitemap):
+    changefreq = "daily"
+    priority = 0.7
+
+    def items(self):
+        return PressRelease.objects.all()
+
+    def lastmod(self, obj):
+        return obj.updated_at if hasattr(obj, "updated_at") else obj.created_at
