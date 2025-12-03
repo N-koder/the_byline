@@ -552,7 +552,7 @@
     {% endfor %}
 
     <!-- Next 3 recent articles in grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  {% if opinion_articles %}md:w-[77rem] mx-auto mt-16{% endif %}">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 xl:w-[77rem] lg:w-[60rem] {% if opinion_articles %}md:w-[46rem] mx-auto mt-16{% endif %}">
       {% for article in recent_articles %}
       {% if not forloop.first %}
       <div class="bg-white shadow rounded-xs overflow-hidden hover:shadow-lg transition duration-300 relative">
@@ -665,7 +665,7 @@
 
     <!-- Other articles in grid -->
     {% if data.others %}
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 {% if opinion_articles %}md:w-[77rem] mx-auto{% endif %}">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 xl:w-[77rem] lg:w-[60rem]  mt-16 {% if opinion_articles %}md:w-[46rem] mx-auto{% endif %}">
       {% for article in data.others %}
       <div class="relative bg-white shadow rounded-xs overflow-hidden hover:shadow-lg transition duration-300">
         {% if article.image %}
