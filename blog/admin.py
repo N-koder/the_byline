@@ -189,9 +189,9 @@ class ExternalFeedAdmin(admin.ModelAdmin):
 
 @admin.register(PressRelease)
 class PressReleaseAdmin(admin.ModelAdmin):
-    list_display = ("title", "source", "category", "published_at")
+    list_display = ("title", "source", "category", "published_at" , "status")
     search_fields = ("title",)
-    list_filter = ("source", "category")
+    list_filter = ("status" , "source", "category")
 
     def formfield_for_dbfield(self, db_field, request, **kwargs):
         if db_field.name in ('summary' , 'content'):
