@@ -144,6 +144,7 @@ class PressRelease(models.Model):
     summary = models.TextField(null=True, blank=True)
     # content = models.TextField()
     image = models.URLField(null=True, blank=True)
+    image_credit = models.CharField(max_length=200, default='')
     link = models.URLField(unique=True)  # original NewsVoir URL
     published_at = models.DateTimeField()
     status = models.CharField(
