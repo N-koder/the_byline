@@ -290,9 +290,9 @@
                 <div class="card-content">
                     <h2 class="article-title">{{ release.title|safe }}</h2>
 
-                    <!-- {% if not release.image %}
-                         <p class="article-excerpt">{{ release.summary|safe|truncatechars:100 }}</p>
-                    {% endif %} -->
+                    {% if not release.image %}
+                         <div style="all:unset;">{{ release.summary|safe|truncatechars:500 }}...</div>
+                    {% endif %}
                    
 
                     <div class="card-footer">
