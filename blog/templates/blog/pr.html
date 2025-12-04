@@ -291,7 +291,7 @@
                     <h2 class="article-title">{{ release.title|safe }}</h2>
 
                     {% if not release.image %}
-                         <div style="all:unset;">{{ release.summary|safe|truncatechars:500 }}</div>
+                         <div style="all:unset; border-top: 1px solid #f0f0f0;">{{ release.summary|safe|truncatechars:500 }}</div>
                     {% endif %}
                    
 
