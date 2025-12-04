@@ -40,11 +40,25 @@
             class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
         </a>
 
+
          <div class="relative group">
           <button
-            class="{% if request.path == '/category/politics/' or request.path == '/category/national/' or request.path == '/category/state/' or request.path == '/category/elections/' or request.path == '/category/global/' %}text-red-600 font-semibold{% else %}text-black {% endif %} hover:text-red-600 font-medium transition-colors relative">
-            <a href="{% url 'category_articles' 'politics' %}"
-              class="hover:text-red-600 font-medium transition-colors relative">Politics
+            class="{% if request.path == '/category/world/' %}text-red-600 font-semibold{% else %}text-black{% endif %} hover:text-red-600 font-medium transition-colors relative">
+            <a href="{% url 'category_articles' 'world' %}"
+              class="hover:text-red-600 font-medium transition-colors relative"> World
+              <span
+                class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
+            </a>
+            <span
+              class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+          </button>
+        </div>
+
+         <div class="relative group">
+          <button
+            class="{% if request.path == '/category/india/' or request.path == '/category/national/' or request.path == '/category/state/' or request.path == '/category/elections/'  %}text-red-600 font-semibold{% else %}text-black {% endif %} hover:text-red-600 font-medium transition-colors relative">
+            <a href="{% url 'category_articles' 'india' %}"
+              class="hover:text-red-600 font-medium transition-colors relative">India
               <span
                 class="absolute left-4 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover/item:w-12"></span>
             </a>
