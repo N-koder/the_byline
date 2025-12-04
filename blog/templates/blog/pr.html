@@ -99,7 +99,7 @@
             display: flex;
             flex-direction: column;
             border: 1px solid #eee;
-            height: fit-content;
+            /* height: fit-content; */
         }
 
         .article-card:hover {
@@ -291,7 +291,7 @@
                     <h2 class="article-title">{{ release.title|safe }}</h2>
 
                     {% if not release.image %}
-                         <div style="all:unset;">{{ release.summary|safe|truncatechars:500 }}...</div>
+                         <div style="all:unset;">{{ release.summary|safe|truncatechars:500 }}</div>
                     {% endif %}
                    
 
