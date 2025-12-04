@@ -280,10 +280,12 @@
             <!-- Article 1 -->
             {% for release in press_releases %}
             <article class="article-card">
+                {% if release.image %}
                 <div class="card-image">
                     <span class="category-badge">{{release.category}}</span>
                     <img src="{{ release.image }}" alt="Technology News">
                 </div>
+                {% endif %}
                 <div class="card-content">
                     <h2 class="article-title">{{ release.title|safe }}</h2>
                     <!-- <p class="article-excerpt">{{ release.summary|truncatechars:100 }}
