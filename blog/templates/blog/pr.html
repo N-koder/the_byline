@@ -288,8 +288,11 @@
                 {% endif %}
                 <div class="card-content">
                     <h2 class="article-title">{{ release.title|safe }}</h2>
-                    <!-- <p class="article-excerpt">{{ release.summary|truncatechars:100 }}
-                        </p> -->
+
+                    {% if not release.image %}
+                         <p class="article-excerpt">{{ release.summary|safe|truncatechars:100 }}</p>
+                    {% endif %}
+                   
 
                     <div class="card-footer">
                         <div class="footer-left">
