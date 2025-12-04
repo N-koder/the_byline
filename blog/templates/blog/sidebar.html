@@ -50,17 +50,15 @@
             {% endif %}
             <a href="{% url 'category_articles' 'world' %}"
                 class="flex items-center space-x-4 px-6 py-3 transition-colors {% if request.resolver_match.kwargs.category_name == 'world' %}bg-red-50 text-red-600{% else %}text-gray-800 hover:bg-gray-50{% endif %}">
-                <svg class="w-5 h-5 {% if request.resolver_match.kwargs.category_name != 'world' %}text-gray-600{% endif %}"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z">
-                    </path>
-                </svg>
+                <svg class="{% if request.resolver_match.kwargs.category_name != 'world' %}text-gray-600{% endif %}" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M2 12h20" />
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                
                 <span class="font-medium text-base">World</span>
             </a>
         </div>
-
-        <div class="my-4 border-t border-gray-100"></div>
 
         <!-- Politics -->
         <details
