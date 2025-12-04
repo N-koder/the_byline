@@ -420,43 +420,43 @@
       </div>
 
          <!-- Mobile Menu Overlay -->
-      <div id="mobileMenuOverlay"
-        class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300"></div>
+      <!-- <div id="mobileMenuOverlay"
+        class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300"></div> -->
       <!-- Mobile Menu -->
-      <div id="mobileMenu" class="{% if request.resolver_match.url_name == 'home' %}xl:hidden{% endif %} fixed top-0 left-0 h-full w-64 bg-white z-50 transform -translate-x-full transition-transform duration-300 ease-in-out shadow-lg overflow-y-auto p-4" style ="max-height: none !Important;">
+      <!-- <div id="mobileMenu" class="{% if request.resolver_match.url_name == 'home' %}xl:hidden{% endif %} fixed top-0 left-0 h-full w-64 bg-white z-50 transform -translate-x-full transition-transform duration-300 ease-in-out shadow-lg overflow-y-auto p-4" style ="max-height: none !Important;">
         <div class="flex justify-between items-center">
           <div class="flex items-center space-x-2 mb-4">
-            <img src="{% static 'blog/images/Logo.png' %}" width="30" height="30" />
+            <img src="{% static 'blog/images/Logo.png' %}" width="30" height="30" /> -->
             <!-- <div class="flex-col"> -->
-            <h3 class="text-lg font-bold">The Byline</h3>
+            <!-- <h3 class="text-lg font-bold">The Byline</h3> -->
             <!-- <p class="text-gray-300 text-sm">The Byline, where every line has a name, and every story earns its
                 byline.
               </p> -->
             <!-- </div> -->
-          </div>
+          <!-- </div> -->
 
 
 
 
           <!-- Close Button -->
-          <div class="flex justify-end p-4 border-b border-gray-200">
+          <!-- <div class="flex justify-end p-4 border-b border-gray-200">
             <button id="mobileMenuClose" class="text-gray-700 hover:text-red-600 focus:outline-none">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
-        </div>
+        </div> -->
 
-        <div class="px-4 py-2">
+        <!-- <div class="px-4 py-2">
           
-        <a href="{% url 'home' %}" class="block py-2 border-b text-sm text-gray-700">Home</a>
+        <a href="{% url 'home' %}" class="block py-2 border-b text-sm text-gray-700">Home</a> -->
 
         <!-- <a href="{% url 'category_articles' 'business' %}"
           class="block py-2 border-b text-sm text-gray-700">Business</a>
         <a href="{% url 'category_articles' 'economy' %}" class="block py-2 border-b text-sm text-gray-700">Economy</a> -->
 
-         <details class="py-2 border-b group" id="politicsDetails">
+         <!-- <details class="py-2 border-b group" id="politicsDetails">
           <summary class="cursor-pointer font-medium text-gray-700 flex items-center select-none">
             <a href="{% url 'category_articles' 'politics' %}" class="flex-1 block py-1">Politics</a>
             <button type="button" aria-label="Toggle Politics submenu"
@@ -560,8 +560,9 @@
         <a href="/podcasts" class="block py-2 text-sm text-gray-700 border-b">Podcasts</a>
         <a href="/press-releases" class="block py-2 text-sm text-gray-700">PressReleases</a>
         
-        </div>
+        </div> -->
 
+        {% include 'blog/sidebar.html' %}
         
       </div>
     </div>
