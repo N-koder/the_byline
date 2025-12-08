@@ -271,7 +271,41 @@ TINYMCE_DEFAULT_CONFIG = {
     'valid_children': '+body[style]',
 }
 
+
+CRONTAB_COMMAND_PREFIX = (
+    'PATH=/usr/local/bin:/usr/bin:/bin; '
+    'VIRTUAL_ENV=/var/www/thebyline/venv; '
+    'export VIRTUAL_ENV; '
+    'PATH=$VIRTUAL_ENV/bin:$PATH; '
+)
+
+CRONTAB_COMMAND_SUFFIX = 'export DJANGO_SETTINGS_MODULE=thebyline.settings'
+
+
 CRONJOBS = [
-    # Fetch external RSS every 10 minutes
-    ('*/5 * * * *', 'django.core.management.call_command', ['fetch_pr_articles'])
+    # Fetch external RSS every 2 minutes
+    ('*/2 * * * *', 'django.core.management.call_command', ['fetch_pr_articles'])
 ]
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+
+    'handlers': {
+        'rss_file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': 'logs/rss_cron.log',
+        },
+    },
+
+    'loggers': {
+        'rss': {
+            'handlers': ['rss_file'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    },
+}
+
