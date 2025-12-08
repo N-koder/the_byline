@@ -13,6 +13,11 @@ def map_category_to_byline(target_category):
         "Finance": "Finance",
         "Entertainment" : "Entertainment",
         "Politics" : "Politics",
+        "Real Estate" : "Real Estate",
+        "Aviation" : "Aviation",
+        "Defense" : "Defense",
+        "Fintech" : "Fintech",
+        "Automobiles" : "Automobiles",
         # add more here
     }
 
