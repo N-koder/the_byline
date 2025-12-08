@@ -4,70 +4,84 @@ from django.utils import timezone
 from .models import ExternalFeed, PressRelease
 from .utils import map_category_to_byline
 from bs4 import BeautifulSoup
-import json
+import logging
+
+logger = logging.getLogger('rss')
+
 
 def extract_image(entry):
-    # if "media_content" in entry:
-    #     try:
-    #         return entry.media_content[0]["url"]
-    #     except:
-    #         pass
+    summary_html = getattr(entry, "summary", "")
 
-    # if "image" in entry.summary:
-    #     return entry.summary["image"]
+    if not summary_html:
+        return None
 
-    # return None
-
-    summary_html = entry.summary
-    
-    # Parse the HTML
     soup = BeautifulSoup(summary_html, "html.parser")
-
-    # Find all images
     images = soup.find_all("img")
 
-    # Extract the 'src' attribute
-    img_urls = [img['src'] for img in images]
+    if not images:
+        return None
 
-    # print(img_urls)
-    return img_urls[0]
+    try:
+        return images[0].get("src")
+    except:
+        return None
 
 
 def parse_date(entry):
     try:
-        return timezone.make_aware(
-            timezone.datetime(*entry.published_parsed[:6])
-        )
+        if hasattr(entry, "published_parsed") and entry.published_parsed:
+            return timezone.make_aware(
+                timezone.datetime(*entry.published_parsed[:6])
+            )
     except:
-        return timezone.now()
+        pass
+
+    return timezone.now()
 
 
 def fetch_press_releases():
     feeds = ExternalFeed.objects.filter(is_active=True)
 
+    if not feeds.exists():
+        logger.info("NO FEEDS FOUND — Cron cannot fetch anything.")
+        return
+
     for feed in feeds:
+        logger.info(f"Fetching RSS: {feed.url}")
+
         parsed = feedparser.parse(feed.url)
 
+        if not parsed.entries:
+            logger.info(f"No entries found in feed: {feed.url}")
+            continue
+
+        new_count = 0
+
         for entry in parsed.entries:
-            # print(json.dumps(entry, indent=4, default=str)) 
-            if PressRelease.objects.filter(link=entry.link).exists():
-                continue  # avoid duplicates
-            
-            guid = entry.get("guid", entry.get("link"))
-            title = entry.title
+            link = getattr(entry, "link", None)
+            if not link:
+                continue
+
+            if PressRelease.objects.filter(link=link).exists():
+                continue
+
+            title = getattr(entry, "title", "Untitled")
             slug = slugify(title)[:60]
 
             PressRelease.objects.create(
-                guid=guid,
+                guid=getattr(entry, "guid", link),
                 title=title,
                 slug=slug,
                 summary=getattr(entry, "summary", ""),
-                # content=getattr(entry, "content", [{"value": ""}])[0]["value"],
                 image=extract_image(entry),
-                link=entry.link,
+                link=link,
                 published_at=parse_date(entry),
                 category=map_category_to_byline(feed.target_category),
             )
 
+            new_count += 1
+
         feed.last_fetched = timezone.now()
         feed.save(update_fields=["last_fetched"])
+
+        logger.info(f"Saved {new_count} new articles from: {feed.url}")
