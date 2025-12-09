@@ -18,6 +18,11 @@ def map_category_to_byline(target_category):
         "Defense" : "Defense",
         "Fintech" : "Fintech",
         "Automobiles" : "Automobiles",
+        "Stock Market" : "Stock Market",
+        "Space" : "Space",
+        "Startups" : "Startups",
+        "AI" : "AI",
+        
         # add more here
     }
 
