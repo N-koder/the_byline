@@ -23,7 +23,7 @@ def map_category_to_byline(target_category):
         "Startups" : "Startups",
         "AI" : "AI",
         "Policy" : "Policy",
-        "Corporate" : "Corporate",
+        "Corporates" : "Corporates",
         "Cyber Security" : "Cyber Security",
         "Social Media" : "Social Media",
         
